@@ -1,0 +1,2060 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{cleveref}
+%\usepackage{hyperref}
+\usepackage[titletoc]{appendix}
+
+\usepackage{amssymb}
+%\usepackage{xcolor}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc} 
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}  
+\usepackage{amsfonts} 
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{empheq}
+\usepackage{amsthm}
+ \usepackage{braket}
+ \usepackage{amsmath}
+\DeclareMathOperator\arctanh{arctanh}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{subcaption}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage{enumerate}
+\usepackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{lineno}
+\usepackage{cite}
+\usepackage{acronym}
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\pd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Ss}{\mathbb{S}}
+% \newcommand{\Qq}{\mathrm{q}}
+\newcommand{\pT}{\hat{+}}
+\newcommand{\mT}{\hat{-}}
+\newcommand{\muT}{\hat{\mu}}
+\newcommand{\nuT}{\hat{\nu}}
+\newcommand{\muL}{\tilde{\mu}}
+\newcommand{\nuL}{\tilde{\nu}}
+\newcommand{\uniT}[1]{\mathring{#1}}
+\newcommand{\itP}[1]{\hat{#1}}
+\newcommand{\lF}[1]{\tilde{#1}}
+\newcommand{\Pp}{\mathbb{P}}
+\newcommand{\Qq}{\mathbb{Q}}
+
+
+\begin{document}
+
+	\begin{center}
+		\begin{large}
+			\textbf{The Poincaré Algebra Interpolation between Instant Form Dynamics (IFD) and Light Front Dynamics (LFD)}\\
+		\end{large}
+		\vspace*{35pt}
+		
+		\textbf{A DISSERTATION\\
+			\it{submitted in partial fulfillment of the requirements \\for the award of the degree of}\\}
+		\vspace{40pt}
+		\textbf{Master of Science\\}
+		in\\
+		\vspace{10pt}
+		{PHYSICS}\\
+		\vspace{10pt}
+		\textbf{by\\
+			\vspace{20pt}
+			Hariprashad Ravikumar\\19313114}\\
+		\vspace{10pt}
+		Under the supervision of\\
+		\textbf{Dr Harleen Dahiya}\\
+		Associate Professor
+		
+		
+	   \vspace{20pt}
+		\includegraphics[width=0.3\textwidth]{./logoo.png} \\
+		\vspace{30pt}
+		\textbf{DEPARTMENT OF PHYSICS\\
+			NATIONAL INSTITUTE OF TECHNOLOGY\\
+			JALANDHAR – PUNJAB 144011 (INDIA)\\
+			%June, 2021
+		}
+	\end{center}
+\pagenumbering{gobble}
+\clearpage
+\newcommand{\RN}[1]{%
+	\textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+\pagenumbering{roman}
+
+\begin{center}
+	\section*{CERTIFICATE}
+	\noindent{\rule{\textwidth}{1.5pt}}
+\end{center}
+\addcontentsline{toc}{section}{CERTIFICATE}
+I hereby certify that the work which is being presented in the M.Sc. Dissertation entitled  \textbf{``The Poincaré Algebra Interpolation between Instant Form Dynamics (IFD) and Light Front Dynamics (LFD)",} in partial fulfillment of the requirements for the award of the \textbf{Master of Sciences in Physics} is an authentic record of my own work carried out during a period from November, 2020 to  May, 2021 under the supervision of \textbf{Dr Harleen Dahiya, Associate Professor}, Physics Department.
+\vspace{30pt}
+\par
+The matter presented in this thesis has not been submitted for the award of any other degree elsewhere.
+\vspace{20pt}
+
+\begin{flushright}
+	\textit{Signature of Candidate \\}
+	\textbf{Date: July 16, 2021 \hfill Hariprashad Ravikumar \\ 19313114\\}
+\end{flushright}
+\vspace{30pt}
+
+\par
+This is to certify that the above statement made by the candidate is correct to the best of my knowledge.
+\vspace{20pt}
+
+\begin{flushright}
+	\textit{Signature of Supervisor\\}
+	\textbf{Date: \hfill Dr Harleen Dahiya,\\ Associate Professor}
+\end{flushright}
+
+\clearpage
+
+\begin{center}
+	\section*{ACKNOWLEDGEMENT}
+	\noindent{\rule{\textwidth}{1.5pt}}
+\end{center}\addcontentsline{toc}{section}{ACKNOWLEDGEMENT}
+I want to express my exceptional thanks of gratitude to my supervisor \textbf{Dr.\@ Harleen Dahiya} and \textbf{Prof.\@ Chueng-Ryong Ji} (North Carolina State University, USA) for prompting the interest that made this progress possible, for providing me their precious time every week for discussions, for their perpetual guidance and for giving me the golden opportunity to do this wonderful collaborative project. 
+
+I want to convey my special thanks to Ms.\@ Bailing Ma (NC State University) for clarifying numerous points and helping me to understand advanced concepts in this work. I would also like to thank Prof.\@ Chueng-Ryong Ji's other students at NC State University,  Dr.\@ Patrick Barry (Jefferson Lab), Mr.\@ Andy Lundeen, Ms.\@ Deepasika, and Mr.\@ Shaswat Tiwari, for their support and discussions during my presentations and weekly group meetings. Many thanks to my friend Mr.\@ Praveen Krishnamoorthy (Leipzig University) for several discussions on this work.
+
+I also thank my friends, research scholars, my professors, and my parents, who greatly appreciated and supported me along the way.
+\begin{flushright}
+	Hariprashad Ravikumar
+\end{flushright}
+\clearpage
+\section*{ABSTRACT}
+\noindent{\rule{\textwidth}{1.5pt}}
+The instant form and the front form of relativistic dynamics introduced by Dirac in 1949 can be interpolated by introducing an interpolation angle parameter $\delta$ spanning between the instant form dynamics (IFD) at $\delta=0$ and the front form dynamics, which is now known as the light-front dynamics (LFD) at $\delta=\frac{\pi}{4}$. We present the Poincaré algebra interpolating between instant and light-front time quantizations. We show the Boost $K^{3}$ is dynamical in the region where $0\leq\delta<\frac{\pi}{4}$ but becomes kinematic in the light-front limit ($\delta=\frac{\pi}{4}$). We show this will then be extended to Conformal algebra.
+\addcontentsline{toc}{section}{ABSTRACT}
+\clearpage
+
+\tableofcontents
+%\listoffigures
+%\addcontentsline{toc}{section}{List of Figures}
+
+%\listoftables
+%\addcontentsline{toc}{section}{List of Tables}
+
+%\listofalgorithms
+%\addcontentsline{toc}{section}{List of %Algorithms}
+
+%\chapter*{List of Abbreviations}
+%\addcontentsline{toc}{chapter}{List of %Abbreviations}
+%\begin{acronym}[TDMA]
+%	\setlength{\itemsep}{-\parsep}
+%	\acro{VC}{Visual Cryptography}
+%\end{acronym}
+\chapter{INTRODUCTION}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\noindent{\rule{\textwidth}{1.5pt}}
+$``$ Working with a front is a process that is unfamiliar to physicists. But still, I feel that the mathematical simplification that it introduces is all-important. I consider the method to be promising and have recently been making an extensive study of it. It offers new opportunities, while the familiar instant form seems to be played out '' - P.A.M. Dirac (1977)\\
+
+For the study of relativistic particle systems,
+	Dirac~\cite{Dirac} proposed three different forms of the relativistic
+	Hamiltonian dynamics in 1949: i.e. the instant ($x^0 =0$), front
+	($x^+ = (x^0 + x^3)/\sqrt{2} = 0$), and point ($x_\mu x^\mu = a^2 >
+	0, x^0 > 0$) forms.  The instant form dynamics (IFD) of quantum
+	field theories is based on the usual equal time $t=x^0$ quantization
+	(units such that $c=1$ are taken here), which provides 
+	a traditional approach evolved from the non-relativistic dynamics. 
+	The IFD makes a close contact with the Euclidean space, developing 
+	temperature-dependent quantum field theory, lattice QCD, etc. 
+	The equal light-front time $\tau \equiv (t +z/c)/\sqrt{2}=x^+$ quantization yields the front form dynamics, nowadays
+	more commonly called light-front dynamics (LFD), which provides an innovative approach to the study of
+	relativistic dynamics. 
+	The quantization in the point form ($x^{\mu}x_{\mu}=a^{2}>0, x^{0}>0$) is called radial quantization. Among these three forms of relativistic dynamics proposed by Dirac, however, 
+	the LFD carries the largest number (seven) of the kinematic (or interaction
+	independent) generators leaving the least number (three) of the dynamics generators
+	while both the IFD and the point form dynamics carry six kinematic and four dynamic generators 
+	within the total ten Poincar\'e generators.\cite{poin, gauge, crji4} 
+	
+	
+	The instant form and the front form of relativistic dynamics introduced by Dirac \cite{Dirac} in 1949 can be interpolated by introducing an interpolation angle parameter $\delta$ spanning between the instant form dynamics (IFD) at $\delta=0$ and the front form dynamics, which is now known as the light-front dynamics (LFD) at $\delta=\frac{\pi}{4}$. This Interpolation method was first introduced by Kent Hornbostel in 1992 \cite{Hornbostel}. Then Chueng-Ryong Ji \cite{poin, gauge, crji1, crji2, crji3, crji4} pioneered the idea of connecting the instant form dynamics and the light-front dynamics and contributed to utilizing the light cone in solving relativistic bound state and scattering problems.
+	
+	In Chapter 4, we will present the Poincaré algebra in Interpolation form. We will show the Boost $K^{3}$ is dynamical in the region where $0\leq\delta<\frac{\pi}{4}$ but becomes kinematic in the light-front limit ($\delta=\frac{\pi}{4}$).
+	
+	In Chapter 2, we will go through the formal development of Poincaré algebra. In Chapter 3, we will look at the formulation of light-front dynamics essential for our work. Chapter 4 will develop the interpolation method between Instant Form Dynamics (IFD) and Light Front Dynamics (LFD). Finally, in Chapter 5, we will formally develop the Conformal algebra and show how this Interpolation method can be extended to Conformal algebra.
+
+%Introduction Here!
+%\par
+%Some more text here!
+%\par
+%Some more text here! 
+\chapter{Poincaré Algebra}
+The Poincaré algebra is the Lie algebra of the Poincaré group. In this chapter, we will introduce the basic notions of Poincaré algebra.
+\section{Continuous Group}
+
+\textbf{Continuous group}: group parameters take continuous value.
+\subsection{The Rotation}
+We shall first briefly review the Continuous Rotation Group. This will then be extended to the Lorentz group.\cite{Hitoshi, Ryder, balki}\\
+A general spatial rotation is of the form
+\begin{align}
+    r'=Rr;
+\end{align}
+$R$ is the rotation matrix. Since rotations perserve distance from the origin, $x'^2 + y'^2 + z'^2 = x^2 + y^2 + z^2$, or $r'^Tr' = r^Tr$ ($T$ = transpose), so 
+\begin{align}
+    &r^TR^TRr=r^Tr,\\
+    &R^TR=1,\label{RR}
+\end{align}
+and $R$ is an orthogonal $3\times3$ matrix. These matrices form a group: if $R_1$ and $R_2$ are orthogonal, so is $R_1R_2$:
+\begin{align}
+    (R_1R_2)^TR_1R_2=R_2^TR_1^TR_1R_2=1~,
+\end{align}
+This group is denoted $O(3)$; for matrices in $n$ dimensions it is $O(n)$. Unitary matrices also form a group, denoted U(n), but Hermitian matrices do not, unless they commute.
+
+
+As an example of a rotation, consider a rotation of a vector $V$ about the $z$ axis. This rotation, considered as an active rotation (i.e. a rotation of the vector, leaving the co-ordinate axes fixed), is left-handed; considered as a passive rotation (i.e. rotating the axes, leaving the vector fixed) it is right-handed. We have 
+\begin{align}
+    \begin{pmatrix}
+  V'_x\\ 
+  V'_y\\
+  V'_z
+\end{pmatrix}=\begin{pmatrix}
+  \cos{\theta} & \sin{\theta} & 0\\ 
+  -\sin{\theta} & \cos{\theta} & 0\\
+  0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+  V_x\\ 
+  V_y\\
+  V_z
+\end{pmatrix},
+\end{align}
+so may denote the rotation matrix by
+\begin{align}
+    R_z(\theta)=\begin{pmatrix}
+  \cos{\theta} & \sin{\theta} & 0\\ 
+  -\sin{\theta} & \cos{\theta} & 0\\
+  0 & 0 & 1
+\end{pmatrix}.\label{2.28}
+\end{align}
+Similar matrices for rotations about the $x$ and $y$ axes are
+\begin{align}
+    R_x(\phi)&=\begin{pmatrix}
+    1 & 0 & 0 \\
+  0 & \cos{\phi} & \sin{\phi} \\ 
+  0 & -\sin{\phi} & \cos{\phi}
+\end{pmatrix},\\
+R_x(\psi)&=\begin{pmatrix}
+    \cos{\psi} & 0 & -\sin{\psi}\\
+    0 & 1 & 0\\
+    \sin{\psi}&0&\cos{\psi}
+\end{pmatrix}.
+\end{align}
+Note that these matrices do not commute 
+\begin{align}
+    R_x(\phi)R_z(\theta)\neq R_z(\theta)R_x(\phi)\label{comm}~,
+\end{align}
+the rotation group, $O(3)$, is non-Abelian. It is a Lie group; that is, a continuous group, with an infinite number of elements, since the parameters of rotation, which are angles, take on a continuum of values. It is easy to see that a general rotation has three parameters; R has nine elements, and equation \eqref{RR}  gives six conditions on them. These parameters may, for example, be chosen to be the three Euler angles. Corresponding to three parameters are three generators defined by
+\begin{align}
+    J_z&=\frac{1}{i}\frac{dR_z(\theta)}{d\theta}\Bigr|_{\theta=0}=\begin{pmatrix}
+    0&-i&0\\
+    i&0&0\\
+    0&0&0
+\end{pmatrix},\\
+   J_x&=\frac{1}{i}\frac{dR_x(\phi)}{d\phi}\Bigr|_{\phi=0}=\begin{pmatrix}
+    0&0&0\\
+    0&0&-i\\
+    0&i&0
+\end{pmatrix},\\
+J_y&=\frac{1}{i}\frac{dR_y(\psi)}{d\psi}\Bigr|_{\psi=0}=\begin{pmatrix}
+    0&0&i\\
+    0&0&0\\
+    -i&0&0
+\end{pmatrix}.\label{2.31}
+\end{align}
+These generators are Hermitian, and infinitesimal rotations are given by, for example, 
+\begin{align}
+    R_z(\delta\theta)=1+iJ_z\delta\theta,~~R_x(\delta\psi)=1+iJ_x\delta\psi.
+\end{align}
+The commutator $R_z(\delta\theta)R_x(\delta\theta)R_z^{-1}(\delta\theta)R_x^{-1}(\delta\theta)$ of these two rotations (compare (\eqref{comm})) may now be calculated using the easily verified commutation relations
+\begin{align}
+    J_xJ_y-J_yJ_x\equiv[J_x,J_y]=iJ_z~~\text{and cyclic permutations}\label{permutation}~.
+\end{align}
+To first order, it is found to be a rotation about the y axis. The relations (\eqref{permutation}), having a factor h, will be recognised as the commutation relations for the components of angular momentum. So angular momentum operators are the generators of rotations. 
+
+
+It is now straightforward to write down the rotation matrix for finite rotations. The matrix corresponding to a rotation about the z axis through an angle $\theta=N~\delta\theta~(N\longrightarrow\infty)$ is clearly \cite{balki}
+\begin{align}
+     R_z(\theta)&=[R_z(\delta\theta)]^N~,\nonumber\\
+     &=(1+iJ_z\delta\theta)^N~,\nonumber\\
+     &=\left(1+iJ_z\frac{\theta}{N}\right)^N~,\nonumber\\
+     &=e^{iJ_z\theta}~.
+\end{align}
+We may check that this yields the required matrix (\eqref{2.28}). Defining the exponential by its power series expansion, we have 
+\begin{align}
+    e^{iJ_z\theta}&=1+iJ_z\theta-iJ_z^2\frac{\theta^2}{2!}-iJ_z^3\frac{\theta^3}{3!}+\dots\\
+    &=\begin{pmatrix}
+    1&0&0\\
+    0&1&0\\
+    0&0&1
+\end{pmatrix}+\theta\begin{pmatrix}
+    0&1&0\\
+    -1&0&0\\
+    0&0&0
+\end{pmatrix}+\frac{\theta^2}{2!}\begin{pmatrix}
+    -1&0&0\\
+    0&-1&0\\
+    0&0&0
+\end{pmatrix}+\dots\\
+&=\begin{pmatrix}
+  \cos{\theta} & \sin{\theta} & 0\\ 
+  -\sin{\theta} & \cos{\theta} & 0\\
+  0 & 0 & 1
+\end{pmatrix}~,
+\end{align}
+which is (\eqref{2.28}).
+\subsection{The Boost}
+Pure `boost' Lorentz transformations are those connecting two inertial frames, moving with relative speed $v$. If the relative motion is along the common $x$ axis, the equations are
+\begin{align}
+    x^1'=\frac{x^1+vt}{\sqrt{1-\frac{v^2}{c^2}}};~~x^2'=x^2;~~x^3'=x^3;~~x^0'=\frac{x^0+\frac{vx^1}{c^2}}{\sqrt{1-\frac{v^2}{c^2}}}.
+\end{align}
+Putting $\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}$ and $\beta=\frac{v}{c}$. Observing that $\gamma^2-\beta^2\gamma^2=1$, we may put
+\begin{align}
+    \gamma=\cosh{\phi}, ~~\gamma\beta=\sinh{\phi},
+\end{align}
+thus parameterising the transformation in terms of the variable $\phi$, with $\tanh{\phi}=\frac{v}{c}$, and we have \cite{Hitoshi, Ryder, balkicm}
+\begin{align}
+    \begin{pmatrix}
+  x^0'\\ 
+  x^1'\\
+  x^2'\\
+  x^3'
+\end{pmatrix}=\begin{pmatrix}
+  \cosh{\phi} & \sinh{\phi} & 0&0\\ 
+  \sinh{\phi} & \cosh{\phi} & 0&0\\
+  0 & 0 & 1&0\\
+  0&0&0&1
+\end{pmatrix}\begin{pmatrix}
+  x^0\\ 
+  x^1\\
+  x^2\\
+  x^3
+\end{pmatrix}.
+\end{align}
+Let us call the above matrix the boost matrix $B$. The generator $K_z$ of this boost transformation along the $x$ axis is defined by analogy with (\eqref{2.31}):
+\begin{align}
+    K_x&=\frac{1}{i}\frac{dB(\phi)}{d\phi}\Bigr|_{\phi=0}=-i\begin{pmatrix}
+    0&1&0&0\\
+    1&0&0&0\\
+    0&0&0&0\\
+    0&0&0&0
+\end{pmatrix}.
+\end{align}
+Similarly, the other boost generators are
+\begin{align}
+    K_y&=-i\begin{pmatrix}
+    0&0&1&0\\
+    0&0&0&0\\
+    1&0&0&0\\
+    0&0&0&0
+\end{pmatrix},\\
+K_z&=-i\begin{pmatrix}
+    0&0&0&1\\
+    0&0&0&0\\
+    0&0&0&0\\
+    1&0&0&0
+\end{pmatrix},\\
+\end{align}
+In this 4 x 4 matrix notation, the rotation generators (\eqref{2.31}) may be written
+\begin{align}
+    J_x&=-i\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&0\\
+    0&0&0&1\\
+    0&0&-1&0
+\end{pmatrix},\\
+J_y&=-i\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&-1\\
+    0&0&0&0\\
+    0&1&0&0
+\end{pmatrix},\\
+J_z&=-i\begin{pmatrix}
+    0&0&0&0\\
+    0&0&1&0\\
+    0&-1&0&0\\
+    0&0&0&0
+\end{pmatrix}.
+\end{align}
+The most general Lorentz transformation is composed of boosts in three directions, and rotations about three axes, and the six generators are those above. Their commutation relations may be calculated explicitly, and we 
+find \cite{Ryder}
+\begin{align}
+    [K_x,K_y]&=-iJ_z~~\text{and cyclic perms,}\\
+    [J_x,K_x]&=0~~\text{etc.,}\\
+    [J_x,K_y]&=iK_z~~\text{and cyclic perms,}
+\end{align}
+together with (\eqref{permutation}), involving $J$s only. An interesting consequence of these relations is that pure Lorentz transformations do not form a group, since the generators $K$ do not form a closed algebra under commutation. 
+\section{Lorentz Group}
+The Lorentz boost can be written in matrix form as \cite{Hitoshi, Ryder}
+\begin{align}
+    x'=\Lambda x.
+\end{align}
+In terms of components, this can be written as
+\begin{align}
+    x^\mu'=\Lambda^\mu_\nu x^\nu,
+\end{align}
+where we have defined the components of the matrix $\Lambda$ by
+\begin{align}
+    \Lambda^\mu_\nu=\begin{pmatrix}
+    \gamma&\gamma\beta&0&0\\
+    \gamma\beta&\gamma&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix}~.
+\end{align}
+We will now find the necessary and sufficient condition for a $4 \times 4$ matrix $\Lambda$ to leave the inner product of any two 4-vectors invariant. Suppose $A^\mu$ and $B^\mu$ transform by the same matrix $\Lambda$:
+\begin{align}
+    A^\mu'=\Lambda^\mu_\alpha A^\alpha,~~~~B^\mu'=\Lambda^\mu_\beta B^\beta.
+\end{align}
+Then the inner products $A'.B'$ and $A.B$ can be written as
+\begin{align}
+    A'_\nu B'^\nu&=(g_{\mu\nu}\Lambda^\mu_\alpha\Lambda^\nu_\beta)A^\alpha B^\beta,\\
+    A_\beta B^\beta&=g_{\alpha\beta}A^\alpha B^\beta.
+\end{align}
+In order for $A'.B'=A.B$ to hold for any $A$ and $B$, the coefficients of $A^\alpha B^\beta$ should be the same term by term:
+\begin{align}
+    \Aboxed{g_{\mu\nu}\Lambda^\mu_\alpha\Lambda^\nu_\beta=g_{\alpha\beta}}\label{1.31}.
+\end{align}
+\subsection{Generators of the Lorentz Group}
+The goal is to show that any element $\Lambda$ that is continuously connected to the identity can be written as \cite{Hitoshi, Ryder}
+\begin{align}
+    \Lambda=e^{\mathcal{E}_iK_i+\theta_iJ_i}, \text{(i=1,2,3)}~,
+\end{align}
+where $\mathcal{E}_i$ and $\theta_i$ are real numbers and $K_i$ and $L_i$ are $4\times4$ matrices. Such group whose elements can be parametrized by a set of continuous real numbers (in our case they are $\mathcal{E}_i$ and $\theta_i$) is called a Lie group. The operators $K_i$ and $L_i$ are called the generators of the Lie group.
+\subsection{ Infinitesimal Transformations}
+Let’s start by looking at a Lorentz transformation \cite{Hitoshi, Ryder} which is infinitesimally close to the
+identity:
+\begin{align}
+    \Lambda^\mu_\nu=g^\mu_\nu+\omega^\mu_\nu\label{1.80}~,
+\end{align}
+where $\omega^\mu_\nu$ is a set of small (real) numbers. Inserting this to the defining condition (\eqref{1.31}), we get
+\begin{align}
+    g_{\alpha\beta}&=\Lambda_{\nu\alpha}\Lambda^\nu_\beta~,\\
+    &=(g_{\nu\alpha}+\omega_{\nu\alpha})(g^\nu_\beta+\omega^\nu_\beta)~,\nonumber\\
+    &=g_{\alpha\beta}+\omega_{\beta\alpha}+\omega_{\alpha\beta}+\omega_{\nu\alpha}\omega^\nu_\beta.
+\end{align}
+Keeping terms to the first order in $\omega$, we then obtain
+\begin{align}
+    \omega_{\beta\alpha}=-\omega_{\alpha\beta}~.
+\end{align}
+Namely, ωαβ is anti-symmetric (which is true when the indices are both subscript or both superscript; in fact, $\omega^\alpha_\beta$ is not anti-symmetric under $\alpha\longleftrightarrow\beta$), and thus it has 6
+independent parameters:
+\begin{align}
+    \omega_{\alpha\beta}=\begin{pmatrix}
+    0&\omega_{01}&\omega_{02}&\omega_{03}\\
+    -\omega_{01}&0&\omega_{12}&\omega_{13}\\
+    -\omega_{02}&-\omega_{12}&0&\omega_{23}\\
+    -\omega_{03}&-\omega_{13}&-\omega_{23}&0
+\end{pmatrix}~.
+\end{align}
+This can be conveniently parametrized using 6 anti-symmetric matrices as
+\begin{align}
+    \omega_{\alpha\beta}&=\omega_{01}(L^{01})_{\alpha\beta}+\omega_{02}(L^{02})_{\alpha\beta}+\omega_{03}(L^{03})_{\alpha\beta}\nonumber\\
+    &~~+\omega_{23}(L^{23})_{\alpha\beta}+\omega_{13}(L^{13})_{\alpha\beta}+\omega_{12}(L^{12})_{\alpha\beta}~,\\
+    &=\sum_{\mu<\nu}\omega_{\mu\nu}(L^{\mu\nu})_{\alpha\beta}\label{1.84}~,
+\end{align}
+with
+\begin{align*}
+   (L^{01})_{\alpha\beta}&=\begin{pmatrix}
+    0&1&0&0\\
+    -1&0&0&0\\
+    0&0&0&0\\
+    0&0&0&0
+\end{pmatrix}~,\\
+(L^{02})_{\alpha\beta}&=\begin{pmatrix}
+    0&0&1&0\\
+    0&0&0&0\\
+    -1&0&0&0\\
+    0&0&0&0
+\end{pmatrix}~,\\
+(L^{03})_{\alpha\beta}&=\begin{pmatrix}
+    0&0&0&1\\
+    0&0&0&0\\
+    0&0&0&0\\
+    -1&0&0&0
+\end{pmatrix}~,\\
+(L^{23})_{\alpha\beta}&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&0\\
+    0&0&0&1\\
+    0&0&-1&0
+\end{pmatrix}~,
+\end{align*}
+\begin{align}
+(L^{13})_{\alpha\beta}&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&1\\
+    0&0&0&0\\
+    0&-1&0&0
+\end{pmatrix}~,\nonumber\\
+(L^{12})_{\alpha\beta}&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&1&0\\
+    0&-1&0&0\\
+    0&0&0&0
+\end{pmatrix}~.\label{1.85}
+\end{align}
+Note that for a given pair of $\mu$ and $\nu$, $(L^{\mu\nu})_{\alpha\beta}$ is a $4\times4$ matrix, while $\omega^{\mu\nu}$ is a real number. The elements $(L^{\mu\nu})_{\alpha\beta}$ can be written in a concise form as follows: first, we note that in the upper right half of each matrix (i.e. for $\alpha < \beta$), the element with $(\alpha, \beta) = (\mu, mu)$ is 1 and all else are zero, which can be written as $g^\mu_\alpha g^\nu_\beta$. For the lower half, all we have to do is to flip $\alpha$ and $\beta$ and add a minus sign. Combining the two halves, we get
+\begin{align}
+   (L^{\mu\nu})_{\alpha\beta}=g^\mu_\alpha g^\nu_\beta-g^\mu_\beta g^\nu_\alpha .\label{1.86}
+\end{align}
+This is defined only for $\mu < \nu$ so far. For $\mu > \nu$, we will use this same expression (\eqref{1.86}) as the definition; then, $(L^{\mu\nu})_{\alpha\beta}$ is anti-symmetric with respect to ($\mu\longleftrightarrow\nu$):
+\begin{align}
+    (L^{\mu\nu})_{\alpha\beta}=-(L^{\nu\mu})_{\alpha\beta},
+\end{align}
+which also means $(L^{\mu\nu})_{\alpha\beta} = 0$ if $\mu=\nu$. Together with $\omega_{\mu\nu}=-\omega_{\nu\mu}$, (\eqref{1.84}) becomes
+\begin{align}
+    \omega_{\alpha\beta}=\sum_{\mu<\nu}\omega_{\mu\nu}(L^{\mu\nu})_{\alpha\beta}=\sum_{\mu>\nu}\omega_{\mu\nu}(L^{\mu\nu})_{\alpha\beta}=\frac{1}{2}\omega_{\mu\nu}(L^{\mu\nu})_{\alpha\beta}~,
+\end{align}
+where in the last expression, sum over all values of $\mu$ and $\nu$ is implied. The infinitesimal transformation (\eqref{1.80}) can then be written a
+\begin{align}
+    \Lambda^\alpha_\beta=g^\alpha_\beta+\frac{1}{2}\omega_{\mu\nu}(L^{\mu\nu})^\alpha_\beta~,
+\end{align}
+or in matrix form,
+\begin{align}
+    \Lambda=I+\frac{1}{2}\omega_{\mu\nu}L^{\mu\nu}~,
+\end{align}
+where the first indices of $L^{\mu\nu}$, which is a $4 \times4$ matrix for given $\mu$ and $\nu$, is taken to be superscript and the second subscript; namely, in the same way as Lorentz transformation. Namely, when no explicit indexes for elements are given, the $4 \times 4$ matrix Mµν is defined as
+\begin{align}
+    L^{\mu\nu}\equiv(L^{\mu\nu})^\alpha_\beta~,
+\end{align}
+It is convenient to divide the six matrices to two groups as
+\begin{align}
+    K_i\equiv L^{0i},~~~~~J_i\equiv L^{jk}~~\text{(i,j,k: cyclic)}.
+\end{align}
+We always use subscripts for $K_i$ and $J_i$ since only possible values are i = 1, 2, 3. The elements of the matrices $K_i$’s and $J_i$’s are defined by taking the first Lorentz index to be superscript and the second subscript as is the case for $L^{\mu\nu}$:
+\begin{align}
+    K_i\equiv (K_i)^\alpha_\beta,~~~~~J_i\equiv(J_i)^\alpha_\beta.
+\end{align}
+Later, we will see that $K$’s generate boosts and $J$’s generate rotations. Explicitly, they can be obtained by raising the index $\alpha$ in (\eqref{1.85}) (note also the the minus sign in $J_2 = −M^{13}$):
+\begin{align*}
+   K_1&=\begin{pmatrix}
+    0&1&0&0\\
+    1&0&0&0\\
+    0&0&0&0\\
+    0&0&0&0
+\end{pmatrix}~,\\
+K_2&=\begin{pmatrix}
+    0&0&1&0\\
+    0&0&0&0\\
+    1&0&0&0\\
+    0&0&0&0
+\end{pmatrix}~,\\
+K_3&=\begin{pmatrix}
+    0&0&0&1\\
+    0&0&0&0\\
+    0&0&0&0\\
+    -1&0&0&0
+\end{pmatrix}~,\\
+J_1&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&0\\
+    0&0&0&1\\
+    0&0&-1&0
+\end{pmatrix}~,
+\end{align*}
+\begin{align}
+J_2&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&1\\
+    0&0&0&0\\
+    0&-1&0&0
+\end{pmatrix}~,\nonumber\\
+J_3&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&1&0\\
+    0&-1&0&0\\
+    0&0&0&0
+\end{pmatrix}~.
+\end{align}
+An explicit calculation shows that $K$’s and $J$’s satisfy the following commutation
+relations: \cite{Hitoshi, Ryder}
+\begin{align}
+    [K_x,K_y]&=-iJ_z~~\text{and cyclic perms,}\\
+    [J_x,K_x]&=0~~\text{etc.,}\\
+    [J_x,K_y]&=iK_z~~\text{and cyclic perms}.
+\end{align}
+
+
+
+
+\section{Fields: Symmetries and Conservation laws}
+Symmetries lie at the heart of our modern conception of physics. It is therefore very important to understand how we formulate the symmetry properties of a given theory and their consequences on observables. \cite{Antonin}
+\subsection{The Dynamics of Fields}
+A field is a quantity defined at every point of space and time $(\vec{x}, t)$. While classical particle mechanics deals with a finite number of generalized coordinates $q_a(t)$, indexed by a label a, in field theory we are interested in the dynamics of fields \cite{david}
+\begin{align}
+    \Phi_a(\vec{x},t)~,
+\end{align}
+where both $a$ and $\vec{x}$ are considered as labels. Thus we are dealing with a system with an infinite number of degrees of freedom — at least one for each point $\vec{x}$ in space. Notice that the concept of position has been relegated from a dynamical variable in particle mechanics to a mere label in field theory.
+
+\subsection{Definitions}
+We consider a classical theory for some fields, collectively denoted as $\Phi$, which are functions on a space-time manifold that we shall take to be flat $\mathbb{R}^d$. The dynamics of the fields $\Phi$ is fixed by a Lagrangian density $\mathcal{L}(\Phi,\partial_\mu \Phi)$ or by the action $S[\Phi]$ defined by \cite{Antonin}
+\begin{align}
+    S[\Phi]=\int d^d x \mathcal{L}(\Phi,\partial_\mu \Phi).
+\end{align}
+Consider a map $x\longmapsto x'$, where $x'\in\mathbb{R}^d$ is some invertible function of $x\in\mathbb{R}^d$, together with some
+transformation of the fields $\Phi\longmapsto \Phi'$ defined by
+\begin{align}
+    \Phi'(x')=F(\Phi(x)),
+\end{align}
+for some function $S$. Under such a transformation, the action will generally be modified: $S\longmapsto S'$,with $S'$ defined by the equation $S'[\Phi']=S[\Phi]$, and the transformation is a symmetry if $S=S'$.\\
+Let us consider some examples.
+\subsubsection{Translations}
+Translations are simply defined by
+\begin{align}
+    x'=x+a,
+\end{align}
+where $a\in\mathbb{R}^d$. Most of the fields $\Phi$ that we consider are scalars under translation, that is, $F$ reduces to the identity:
+\begin{align}
+    F(\Phi(x))=\Phi(x)=\Phi'(x')=\Phi'(x+a).\label{1.4}
+\end{align}
+\subsubsection{Rotations}
+Rotations are given by
+\begin{align}
+    x'^\mu=R^\mu_\nu x'^\nu,
+\end{align}
+where the matrix $R$ is such that
+\begin{align}
+    \delta_{\mu\nu}R^\mu_\lambda R^\nu_\rho=\delta_{\lambda\rho}~.
+\end{align}
+The function $F$ corresponding to rotations is characterised by the representation that we choose for the field $\Phi$. For example, for a scalar field $\phi$, the transformation is
+\begin{align}
+    \phi'(R.x)=\phi(x)~,
+\end{align}
+where we use the common notation $(R.x)^\mu=R^\mu_\nu.x^\nu$. For a vector field $V^\mu$ the transformation is
+\begin{align}
+    V'^\mu(R.x)=R^\mu_\nu V^\nu(x)~,
+\end{align}
+and so on for tensors of various ranks. \\
+For a field $\Phi$ transforming in any representation $L$ of the rotation group, we write the corresponding transformation function $F$ as
+\begin{align}
+    \Phi'(R.x)=L_R[\Phi(x)],\label{1.9}
+\end{align}
+that is, $L_R$ is the linear operator representing the transformation $R$.
+\subsection{Noether’s Theorem}
+Let us consider a continuous transformation, that is, the map $x\longmapsto x'$ is characterised continuously by some parameters $\omega_a$. We can then consider a transformation “close to identity,” that is, for \cite{Antonin}
+\begin{align}
+    x'=x+\omega_a\frac{\delta x}{\delta \omega_a}\label{1.17}~,
+\end{align}
+we can write
+\begin{align}
+    \Phi'(x')=F(\Phi(x))=\Phi(x)+\omega_a\frac{\delta F(\Phi(x))}{\delta\omega_a}~,
+\end{align}
+where summation on the index $a$ is understood. We define the generators $G_a$ by
+\begin{align}
+    \delta_\omega \Phi(x)=\Phi'(x)-\Phi(x)=-i\omega_a G_a \Phi(x),
+\end{align}
+and hence
+\begin{align}
+    \Aboxed{iG_a \Phi=\frac{\delta x^\mu}{\delta\omega_a}\partial_\mu\Phi-\frac{\delta F}{\delta\omega_a}}.\label{1.20}
+\end{align}
+Consider a map $x\longmapsto x'$, in general $\phi(x)\longmapsto\phi'(x')$,
+let's introduce the variation,\cite{Peskin, Tripathy}
+\begin{align}
+    \delta\phi&=\phi'(x)-\phi(x)~,\\
+    \tilde{\delta}\phi&=\phi'(x')-\phi(x)~,\nonumber\\
+      \tilde{\delta}\phi&=\phi'(x')-\phi(x')+\phi(x')-\phi(x)~,\nonumber\\
+      &=\delta\phi(x')+\frac{\partial\phi}{\partial x^\mu}\delta x^\mu~,\nonumber\\
+      \tilde{\delta}\phi&=\delta\phi(x)+\frac{\partial\phi}{\partial x^\mu}\delta x^\mu~,\nonumber\\
+      \Longrightarrow&\delta\phi(x)=\tilde{\delta}\phi-\frac{\partial\phi}{\partial x^\mu}\delta x^\mu~.
+\end{align}
+If we require that the Action ($\int d^4x \mathcal{L}$) is invariant under the transformation ($x\longmapsto x'$), then we need to show,
+\begin{align}
+    0=&\int d^4x \bigg(\delta\mathcal{L}+\partial_\mu\left(\mathcal{L}~\delta x^\mu\right)\bigg)~,\\
+    =&\int d^4x \bigg(\left(\frac{\partial\mathcal{L}}{\partial\phi}\right)\delta\phi+\left(\frac{\partial\mathcal{L}}{\partial\partial_\mu \phi}\delta\partial_\mu \phi\right)+\partial_\mu\left(\mathcal{L}~\delta x^\mu\right)\bigg)~,\nonumber\\
+    =&\int d^4x \bigg(\left(\partial_\mu\frac{\partial\mathcal{L}}{\partial\partial_\mu \phi}\right)\delta\phi+\left(\frac{\partial\mathcal{L}}{\partial\partial_\mu \phi}\delta\partial_\mu \phi\right)+\partial_\mu\left(\mathcal{L}~\delta x^\mu\right)\bigg)~,\nonumber\\
+    =&\int d^4x \bigg(\partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}.\delta\phi\right)+\partial_\mu\left(\mathcal{L}~\delta x^\mu\right)\bigg)~,\nonumber\\
+    0=&\int d^4x \bigg(\partial_\mu\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}.\left(\tilde{\delta}\phi-\frac{\partial\phi}{\partial x^\nu}\delta x^\nu\right)\right)+\partial_\mu\left(\mathcal{L}~\delta x^\mu\right)\bigg).
+\end{align}
+The canonical current densities is $j^\mu$, such that $\partial_\mu j^\mu=0$ 
+\begin{align}
+    \Longrightarrow j^\mu&=\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}.\left(\tilde{\delta}\phi-\frac{\partial\phi}{\partial x^\nu}\delta x^\nu\right)\right)+\left(\mathcal{L}~\delta x^\mu\right)~,\nonumber\\
+    j^\mu&=\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}.\tilde{\delta}\phi-\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\frac{\partial\phi}{\partial x^\nu}\delta x^\nu+\mathcal{L}~\delta x^\mu\nonumber~,\\
+    \Aboxed{j^\mu&=\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}.\tilde{\delta}\phi-T^\mu_\nu \delta x^\nu}\label{J}~,\\
+\end{align}
+where, 
+\begin{align}
+    \Aboxed{T^\mu_\nu=\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\frac{\partial\phi}{\partial x^\nu}+\mathcal{L}\delta^\mu_\nu}.
+\end{align}
+We now identify the parameters, the generators, and associated canonical current densities in our examples.
+\subsubsection{Translations}
+The parameters $\omega_a$ for an infinitesimal translation are the components $a_\mu$ of the infinitesimal vector a defining the infinitesimal transformation, and thus the index $a$ is in this case a space-time index $\mu: \omega_\mu=a_\mu$. Using (\eqref{1.4}) we thus find that
+\begin{align}
+    \frac{\delta x^\mu}{\delta\omega_\nu}=\delta^{\mu\nu},~~~~~\frac{\delta F}{\omega_\mu}=0.
+\end{align}
+The generator, that we write $P_\mu$ and define by equation (\eqref{1.20}), reads
+\begin{align}
+    \Aboxed{P_\mu=-i\partial_\mu}.
+\end{align}
+For Translations, $\tilde{\delta}\phi=0$ and $\delta x^\nu=-a^\mu$,
+then
+\begin{align}
+    j^\mu=T^\mu_\nu a^\nu~,
+\end{align}
+then the conservation, 
+\begin{align}
+    \partial_\mu j^\mu=\partial_\mu T^\mu_\nu =0~.
+\end{align}
+\subsubsection{Rotation}
+A infinitesimal rotation is characterised by an antisymmetric matrix $\omega_{\mu\nu}=-\omega_{\nu\mu}$ and is given by
+\begin{align}
+    x'^\mu=x^\mu+\omega^\mu_\nu x^\nu.
+\end{align}
+Formula (\eqref{1.17}) then yields the following variation:
+\begin{align}
+    \frac{\delta x^\mu}{\delta \omega_{\nu\rho}}=\frac{1}{2}(\delta^{\mu\nu}x^\rho-\delta^{\mu\rho}x^\nu).\label{1.24}
+\end{align}
+For a field $\Phi$ transforming under a general representation $L$ as in (\eqref{1.9}), the effect of an
+infinitesimal rotation is of the form
+\begin{align}
+    L_R[\Phi]=\Phi-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}[\Phi],\label{1.25}
+\end{align}
+for some operators $S^{\mu\nu}=-S^{\nu\mu}$ representing the rotation algebra, the numerical factors being introduced for future convenience. Using (\eqref{1.24}) and (\eqref{1.25}), the generators $L^{\mu\nu}$ for rotations and defined in (\eqref{1.20}) are thus given by
+\begin{align}
+    \Aboxed{L^{\mu\nu}=i(x^\mu\partial^\nu-x^\nu\partial^\mu)+S^{\mu\nu}}~.
+\end{align}
+
+\section{Poincaré Algebra}
+We recall the definition (\eqref{1.20}) of generator of an infinitesimal transformation. If we suppose for the moment that the fields are unaffected by the transformation, the generators of the Poincaré group are easily seen to be \cite{Itzykson, Antonin}
+\begin{align}
+    \text{(translation)}~~~~&P^{\hat{\mu}}=-i\partial^{\hat{\mu}}~,\\\text{(rotation)}~~~~&L^{\hat{\mu}\hat{\nu}}=i\left(x^{\hat{\mu}}\partial^{\hat{\nu}}-x^{\hat{\nu}}\partial^{\hat{\mu}}\right)~,
+\end{align}
+Then the Poincaré algebra (commutation rules) can be derived as,\\
+1) Commutation among $P^\mu$,
+\begin{align}
+    \left[P^{{\mu}},P^{{\nu}}\right]&=P^{{\mu}}P^{{\nu}}-P^{{\nu}}P^{{\mu}}=i^2(\partial^{{\mu}}\partial^{{\nu}}-\partial^{{\nu}}\partial^{{\mu}})=0\nonumber~,\\
+    \Aboxed{\left[P^{{\mu}},P^{{\nu}}\right]&=0}\checkmark~.
+    \end{align}
+2) Commutation among $P^\rho$ and $L^{{\mu}{\nu}}$,   
+\begin{align}
+    \left[P^{{\rho}},L^{{\mu}{\nu}}\right]&=P^{{\rho}}L^{{\mu}{\nu}}-L^{{\mu}{\nu}}P^{{\rho}}=-i^2(\partial^{{\rho}}\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)-\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)\partial^{{\rho}})\nonumber~,\\
+    &=-i^2\left(\partial^{{\rho}}x^{{\mu}}\partial^{{\nu}}+\cancel{x^{{\mu}}\partial^{{\rho}}\partial^{{\nu}}}-\partial^{{\rho}}x^{{\nu}}\partial^{{\mu}}-\cancel{x^{{\nu}}\partial^{{\rho}}\partial^{{\mu}}}-\cancel{x^{{\mu}}\partial^{{\nu}}\partial^{{\rho}}}+\cancel{x^{{\nu}}\partial^{{\mu}}\partial^{{\rho}}}\right)\nonumber~,\\
+    &=-i^2\left(\partial^{{\rho}}x^{{\mu}}\partial^{{\nu}}-\partial^{{\rho}}x^{{\nu}}\partial^{{\mu}}\right)=i\left(g^{{\rho}{\mu}}(-i\partial^{{\nu}})-g^{{\rho}{\nu}}(-i\partial^{{\mu}})\right)\nonumber~,\\
+    \Aboxed{\left[P^{{\rho}},L^{{\mu}\hat{\nu}}\right]&=i\left(g^{{\rho}{\mu}}P^{{\nu}}-g^{{\rho}{\nu}}P^{{\mu}}\right)}\checkmark~.
+\end{align}
+3) Commutation among $L^{{\mu}{\nu}}$, 
+\begin{align}
+    \left[L^{{\alpha}{\beta}},L^{{\rho}{\sigma}}\right]&=L^{{\alpha}{\beta}}L^{{\rho}{\sigma}}-L^{{\rho}{\sigma}}L^{{\alpha}{\beta}}\nonumber~,\\
+    &=i^2\left(\left(x^{{\alpha}}\partial^{{\beta}}-x^{{\beta}}\partial^{{\alpha}}\right)\left(x^{{\rho}}\partial^{{\sigma}}-x^{{\sigma}}\partial^{{\rho}}\right)-\left(x^{{\rho}}\partial^{{\sigma}}-x^{{\sigma}}\partial^{{\rho}}\right)\left(x^{{\alpha}}\partial^{{\beta}}-x^{{\beta}}\partial^{{\alpha}}\right)\right)\nonumber~,\\
+    &=i^2\bigg((x^{{\alpha}}\partial^{{\beta}})(x^{{\rho}}\partial^{{\sigma}})-(x^{{\alpha}}\partial^{{\beta}})(x^{{\sigma}}\partial^{{\rho}})-(x^{{\beta}}\partial^{{\alpha}})(x^{{\rho}}\partial^{{\sigma}})+(x^{{\beta}}\partial^{{\alpha}})(x^{{\sigma}}\partial^{{\rho}})\nonumber\\
+    &~~~~~~~~~-(x^{{\rho}}\partial^{{\sigma}})(x^{{\alpha}}\partial^{{\beta}})+(x^{{\rho}}\partial^{{\sigma}})(x^{{\beta}}\partial^{{\alpha}})+(x^{{\sigma}}\partial^{{\rho}})(x^{{\alpha}}\partial^{{\beta}})-(x^{{\sigma}}\partial^{{\rho}})(x^{{\beta}}\partial^{{\alpha}})\bigg)\nonumber~,\\
+    &=i^2\bigg((x^{{\alpha}}\partial^{{\beta}}x^{{\rho}}\partial^{{\sigma}}+\cancel{x^{{\alpha}}x^{{\rho}}\partial^{{\beta}}\partial^{{\sigma}}})-(x^{{\alpha}}\partial^{{\beta}}x^{{\sigma}}\partial^{{\rho}}+\cancel{x^{{\alpha}}x^{{\sigma}}\partial^{{\beta}}\partial^{{\rho}}})\nonumber\\
+    &~~~~~~~~~-(x^{{\beta}}\partial^{{\alpha}}x^{{\rho}}\partial^{{\sigma}}+\cancel{x^{{\beta}}x^{{\rho}}\partial^{{\alpha}}\partial^{{\sigma}}})+(x^{{\beta}}\partial^{{\alpha}}x^{{\sigma}}\partial^{{\rho}}+\cancel{x^{{\beta}}x^{{\sigma}}\partial^{{\alpha}}\partial^{{\rho}}})\nonumber\\
+    &~~~~~~~~~-(x^{{\rho}}\partial^{{\sigma}}x^{{\alpha}}\partial^{{\beta}}+\cancel{x^{{\rho}}x^{{\alpha}}\partial^{{\sigma}}\partial^{{\beta}}})+(x^{{\rho}}\partial^{{\sigma}}x^{{\beta}}\partial^{{\alpha}}+\cancel{x^{{\rho}}x^{{\beta}}\partial^{{\sigma}}\partial^{{\alpha}}})\nonumber\\
+    &~~~~~~~~~+(x^{{\sigma}}\partial^{{\rho}}x^{{\alpha}}\partial^{{\beta}}+\cancel{x^{{\sigma}}x^{{\alpha}}\partial^{{\rho}}\partial^{{\beta}}})-(x^{{\sigma}}\partial^{{\rho}}x^{{\beta}}\partial^{{\alpha}}+\cancel{x^{{\sigma}}x^{{\beta}}\partial^{{\rho}}\partial^{{\alpha}}})\bigg)\nonumber~,\\
+    &=i^2\bigg((x^{{\alpha}}\partial^{{\beta}}x^{{\rho}}\partial^{{\sigma}})-(x^{{\alpha}}\partial^{{\beta}}x^{{\sigma}}\partial^{{\rho}})-(x^{{\beta}}\partial^{{\alpha}}x^{{\rho}}\partial^{{\sigma}})+(x^{{\beta}}\partial^{{\alpha}}x^{{\sigma}}\partial^{{\rho}})-(x^{{\rho}}\partial^{{\sigma}}x^{{\alpha}}\partial^{{\beta}})\nonumber\\
+    &~~~~~~~~~+(x^{{\rho}}\partial^{{\sigma}}x^{{\beta}}\partial^{{\alpha}})+(x^{{\sigma}}\partial^{{\rho}}x^{{\alpha}}\partial^{{\beta}})-(x^{{\sigma}}\partial^{{\rho}}x^{{\beta}}\partial^{{\alpha}})\bigg)~,
+    \end{align}
+    
+    \begin{align}
+    \left[L^{{\alpha}{\beta}},L^{{\rho}{\sigma}}\right]&=i^2\bigg((x^{{\alpha}}g^{{\beta}{\rho}}\partial^{{\sigma}})-(x^{{\alpha}}g^{{\beta}{\sigma}}\partial^{{\rho}})-(x^{{\beta}}g^{{\alpha}{\rho}}\partial^{{\sigma}})+(x^{{\beta}}g^{{\alpha}{\sigma}}\partial^{{\rho}})-(x^{{\rho}}g^{{\sigma}{\alpha}}\partial^{{\beta}})+(x^{{\rho}}g^{{\sigma}{\beta}}\partial^{{\alpha}})\nonumber\\
+    &~~~~~~~~~+(x^{{\sigma}}g^{{\rho}{\alpha}}\partial^{{\beta}})-(x^{{\sigma}}g^{{\rho}{\beta}}\partial^{{\alpha}})\bigg)~,\nonumber\\
+    &=-i\bigg(g^{{\beta}{\sigma}}i(x^{{\alpha}}\partial^{{\rho}}-x^{{\rho}}\partial^{{\alpha}})-g^{{\beta}{\rho}}i(x^{{\alpha}}\partial^{{\sigma}}-x^{{\sigma}}\partial^{{\alpha}})+g^{{\alpha}{\rho}}i(x^{{\beta}}\partial^{{\sigma}}-x^{{\sigma}}\partial^{{\beta}})\nonumber\\
+    &~~~~~~~~~-g^{{\alpha}{\sigma}}i(x^{{\beta}}\partial^{{\rho}}-x^{{\rho}}\partial^{{\beta}})\bigg)~,\nonumber\\
+    \Aboxed{\left[L^{{\alpha}{\beta}},L^{{\rho}{\sigma}}\right]&=-i\left(g^{{\beta}{\sigma}}L^{{\alpha}{\rho}}-g^{{\beta}{\rho}}L^{{\alpha}{\sigma}}+g^{{\alpha}{\rho}}L^{{\beta}{\sigma}}-g^{{\alpha}{\sigma}}L^{{\beta}{\rho}}\right)}\checkmark~.
+\end{align}
+So, the Poincaré algebra are: \cite{Itzykson, Antonin}
+\begin{align}
+ \Aboxed{\left[P^{{\mu}},P^{{\nu}}\right]&=0}~,\\
+ \Aboxed{\left[P^{{\rho}},L^{{\mu}\hat{\nu}}\right]&=i\left(g^{{\rho}{\mu}}P^{{\nu}}-g^{{\rho}{\nu}}P^{{\mu}}\right)}~,\\
+ \Aboxed{\left[L^{{\alpha}{\beta}},L^{{\rho}{\sigma}}\right]&=-i\left(g^{{\beta}{\sigma}}L^{{\alpha}{\rho}}-g^{{\beta}{\rho}}L^{{\alpha}{\sigma}}+g^{{\alpha}{\rho}}L^{{\beta}{\sigma}}-g^{{\alpha}{\sigma}}L^{{\beta}{\rho}}\right)}.
+\end{align}
+\section{Example: Klein–Gordon (1+1)}
+Consider the Lagrangian \cite{david, Peskin, Tripathy, Itzykson} for a real scalar field $\phi$ in $d=(1+1)$,
+\begin{align}
+	\mathcal{L}_{KG}=\frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-\frac{1}{2}m^2\phi^2,
+	\end{align}
+its equation of motion is given by,
+\begin{align}
+	\Box\phi+\frac{1}{2}m^2\phi=0,
+	\end{align}
+the Energy-momentum tensor is given by,
+\begin{align}
+	T_{\mu\nu}=\partial_\mu\phi\partial_\nu\phi-g_{\mu\nu}\mathcal{L},
+	\end{align}
+		4 divergence of $T_{\mu\nu}$,
+	\begin{align}
+	\partial^{\mu}T_{\mu\nu}&=\partial^{\mu}(\partial_\mu\phi\partial_\nu\phi-g_{\mu\nu}(\frac{1}{2}\partial_{\rho}\phi\partial^{\rho}\phi-\frac{1}{2}m^2\phi^2))~, \nonumber\\
+	&=\partial^{\mu}\partial_\mu\phi\partial_\nu\phi+\partial_\mu\phi\partial^{\mu}\partial_\nu\phi-\partial_{\nu}(\frac{1}{2}\partial_{\rho}\phi\partial^{\rho}\phi-\frac{1}{2}m^2\phi^2)~, \nonumber\\
+	&=\Box\phi\partial_\nu\phi+\partial_\mu\phi\partial^{\mu}\partial_\nu\phi-\frac{1}{2}\partial_{\nu}\partial_{\rho}\phi\partial^{\rho}\phi-\frac{1}{2}\partial_{\rho}\phi\partial_{\nu}\partial^{\rho}\phi+\frac{1}{2}m^2\phi \partial_{\nu}\phi~,\nonumber\\
+	&=\Box\phi\partial_\nu\phi+\frac{1}{2}m^2\phi \partial_{\nu}\phi\nonumber\\
+	\Aboxed{\partial^{\mu}T_{\mu\nu}&=[\Box\phi+\frac{1}{2}m^2\phi] \partial_{\nu}\phi=0}.
+	\end{align}
+	Then
+	\begin{align}
+	T_{00}&=T^{00}\;\;\;=\frac{1}{2}\partial_0\phi\partial_0\phi+\frac{1}{2}\partial_1\phi\partial_1\phi+\frac{1}{2}m^2\phi^2, \nonumber \\
+	T_{01}&=-T^{01}=\partial_0\phi\partial_1\phi ,\nonumber \\
+	T_{10}&=-T^{10}=\partial_1\phi\partial_0\phi, \nonumber \\
+	T_{11}&=T^{11}\;\;\;=\frac{1}{2}\partial_0\phi\partial_0\phi+\frac{1}{2}\partial_1\phi\partial_1\phi-\frac{1}{2}m^2\phi^2.\nonumber
+	\end{align}
+	\begin{align}
+    \Longrightarrow T_{\mu\nu}=\begin{pmatrix}
+  \frac{1}{2}\partial_0\phi\partial_0\phi+\frac{1}{2}\partial_1\phi\partial_1\phi+\frac{1}{2}m^2\phi^2 & \partial_0\phi\partial_1\phi\\ 
+  \partial_1\phi\partial_0\phi &  \frac{1}{2}\partial_0\phi\partial_0\phi+\frac{1}{2}\partial_1\phi\partial_1\phi-\frac{1}{2}m^2\phi^2
+\end{pmatrix}.
+	\end{align}
+and our field and it's derivatives are,
+   \begin{align}
+		\phi(x)=&\int \frac{dk^1}{\sqrt{2\pi}} \frac{1}{\sqrt{2\omega(k^1,m)}} \left [ a(k^1,m)e^{-ikx}+a^{\dagger}(k^1,m)e^{ikx} \right] ,
+	\end{align}
+		\begin{align}
+		\pi(x)=\partial^0\phi(x)=&-i\int \frac{dk^1}{\sqrt{2\pi}} \sqrt{\frac{\omega (k^1,m)}{2}} \left [ a(k^1,m)e^{-ikx}-a^{\dagger}(k^1,m)e^{ikx} \right] ,
+	\end{align}
+	\begin{align}
+		\partial^1\phi(x)=&-i\int \frac{dk^1}{\sqrt{2\pi}} \frac{k^1}{\sqrt{2\omega(k^1,m)}} \left [ a(k^1,m)e^{-ikx}-a^{\dagger}(k^1,m)e^{ikx} \right] ,
+	\end{align}
+Now, let's find the $P^\mu$,
+	\begin{align}
+	    P^\mu= \int dx^1\; T^{0\mu}~.
+	\end{align}
+The Hamiltonian ($P^0$) will be,
+    \begin{align}
+	    P^0= \int dx^1\; T^{00}=\int dx^1\; \left(\frac{1}{2}\partial^0\phi\partial^0\phi+\frac{1}{2}\partial^1\phi\partial^1\phi+\frac{1}{2}m^2\phi^2\right)~,
+	\end{align}
+	 \begin{align*}
+		P^0=\int dx^1\ \Bigl(&-\frac{1}{2}\frac{1}{2\pi}\int dk^1 \int dk^1'\sqrt{\frac{\omega (k,m)}{2}}\sqrt{\frac{\omega (k',m)}{2}}\left [ a(k^1,m)e^{-ik^1x}-a^{\dagger}(k^1,m)e^{ikx} \right]\nonumber\\
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\times~\left [ a(k^1',m)e^{-ik^1'x}-a^{\dagger}(k'^1,m)e^{ik'x} \right] \nonumber\\
+		&-\frac{1}{2}\frac{1}{2\pi}\int dk^1 \int dk^1'\frac{k^1k^1'}{\sqrt{2\omega(k,m)}\sqrt{2\omega(k',m)}} \left [ a(k^1,m)e^{-ikx}-a^{\dagger}(k^1,m)e^{ikx} \right]\nonumber\\
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\times~\left [ a(k^1',m)e^{-ik'x}-a^{\dagger}(k^1',m)e^{ik'x} \right] \nonumber\\
+		&+\frac{1}{2}\frac{m^2}{2\pi} \int dk^1 \int dk^1'\frac{1}{\sqrt{2\omega(k,m)}\sqrt{2\omega(k',m)}}\left [ a(k^1,m)e^{-ikx}+a^{\dagger}(k^1,m)e^{ikx} \right]\nonumber\\
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\times~\left [ a(k^1',m)e^{-ik'x}+a^{\dagger}(k^1',m)e^{ik'x} \right] \Bigr)\noindent~,
+		\end{align*}
+		\begin{align*}
+		P^0=\int dx^1\ \Bigl(\Bigl(&\frac{1}{8\pi}\int dk^1 \int dk'^1\Bigl(\Bigl( -\Bigl(\sqrt{\omega (k,m)}\sqrt{\omega (k',m)}\Bigr)-\Bigl(\frac{k^1k'^1}{\sqrt{\omega(k,m)}\sqrt{\omega(k',m)}}\Bigr) \Bigr) \nonumber\\ 
+		&\times \Bigl( \left [ a(k^1,m)e^{-ikx}-a^{\dagger}(k^1,m)e^{ikx} \right].\left [ a(k'^1,m)e^{-ik'x}-a^{\dagger}(k'^1,m)e^{ik'x} \right]  \Bigr)\Bigr)\nonumber\\
+		&+\Bigr(\frac{m^2}{8\pi} \int dk^1 \int dk^1'\frac{1}{\sqrt{\omega(k,m)}\sqrt{\omega(k',m)}}\nonumber\\
+		&\times\left [ a(k^1,m)e^{-ikx}+a^{\dagger}(k^1,m)e^{ikx} \right].\left [ a(k^1',m)e^{-ik'x}+a^{\dagger}(k^1',m)e^{ik'x} \right] \Bigr)\Bigr)\nonumber~,
+	\end{align*}
+	we can use the relations, $\int dx^1 \ e^{-i(k'+k).x}= (2\pi)e^{-2i\omega t}\delta(k^1+k^1')$ and $\int dx^1 \ e^{-i(k'-k).x}= (2\pi)\delta(k^1-k^1')$.
+	then do the $\int dx^1$ integration,
+	\begin{align}
+		P^0= &\frac{1}{8\pi}\int dk^1 \int dk'^1\Bigl(\Bigl( -\sqrt{\omega (k,m)}\sqrt{\omega (k',m)}-\frac{k^1k'^1}{\sqrt{\omega(k,m)}\sqrt{\omega(k',m)}}\Bigr) \nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~\times  \Bigl( {\left[a(k^1,m)a(k'^1,m)(2\pi)e^{-2i\omega t}\delta(k^1+k^1')\right]} \nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-{\left [a(k^1,m)a^{\dagger}(k'^1,m)(2\pi)\delta(k^1-k^1') \right]} \nonumber\\
+	   	&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-{\left [a^{\dagger}(k^1,m)a(k'^1,m)(2\pi)\delta(k^1'-k^1)\right]} \nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+{\left [a^{\dagger}(k^1,m)a^{\dagger}(k'^1,m)(2\pi)e^{+2i\omega t}\delta(k^1+k^1')\right]}\Bigr)\nonumber\\
+		&+\frac{1}{8\pi}\int dk^1 \int dk'^1\Bigr(m^2\frac{1}{\sqrt{\omega(k,m)}\sqrt{\omega(k',m)}} \nonumber\\
+		&~~~~~~~~~~~~~~~~~~~~~~~~\times  \Bigl( {\left[a(k^1,m)a(k'^1,m)(2\pi)e^{-2i\omega t}\delta(k^1+k^1')\right]} \nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+{\left [a(k^1,m)a^{\dagger}(k'^1,m)(2\pi)\delta(k^1-k^1') \right]} \nonumber\\
+	   	&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+{\left [a^{\dagger}(k^1,m)a(k'^1,m)(2\pi)\delta(k^1'-k^1)\right]} \nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+{\left [a^{\dagger}(k^1,m)a^{\dagger}(k'^1,m)(2\pi)e^{+2i\omega t}\delta(k^1+k^1')\right]}\Bigr)\Bigr)\Bigr)\nonumber~,
+	\end{align}
+	then do the $\int dk^1'$ integration, (use, $\omega^2=k^2+m^2\longrightarrow\omega=\frac{k^2}{\omega}+\frac{m^2}{\omega}$)
+		\begin{align}
+		P^0&= \frac{1}{8\pi}\int dk^1 \Bigl[ \cancelto{0}{\Bigl( \Bigl( -\omega+\frac{k^2}{\omega}+\frac{m^2}{\omega}\Bigr)}\Bigl( {\left [ a(k^1,m)a(-k^1,m)(2\pi)e^{-2i\omega t}\right]} \nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+{\left [a^{\dagger}(k^1,m)a^{\dagger}(-k^1,m)(2\pi)e^{+2i\omega t}\right]} \Bigr)\Bigr) \nonumber\\ 
+		&~~~~~~~~~~~~~~~ + \cancelto{2\omega}{\Bigl( \Bigl( \omega+\frac{k^2}{\omega}+\frac{m^2}{\omega}\Bigr)}\Bigl({\left [ a(k^1,m)a^{\dagger}(k^1,m)(2\pi)\right]} \nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+{\left [a^{\dagger}(k^1,m)a(k^1,m)(2\pi)\right]} \Bigr)\Bigr)\Bigr]\nonumber~,
+ 		\end{align}
+		\begin{align}
+		P^0&= \frac{1}{2}\int dk^1 \omega\Bigr(\left ( a(k^1,m)a^{\dagger}(k^1,m)\right) +\left (a^{\dagger}(k^1,m)a(k^1,m)\right) \Bigr) \nonumber~, \\
+	&=\frac{1}{2}\int dk^1 \omega\Bigr(\left ( a(k^1,m)a^{\dagger}(k^1,m)\right)+2\left (a^{\dagger}(k^1,m)a(k^1,m)\right)-\left (a^{\dagger}(k^1,m)a(k^1,m)\right)\Bigr) \nonumber~, \\
+	&=\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)a(k^1,m)\right)+\cancelto{\infty\;;(\text{Only energy difference matters!})}{\frac{1}{2}\int dk^1\;\omega \;\delta(0)}~, \nonumber\\
+	\Aboxed{P^0=H&=\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)a(k^1,m)\right)}~.
+	\end{align}
+Now, the Momentum ($P^1$) will be,
+    \begin{align}
+	    P^1= \int dx^1\; T^{01}=\int dx^1\; \left(\partial^0\phi\partial^1\phi \right)=\int dx^1\; \left(\pi(x)\partial^1\phi(x) \right)~,
+	\end{align}
+then
+	\begin{align}
+		P^1=&\int dx^1\ \Bigl(-\frac{1}{4\pi}\int dk^1 \int dk^1'\sqrt{\omega (k,m)}\frac{k^1'}{\sqrt{\omega (k',m)}}\nonumber\\
+		&~~~~~~~~~~~\times\left [a(k^1,m)e^{-ik^1x}-a^{\dagger}(k,m)e^{ikx} \right].\left [ a(k^1',m)e^{-ik^1'x}-a^{\dagger}(k',m)e^{ik'x} \right]\Bigl) \nonumber~,\\
+		P^1=&-\frac{1}{2}\int dk^1 \int dk^1'\sqrt{\omega (k,m)}\frac{k^1'}{\sqrt{\omega (k',m)}}\nonumber\\
+		&~~~~~~~~~~~\times  \Bigl( {\left[a(k^1,m)a(k'^1,m)e^{-2i\omega t}\delta(k^1+k^1')\right]+{\left [a^{\dagger}(k^1,m)a^{\dagger}(k'^1,m)e^{+2i\omega t}\delta(k^1+k^1')\right]}}\nonumber\\
+		&~~~~~~~~~~~\;\;\;\;-{\left [a(k^1,m)a^{\dagger}(k'^1,m)\delta(k^1-k^1') \right]} -{\left [a^{\dagger}(k^1,m)a(k'^1,m)\delta(k^1'-k^1)\right]} \Bigr)~,\nonumber\\
+		P^1=&\frac{1}{2}\cancelto{0\;;(\text{because the $\int dk^1\;(k^1)\times(\text{even function})=0$)}}{\int dk^1\;( k^1) } \Bigl({\left[a(k^1,m)a(-k^1,m)e^{-2i\omega t}\right]+{\left [a^{\dagger}(k^1,m)a^{\dagger}(-k^1,m)e^{+2i\omega t}\right]}}\Bigr)\nonumber\\
+		&+\frac{1}{2}\int dk^1\;( k^1)\Bigr({\left [a(k^1,m)a^{\dagger}(k^1,m) \right]} +{\left [a^{\dagger}(k^1,m)a(k^1,m)\right]} \Bigr)~,\nonumber\\
+		P^1=& \frac{1}{2}\int dk^1 \;( k^1)\Bigr(\left ( a(k^1,m)a^{\dagger}(k^1,m)\right) +\left (a^{\dagger}(k^1,m)a(k^1,m)\right) \Bigr) ~,\nonumber \\
+		=&\frac{1}{2}\int dk^1 \;( k^1)\Bigr(\left ( a(k^1,m)a^{\dagger}(k^1,m)\right)+2\left (a^{\dagger}(k^1,m)a(k^1,m)\right)-\left (a^{\dagger}(k^1,m)a(k^1,m)\right)\Bigr)~, \nonumber \\
+		=&\int dk^1 \;( k^1)\left (a^{\dagger}(k^1,m)a(k^1,m)\right)+\cancelto{0\;;(\text{because $( k^1 \times\delta(0))$ is odd})}{\frac{1}{2}\int dk^1\;( k^1) \;\delta(0)}~, \nonumber\\
+		\Aboxed{P^1=&\int dk^1 \;( k^1)\left (a^{\dagger}(k^1,m)a(k^1,m)\right)}~.
+	\end{align}
+Let's fine the Equal-$x^0$ Commutation,
+      \begin{align}
+          \left[P^0,P^1\right]&=\int dk^1 \int dk'^1 \;\omega\; k'^1\Bigr[\left (a^{\dagger}(k^1,m)a(k^1,m)\right),\left (a^{\dagger}(k'^1,m)a(k'^1,m)\right)\Bigr]~, \nonumber\\
+          &=\int dk^1 \int dk'^1 \;\omega\; k'^1\Bigr(a^{\dagger}(k'^1,m)\Bigr[a^{\dagger}(k^1,m),a(k'^1,m)\Bigr]a(k^1,m)\nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+a^{\dagger}(k^1,m) \Bigr[a(k^1,m),a^{\dagger}(k'^1,m)\Bigr]a(k'^1,m)\Bigr)~,\nonumber\\
+          &=\int dk^1 \int dk'^1 \;\omega\; k'^1\Bigr(a^{\dagger}(k'^1,m)\Bigr[-\delta(k'^1-k^1)\Bigr]a(k^1,m)\nonumber\\ 
+		&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+a^{\dagger}(k^1,m) \Bigr[\delta(k^1-k'^1)\Bigr]a(k'^1,m)\Bigr)~,\nonumber\\
+          &=\int dk^1  \;\omega\; k^1\left(-a^{\dagger}(k^1,m)a(k^1,m)+a^{\dagger}(k^1,m) a(k^1,m)\right)=0~,\nonumber\\
+          \Aboxed{\left[P^0,P^1\right]&=0} \nonumber~,\\
+          \Aboxed{\left[P^\mu,P^\nu\right]&=0}\;\;\checkmark~.
+      \end{align}
+The Boost operator ($K^1$) will be,	
+      %{\begin{align}
+	%K^1&=J^{01 }=\int dx^1\left(x^{0 }T^{01 }-x^{1 }T^{00 } \right)\\
+%	M^{0\nu}&= i\int {dk^1}  a^\dagger(k^1) \left(\omega \frac{\partial}{\partial k_\nu}\right)a(k^1) 
+	%\end{align}
+     \begin{align}
+       L^{01}&=\int dx^1\left(x^{0 }T^{01 }-x^{1 }T^{00 } \right)~, \nonumber\\
+       L^{01}&=t~ P^1-\int dx^1\left(x^1 T^{00} \right)~,
+      \end{align}
+to evaluate $\int dx^1\left(x^1 T^{00} \right) \nonumber$, let's find the space-time evaluation of $a(k^1)$ in Heisenberg's Picture.\cite{Riccardo}
+   \begin{align}
+       a(k^1,x^\mu)&=e^{iP_\mu x^\mu}a(k^1,0)e^{-iP_\mu x^\mu}~,\nonumber\\
+       a(k^1,x^1)&=e^{iP_1. x^1}a(k^1,0)e^{-iP_1.x^1}~,\nonumber\\
+       \frac{\partial}{\partial x^1}a(k^1,x^1)&=iP_1~e^{iP_1. x^1}a(k^1,0)e^{-iP_1.x^1}-e^{iP_1. x^1}a(k^1,0)~iP_1~e^{-iP_1.x^1}~,\nonumber\\
+       \frac{\partial}{\partial x^1}a(k^1,x^1)&=ie^{iP_1. x^1}\left[P_1,a(k^1,0)\right]e^{-iP_1.x^1}=-ik_1~e^{iP_1.x^1}a(k^1,0)e^{-iP_1.x^1}=-ik~a(k^1,x^1)~,\nonumber\\
+       \Longrightarrow a(k^1,x^1)&=e^{-ik_1.x^1}a(k^1,0)~,\nonumber\\
+       \Longrightarrow a(k^1,0)&=e^{ik_1.x^1}a(k^1,x^1)=e^{-ik^1.x^1}a(k^1,x^1)~,\nonumber\\
+       \Longrightarrow \frac{\partial}{\partial k_1}a(k^1,0)&=ix^1~e^{ik_1.x^1}a(k^1,x^1)=ix^1~a(k^1,0)~,\nonumber
+   \end{align}
+we found that $\int dx^1 T^{00}=\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)a(k^1,m)\right)$ , so
+  \begin{align}
+      \int dx^1\left(x^1 T^{00} \right)=-i\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)\frac{\partial}{\partial k_1}a(k^1,m)\right)~,
+  \end{align}
+  then,
+   \begin{align}
+     L^{01}&=t~ P^1-\int dx^1\left(x^1 T^{00} \right)~,\nonumber\\
+     \Aboxed{L^{01}&=t~P^1+i\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)\frac{\partial}{\partial k_1}a(k^1,m)\right)} ~, \\
+     \Aboxed{L^{10}&=-i\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)\frac{\partial}{\partial k_1}a(k^1,m)\right)-t~P^1} ~,\\
+     \text{at $x^0=0$~,}&\nonumber\\
+     \Aboxed{L^{01}&=i\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)\frac{\partial}{\partial k_1}a(k^1,m)\right)} ~, \\
+     \Aboxed{L^{10}&=-i\int dk^1 \;\omega\left (a^{\dagger}(k^1,m)\frac{\partial}{\partial k_1}a(k^1,m)\right)}~,
+   \end{align}
+
+let's find,
+  \begin{align}
+      [L^{01}, a(k^1)]&=i\int dk^1' \;\omega' \left[\left (a^{\dagger}(k^1',m)\frac{\partial}{\partial k'_1}a(k'^1,m)\right), a(k^1)\right]=-i\omega \frac{\partial}{\partial k_1}a(k^1,m)\nonumber~,\\
+      [L^{01}, a^{\dagger}(k^1)]&=i\int dk^1' \;\omega' \left[\left (a^{\dagger}(k^1',m)\frac{\partial}{\partial k'_1}a(k^1',m)\right), a^{\dagger}(k^1)\right]\nonumber~,\\
+      &=i\omega'\int dk^1' a^{\dagger}(k^1',m) \frac{\partial}{\partial k'_1}\delta(k^1-k^1')\nonumber~,\\
+      [L^{01}, a^{\dagger}(k^1)]&=-i\omega \frac{\partial}{\partial k_1}a^{\dagger}(k^1,m).
+  \end{align}
+   Now, the commutation relation between $J^{01}$ and $P^\mu$ will be 
+    \begin{align}
+          \left[L^{01},P^0\right]=& \int dk^1 \; \omega\left[\left (L^{01}\right),\left (a^{\dagger}(k^1,m)a(k^1,m)\right)\right]\nonumber~,\\
+          =&\int dk^1 \; \omega\left(a^{\dagger}(k^1,m)\left[\left (J^{01}\right),a(k^1,m)\right]+\left[\left (J^{01}\right),a^{\dagger}(k^1,m)\right]a(k^1,m)\right)\nonumber~,\\
+          =&-i\int dk^1 \;\omega\; \omega\left(a^{\dagger}(k^1,m)\left(\frac{\partial}{\partial k_1}a(k^1,m)\right)+\left(\frac{\partial}{\partial k_1}a^{\dagger}(k^1,m)\right)a(k^1,m)\right)\nonumber~,\\
+          =&-i\int dk^1 \;\omega\; \omega\frac{\partial}{\partial k_1}\left(a^{\dagger}(k^1,m)a(k^1,m)\right)=i\int dk^1 \; \omega\frac{\partial\omega}{\partial k_1}\left(a^{\dagger}(k^1,m)a(k^1,m)\right)\nonumber~,\\
+          =&-i\int dk^1 \omega \left(\frac{k}{\omega}a^{\dagger}(k^1)a(k^1)\right)=-i\int dk^1 k \left(a^{\dagger}(k^1)a(k^1)\right)=-i~P^1\nonumber~,\\
+          \Aboxed{\left[L^{01},P^0\right]=&-i~P^1}\;\;\checkmark\nonumber~,\\
+          \Aboxed{\left[L^{01},P^1\right]=&-i~P^0}\;\;\checkmark\nonumber~,\\
+          \Aboxed{\left[L^{\lambda\sigma},P^\mu\right]=&i~(g^{\sigma\mu}P^\lambda-g^{\lambda\mu}P^\sigma)}\;\;\checkmark~.
+      \end{align}      
+ \noindent{\rule{\textwidth}{1.5pt}}
+ 
+ 
+\chapter{Light-Front Dynamics}
+$``$ Working with a front is a process that is unfamiliar to physicists. But still I feel that the mathematical simplification that it introduces is all-important. I consider the method to be promising and have recently been making an extensive study of it. It offers new opportunities, while the familiar instant form seems to be played out '' - P.A.M. Dirac (1977)\\
+According to Dirac \cite{Dirac} $``$ ... the three-dimensional surface in
+space-time formed by a plane wave front advancing with the velocity of light.
+Such a surface will be called {\it front} for brevity''. 
+An example of a light-front is given by the equation $x^+ = x^0 + x^3=0$.
+\section{Light-Front Dynamics: Definition}
+A dynamical system is characterized by ten fundamental quantities:
+energy, momentum, angular momentum, and boost. In the conventional 
+Hamiltonian form of dynamics one works with dynamical variables referring 
+to physical conditions at some instant of time,  the simplest instant being 
+given by  $x^0=0$. Dirac found that other forms of relativistic
+dynamics are possible. For example, one may set up a dynamical theory in
+which the dynamical variables refer to physical conditions on a front
+$x^+=0$. The resulting dynamics is called light-front dynamics, which Dirac
+called {\it front-form} for brevity.  \cite{Harindranath} 
+           
+
+The variables $x^+=\frac{x^0+x^1}{\sqrt{2}}$ and  $x^- = \frac{x^0-x^1}{\sqrt{2}}$ are called light-front
+time and longitudinal space variables respectively. Transverse variable
+$x^\perp =(x^1,x^2)$. 
+
+We denote the four-vector ${x}^{\mu}$ by
+\begin{align}
+    {x}^{\mu} = (x^{0}, x^{1}, x^{2}, x^{3})  =  
+(x^{0},x^{\perp},x^3)~.
+\end{align}
+Scalar product
+\begin{align}
+    {x}.{y}= x^{0} y^{0}- x^{\perp}.y^{\perp} - x^3 y^3 ~.
+\end{align}
+Define light-front variables
+\begin{align}
+	x^+=\frac{x^0+x^1}{\sqrt{2}}\;;\;x^-=\frac{x^0-x^1}{\sqrt{2}}~.
+	\end{align}
+Let us denote the four-vector $x^\mu$ by
+\begin{align}
+    x^{\mu} = (x^{+},x^{\perp},x^{-}) ~.
+\end{align}
+Scalar product
+\begin{align}
+    x.y =  x^{+}y^{-}+x^{-}y^{+}-
+x^{\perp}.y^{\perp}  .
+\end{align}
+The metric tensor is
+\begin{align}
+    g^{\mu\nu}=\begin{pmatrix}
+  0 &0&0& 1\\ 
+  0&-1&0&0\\
+  0&0&-1&0\\
+  1 & 0&0&0
+\end{pmatrix} ~,
+\end{align}
+\begin{align}
+    g_{\mu \nu} = \begin{pmatrix}
+  0 &0&0& 1\\ 
+  0&-1&0&0\\
+  0&0&-1&0\\
+  1 & 0&0&0
+\end{pmatrix} .
+\end{align}
+Thus
+\begin{align}
+    x_{-}= x^{+}  , \; \; x_{+} = x^{-} .
+\end{align}
+Partial derivatives:
+\begin{align}
+    \partial^{+}&=  \partial_{-}=  {\partial \over \partial x^{-}}.\\
+     \partial^{-}&=  \partial_{+}=  {\partial \over \partial x^{+}}  .
+\end{align}
+\subsection{Dispersion Relation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In analogy with the light-front space-time variables, we define the
+longitudinal momentum $k^+=k^0+k^3$ and light-front energy $k^-=k^0 -k^3$. 
+
+For a free massive particle $k^2 = m^2$ leads to $
+k^+ \ge 0 $ and the dispersion relation $ k^- = {(k^\perp)^2 + m^2 \over
+k^+}$.
+
+
+The above dispersion relation is quite remarkable for the following reasons:
+(1) Even though we have a relativistic dispersion relation, there is no
+square root factor. 
+(2) The dependence of the energy $k^-$ on the transverse momentum
+$k^\perp$ is just like in the nonrelativistic dispersion relation.
+(3) For $k^+$ positive (negative), $k^-$ is positive (negative). This fact
+has several interesting consequences.
+(4) The dependence of energy on $k^\perp$ and $k^+$ is {\it
+multiplicative} and
+large energy can result from large $k^\perp$ and/or small $k^+$.  
+
+\section{Scalar Field}
+The Lagrangian density expressed in light-front variables is \cite{Harindranath}
+\begin{align}
+    {\cal L} =  \partial^+ \phi \partial^- \phi - { 1 \over 2}
+\partial^\perp  \phi . \partial^\perp \phi - { 1 \over 2} \mu^2 \phi^2~,
+\end{align}
+The equation of motion is 
+\begin{align}
+    \left [ 2\partial^+ \partial^- - (\partial^\perp)^2 + \mu^2 \right] \phi =0.
+\end{align}
+The quantized free scalar field can be written as
+\begin{align}
+    \phi(x) =\frac{1}{\sqrt{2\pi}}  \int_{0^+}^{\infty}\frac{dk_{-}d^2k^{\perp}}{\sqrt{2k^{+}}} \dk  
+\left [ a(k) \,
+e^{-ik.x} \, +
+\, a^{\dagger}(k) \, e^{ik.x} \right] ~,
+\end{align}
+The commutators are
+\begin{align}
+    \left [ a(k),a^{\dagger}(k')\right ] & =  \delta^3 (k-k'),
+\nonumber \\
+ \left [ a(k),a(k') \right ] & = 
+\left [ a^{\dagger}(k),a^{\dagger}(k') \right ] = 0.
+\end{align}
+\section{Poincare Generators and Algebra}
+\subsection{Lorentz Group
+}
+Let us first consider a pure boost along the negative 3-axis. The
+relationship between space and time of two systems of coordinates, one
+${\tilde S}$ in uniform motion along the negative 3-axis with speed $v$
+relative to other $S$ is given by
+${\tilde x}^0 = \gamma (x^0 + \beta x^3)$,  ${\tilde x}^3 = 
+\gamma (x^3 + \beta x^0)$, with $\beta ={ v \over c}$ and $\gamma 
+= { 1 \over \sqrt{1 - \beta^2}}$.
+Introduce the parameter $ \phi$ such that $ \gamma = \cosh \phi$, $ \beta
+\gamma = \sinh \phi$. In terms of the light-front variables, \cite{Harindranath}
+\begin{align}
+    {\tilde x}^+ = e^\phi x^+, \, {\tilde x}^{-} = e^{- \phi} x^-.
+\end{align}
+Thus boost along the 3-axis becomes a scale transformation for the variables
+${\tilde x}^+$ and ${\tilde x}^-$ and $x^+=0$ is invariant under boost along
+the 3-axis. 
+
+Let us denote the three generators of boosts by $K^i$ and the three
+generators of rotations by $J^i$ in equal-time dynamics.
+Define $E^1= -K^1 + J^2$, $ E^2=-K^2-J^1$, $ F^1=-K^1-J^2$, and
+$F^2=-K^2+J^1$. The explicit expressions for the 6 generators $K^3$, $E^1$,
+$E^2$, $J^3$, $F^1$, and $F^2$  in the finite dimensional representation are
+
+\begin{align}
+K^3 &=  -i \begin{pmatrix}0 & 0 & 0 & 1 \\
+                 0 & 0 & 0 & 0 \\
+                 0 & 0 & 0 & 0 \\
+                 1 & 0 & 0 & 0 \end{pmatrix} ~,~~~~~~~
+E^{1} = -i \begin{pmatrix}0 & -1 & 0 & 0 \\
+                       -1 & 0 & 0 & -1 \\
+                       0 & 0 & 0 & 0 \\
+                       0 & 1 & 0 & 0 \end{pmatrix}~,\\
+E^{2} &= -i \begin{pmatrix}0 & 0 & -1 & 0 \\
+                       0 & 0 & 0 & 0 \\
+                       -1 & 0 & 0 & -1 \\
+                       0 & 0 & 1 & 0 \end{pmatrix}~, ~~~~~
+J^{3} = -i \begin{pmatrix}0 & 0 & 0 & 0 \\
+                        0 & 0 & 1 & 0 \\
+                        0 & -1 & 0 & 0 \\
+                        0 & 0 & 0 & 0 \end{pmatrix}~,\\
+F^{1} &= -i \begin{pmatrix}0 & -1 & 0 & 0 \\
+                       -1 & 0 & 0 & 1 \\
+                       0 & 0 & 0 & 0 \\
+                       0 & -1 & 0 & 0 \end{pmatrix}~, ~~~~~~~
+F^{2} = -i \begin{pmatrix}0 & 0 & -1 & 0 \\
+                       0 & 0 & 0 & 0 \\
+                       -1 & 0 & 0 & 1 \\
+                       0 & 0 & -1 & 0 \end{pmatrix}  ~.
+\end{align} 
+Note that $K^3$, $E^1$, $E^2$, and $J^3$ leave $x^+=0$
+invariant and are kinematical generators while $F^1$ and $F^2$ do not and
+are dynamical generators.
+
+It follows that
+\begin{align}
+    [ F^{1}, F^{2} ] = 0  , [J^{3},F^{i}] = i \epsilon^{ij} F^{j}  .
+\end{align}
+Thus $J^3$, $F^1$ and $F^2$ form a closed algebra. Also
+\begin{align}
+    [E^1,E^2]=0, [K^3,E^i] = i E^i.
+\end{align}
+Thus $K^3$, $E^1$ and $E^2$ also form a closed algebra.
+
+\subsection{Algebra}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+From the Lagrangian density one may construct the stress tensor $T^{\mu \nu}$ 
+and from the
+stress tensor one may construct a four-momentum $P^{\mu}$ and a generalized
+angular momentum $L^{\mu \nu}$. \cite{Harindranath, Chang}
+\begin{align}
+P^{\mu} =  \int dx^{-} d^{2}x^{\perp} \; T^{+ \mu}  ,
+\end{align}
+ \begin{align}
+ L^{\mu \nu} =  \int dx^{-} d^{2}x^{\perp} [ x^{\nu} \, T^{+\mu}
+- x^{\mu} \, T^{+\nu} ]  . 
+\end{align}
+Note that $L^{\mu \nu}$ is antisymmetric and hence has six independent
+components. 
+Poincare algebra in terms of $P^{\mu}$ and $L^{\mu \nu}$ is 
+\begin{align}
+[ P^{\mu} , P^{\nu}] = 0  , 
+\end{align}
+\begin{align}
+[ P^{\mu} , L^{\rho \sigma} ] = i [ g^{\mu \rho } P^{\sigma} 
+- g^{\mu \sigma} P^{\rho}]  , 
+\end{align}
+\begin{align}
+[ L^{\mu \nu} , L^{\rho \sigma}] = i [ - g^{\mu \rho} L^{\nu \sigma} +
+g^{\mu \sigma} L^{\nu \rho}- g^{\nu \sigma} L^{\mu \rho} + g^{\nu \rho} L^{\mu
+\sigma} ]  . 
+\end{align}
+\bigskip
+In light-front dynamics $P^{-} $ is the Hamiltonian and $P^{+}$ and 
+$P^{i} \; (i=1,2) \; $ 
+\vspace{-0.3truecm}
+are the momenta. $L^{-+} = K^{3}$ and $L^{+i} = E^{i}$  are
+the boosts. $L^{12} = J^{3}$ and $L^{-i}= F^{i}$ are the rotations. 
+\subsection{Example: Klein–Gordon (1+1)}
+The Boost operator ($L^{+-}$) will be,	\cite{Chang}
+      %{\begin{align}
+	%K^1&=J^{01 }=\int dx^1\left(x^{0 }T^{01 }-x^{1 }T^{00 } \right)\\
+%	M^{0\nu}&= i\int {dk^1}  a^\dagger(k^1) \left(\omega \frac{\partial}{\partial k_\nu}\right)a(k^1) 
+	%\end{align}
+     \begin{align}
+       L^{+-}&=\int dx^-\left(x^{+ }T^{+- }-x^{- }T^{++ } \right)~, \nonumber\\
+       L^{+-}&=x^+P^--\int dx^-\left(x^- T^{++} \right)~,
+      \end{align}
+to evaluate $\int dx^-\left(x^- T^{++} \right) \nonumber$, let's find the space-time evaluation of $a(k^-)$ in Heisenberg's Picture. \cite{Riccardo}
+   \begin{align}
+       a(k^-,x^\mu)&=e^{iP_\mu x^\mu}a(k^-,0)e^{-iP_\mu x^\mu}~,\nonumber\\
+       a(k^-,x^-)&=e^{iP_-. x^-}a(k^-,0)e^{-iP_-.x^-}~,\nonumber\\
+       \frac{\partial}{\partial x^-}a(k^-,x^-)&=[iP_-~e^{iP_-. x^-}a(k^-,0)e^{-iP_-.x^-}]-[e^{iP_-. x^-}a(k^-,0)~iP_-~e^{-iP_-.x^-}]\nonumber~,\\
+       \frac{\partial}{\partial x^-}a(k^-,x^-)&=ie^{iP_-. x^-}\left[P_-,a(k^-,0)\right]e^{-iP_-.x^1}\nonumber~,\\
+       &=-ik_-~e^{iP_-.x^-}a(k^-,0)e^{-iP_-.x^-}=-ik_-~a(k^-,x^-)\nonumber~,\\
+       \Longrightarrow a(k^-,x^-)&=e^{-ik_-.x^-}a(k^-,0)\nonumber~,\\
+       \Longrightarrow a(k^-,0)&=e^{ik_-.x^-}a(k^-,x^-)\nonumber~,\\
+       \Longrightarrow \frac{\partial}{\partial k_-}a(k^-,0)&=ix^-~e^{ik_-.x^-}a(k^-,x^-)=ix^-~a(k^-,0)\nonumber~,
+   \end{align}
+we found that $\int dx^- T^{++}=\int dk^- \;k^+\left (a^{\dagger}(k^-,m)a(k^-,m)\right)$ , so
+  \begin{align}
+      \int dx^-\left(x^- T^{++} \right)=-i\int dk^- \;k^+\left (a^{\dagger}(k^-,m)\frac{\partial}{\partial k_-}a(k^-,m)\right)~,
+  \end{align}
+  then,
+   \begin{align}
+     L^{+-}&=x^+ P^--\int dx^-\left(x^- T^{++} \right)\nonumber~,\\
+     L^{+-}&=x^+P^-+i\int dk^- \;k^+\left (a^{\dagger}(k^-,m)\frac{\partial}{\partial k_-}a(k^-,m)\right) ~,\\
+     L^{-+}&=-i\int dk^- \;k^+\left (a^{\dagger}(k^-,m)\frac{\partial}{\partial k_-}a(k^-,m)\right)-x^+P^- ~,\\
+     \text{at $x^+=0$~,}&\nonumber\\
+     \Aboxed{L^{+-}&=i\int dk^- \;k^+\left (a^{\dagger}(k^-,m)\frac{\partial}{\partial k_-}a(k^-,m)\right)} ~, \\
+     \Aboxed{L^{-+}&=-i\int dk^- \;k^+\left (a^{\dagger}(k^-,m)\frac{\partial}{\partial k_-}a(k^-,m)\right)}~.
+   \end{align}
+let's find, 
+  \begin{align}
+      [L^{+-}, a(k^-)]&=i\int dk^-' \;k^+' \left[\left (a^{\dagger}(k^-',m)\frac{\partial}{\partial k'_-}a(k^-',m)\right), a(k^-)\right]\nonumber~,\\
+      [L^{+-}, a(k^-)]&=-ik^+ \frac{\partial}{\partial k_-}a(k^-,m)\nonumber~,\\
+      [L^{+-}, a^{\dagger}(k^-)]&=i\int dk^-' \;k^+' \left[\left (a^{\dagger}(k^-',m)\frac{\partial}{\partial k_-'}a(k^-',m)\right), a^{\dagger}(k^-)\right]\nonumber~,\\
+      &=ik^+'\int dk^-' a^{\dagger}(k^-',m) \frac{\partial}{\partial k_-'}\delta(k^--k^-')\nonumber~,\\
+      [L^{+-}, a^{\dagger}(k^-)]&=-ik^+\frac{\partial}{\partial k_-}a^{\dagger}(k^-,m)\nonumber~.
+  \end{align}
+Now, the commutation relation between $J^{+-}$ and $P^\mu$ will be, (use, $g^{\mu\nu}=\begin{pmatrix}
+  0 & 1\\ 
+  1 & 0
+\end{pmatrix}=g_{\mu\nu}$)
+    \begin{align}
+          \left[L^{+-},P^+\right]=& \int dk^- \; \left[\left (L^{+-}\right),\left (k^+\;a^{\dagger}(k^-,m)a(k^-,m)\right)\right]\nonumber~,\\
+          =&\int dk^- \; k^+\bigg(a^{\dagger}(k^-,m)\left[\left (L^{+-}\right),a(k^-,m)\right]+\left[\left (L^{+-}\right),a^{\dagger}(k^-,m)\right]a(k^-,m)\bigg)\nonumber~,\\
+          =&-i\int dk^- \;k^+\; k^+\left(a^{\dagger}(k^-,m)\left[\frac{\partial}{\partial k_-}a(k^-,m)\right]+\left[\frac{\partial}{\partial k_-}a^{\dagger}(k^-,m)\right]a(k^-,m)\right)\nonumber~,\\
+          =&-i\int dk^- \;k^+\; k^+\frac{\partial}{\partial k_-}\left(a^{\dagger}(k^-,m)a(k^-,m)\right)=i\int dk^- \; k^+\frac{\partial k^+}{\partial k_-}\left(a^{\dagger}(k^-,m)a(k^-,m)\right)\nonumber~,\\
+          =&i\int dk^- \; k^+\frac{\partial k^+}{\partial k^+}\left(a^{\dagger}(k^-,m)a(k^-,m)\right)=i\int dk^- k^+ \left(a^{\dagger}(k^-)a(k^-)\right)=i~P^+\nonumber~,\\
+          \Aboxed{\left[L^{+-},P^+\right]=&i~P^+}\;\;\checkmark\nonumber~,\\ \left[L^{+-},P^-\right]=& \int dk^- \left[\left (L^{+-}\right),\left (k^-\;a^{\dagger}(k^-,m)a(k^-,m)\right)\right]\nonumber~,\\
+          =&\int dk^- \; k^-\bigg(a^{\dagger}(k^-,m)\left[\left (L^{+-}\right),a(k^-,m)\right]+\left[\left (L^{+-}\right),a^{\dagger}(k^-,m)\right]a(k^-,m)\bigg)\nonumber~,\\
+          =&-i\int dk^- \;k^+\; k^-\left(a^{\dagger}(k^-,m)\left[\frac{\partial}{\partial k_-}a(k^-,m)\right]+\left[\frac{\partial}{\partial k_-}a^{\dagger}(k^-,m)\right]a(k^-,m)\right)\nonumber~,\\
+          =&-i\int dk^- \;k^+\; k^-\frac{\partial}{\partial k_-}\left(a^{\dagger}(k^-,m)a(k^-,m)\right)=i\int dk^- \; k^+\frac{\partial k^-}{\partial k^+}\left(a^{\dagger}(k^-,m)a(k^-,m)\right)\nonumber~,\\
+          =&-i\int dk^- \frac{\partial k^+}{\partial k^+}\; k^-\left(a^{\dagger}(k^-,m)a(k^-,m)\right)=-i\int dk^- k^- \left(a^{\dagger}(k^-)a(k^-)\right)=-i~P^-\nonumber~,\\
+          \Aboxed{\left[L^{+-},P^-\right]=&-i~P^-}\;\;\checkmark\nonumber~,\\
+          \Aboxed{\left[L^{\lambda\sigma},P^\mu\right]=&i~(g^{\sigma\mu}P^\lambda-g^{\lambda\mu}P^\sigma)}\;\;\checkmark~.
+      \end{align}
+  
+  
+  \noindent{\rule{\textwidth}{1.5pt}}
+  
+  
+\chapter{Interpolation between IFD and LFD}      
+In this chapter, we will define the initial surface to interpolate from $x^0=0$ to $x^0+x^1=0$. The angle which the initial or quantization surface makes relative to $x^0=0$ will be left as a parameter. Lorentz-invariant quantities such as masses must in the end be independent of this angle, while in intermediate stages this angle may be chosen for convenience. This Interpolation method was first introduced by Kent Hornbostel in 1992 \cite{Hornbostel}. Then Chueng-Ryong Ji \cite{poin, gauge, crji1, crji2, crji3, crji4} pioneered the idea of connecting the instant form dynamics and the light-front dynamics and contributed to utilizing the light cone in solving relativistic bound state and scattering problems.
+\section{Method of Interpolation Angle}
+In this section, we briefly review the interpolation angle method.
+To trace the forms of relativistic quantum field theory between	IFD and LFD, we take the following convention of the space-time coordinates to define the interpolation angle \cite{Hornbostel, poin, gauge, crji1, crji2, crji3, crji4}. The interpolating space-time coordinates may be defined as a transformation from the ordinary space-time coordinates, $x^{\muT}=\mathcal{R}^{\muT}_{\phantom{\mu}{\nu}}x^{\nu}$, i.e.
+\begin{align}\label{eqn:interpolation_angle_definition}
+  \begin{pmatrix}
+    x^{\hat{+}}\\
+    x^{\hat{1}}\\
+    x^{\hat{2}}\\
+    x^{\hat{-}}
+  \end{pmatrix}=
+  \begin{pmatrix}
+    \cos\delta & 0  & 0  & \sin\delta \\
+    0          & 1  & 0  & 0 \\
+    0          & 0  & 1  & 0 \\
+    \sin\delta & 0  & 0  & -\cos\delta
+  \end{pmatrix}
+  \begin{pmatrix}
+    x^{0}\\
+    x^{1}\\
+    x^{2}\\
+    x^{3}
+  \end{pmatrix},
+\end{align}
+	in which the interpolation angle is allowed to run from 0 through
+	$45^\circ$, $0\le \delta \le \frac{\pi}{4}$.
+	
+In this interpolating basis, the metric becomes
+\begin{align}\label{eqn:g_munu_interpolation}
+  g^{\hat{\mu}\hat{\nu}}
+  = g_{\hat{\mu}\hat{\nu}}
+  =
+  \begin{pmatrix}
+    \mathbb{C} & 0  & 0  & \mathbb{S} \\
+    0 & -1 & 0  & 0 \\
+    0 & 0  & -1 & 0 \\
+    \mathbb{S} & 0  & 0  & -\mathbb{C}
+  \end{pmatrix},
+\end{align}
+where $\mathbb{S}=\sin2\delta$ and $\mathbb{C}=\cos2\delta$.
+The covariant interpolating space-time coordinates are then easily obtained as
+\begin{align}\label{eqn:covariant_x_interpolation_definition}
+  x_{\hat{\mu}}=g_{\hat{\mu}\hat{\nu}}x^{\hat{\nu}}=
+  \begin{pmatrix}
+   x_{\hat{+}}\\
+    x_{\hat{1}}\\
+    x_{\hat{2}}\\
+    x_{\hat{-}}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\delta & 0  & 0  & -\sin\delta \\
+    0          & -1 & 0  & 0 \\
+    0          & 0  & -1 & 0 \\
+    \sin\delta & 0  & 0  & \cos\delta
+  \end{pmatrix}
+  \begin{pmatrix}
+    x^{0}\\
+    x^{1}\\
+    x^{2}\\
+    x^{3}
+  \end{pmatrix}.
+\end{align}
+The lower index variables $x_{\wh{+}}$ and $x_{\wh{-}}$
+	are related to the upper index variables as $x_{\wh{+}}=g_{{\wh{+}\wh{\mu}}}x^{\wh{\mu}}=\mathbb{C}x^{\wh{+}}+\mathbb{S}x^{\wh{-}}$
+        and $x_{\wh{-}}=g_{{\wh{-}\wh{\mu}}}x^{\wh{\mu}}=-\mathbb{C}x^{\wh{-}}+\mathbb{S}x^{\wh{+}}$, 
+        denoting $\mathbb{C}=\rm{cos} 2\delta$ and $\mathbb{S}=\rm{sin} 2\delta$ and 
+        realizing $g_{{\wh{+}\wh{+}}} = -g_{{\wh{-}\wh{-}}}=\rm{cos} 2\delta = \mathbb{C}$ and 
+     	$g_{{\wh{+}\wh{-}}} = g_{{\wh{-}\wh{+}}}= \rm{sin} 2\delta = \mathbb{S}$.
+		 All the indices with the
+	wide-hat notation signify the variables with the interpolation angle
+	$\delta$.  For the limit $\delta \rightarrow 0$ we have $x^{\wh+} = x^0$
+	and $x^{\wh-} = -x^3$ so that we recover usual space-time coordinates
+	although the $z$-axis is inverted while for the other extreme limit, $\delta
+	\rightarrow \frac{\pi}{4}$ we have $x^{\wh{\pm}} = (x^0\pm x^3)/\sqrt{2}
+	\equiv x^{\pm}$ which leads to the standard light-front coordinates.
+	Since the perpendicular components remain the same ($x^{\itP{j}}=x^{j},x_{\itP{j}}=x_{j}, j=1,2$), 
+	we will omit the ``\textasciicircum''  notation unless necessary from now on for 
+	the perpendicular indices $j=1,2$ in a four-vector.
+	Of course, the same interpolation applies to the four-momentum variables too as it applies to all four-vectors.
+	
+The same transformations also apply to the momentum:\cite{gauge}
+\begin{subequations}
+  \label{eqn:P_interpolation}
+  \begin{align}
+    P^{\pT}&=P^{0}\cos\delta + P^{3}\sin\delta,\label{eqn:P_interpolation_1}\\
+    P^{\mT}&=P^{0}\sin\delta - P^{3}\cos\delta,\label{eqn:P_interpolation_2}\\
+    P_{\pT}&=P^{0}\cos\delta - P^{3}\sin\delta,\label{eqn:P_interpolation_3}\\
+    P_{\mT}&=P^{0}\sin\delta + P^{3}\cos\delta.\label{eqn:P_interpolation_4}
+  \end{align}
+\end{subequations}
+
+Since the perpendicular components remain the same ($a^{\itP{j}}=a^{j},a_{\itP{j}}=a_{j}, j=1,2$), we will omit the ``\textasciicircum''  notation unless necessary from now on for the perpendicular indices $j=1,2$ in a four-vector.
+
+Using $g^{\muT\nuT}$ and $g_{\muT\nuT}$, we see that the covariant and contravariant components are related by
+\begin{alignat}{2}
+  a_{\pT}=\Cc a^{\pT}+\Ss a^{\mT}; &\quad a^{\pT}=\Cc a_{\pT}+\Ss a_{\mT} \label{eqn:relation_between_covariant_and_contravariant_components_with_any_interpolation}\\
+  a_{\mT}=\Ss a^{\pT}-\Cc a^{\mT}; &\quad a^{\mT}=\Ss a_{\pT}-\Cc a_{\mT} \nonumber\\
+  a_{j}=-a^{j},&\quad (j=1,2) \nonumber.
+\end{alignat}
+
+The inner product of two four-vectors must be interpolation angle independent as
+one can verify
+\begin{align}\label{eqn:inner_product_of_four_vectors_interpolation_angle}
+  a^{\muT}b_{\muT}&=(a_{\pT}b_{\pT}-a_{\mT}b_{\mT})\Cc+(a_{\pT}b_{\mT}+a_{\mT}b_{\pT})\Ss-a_{1}b_{1}-a_{2}b_{2}\nonumber\\
+  &=a^{\mu}b_{\mu}.
+\end{align}
+In particular, we have the energy-momentum dispersion relation given by
+\begin{align}\label{eqn:on_mass_shell_4_momentum_inner_product}
+  P^{\muT}P_{\muT}=P_{\pT}^{2}\Cc-P_{\mT}^{2}\Cc+2P_{\pT}P_{\mT}\Ss-\mathbf{P}_{\perp}^{2}.
+\end{align}
+
+	
+\section{Poincaré Matrix}
+The Poincar\'e matrix \cite{poin, gauge}
+\begin{align}\label{eqn:J_mu_nu_IF}
+  L^{\mu\nu}&=
+  \begin{pmatrix}
+    0 & K^{1} & K^{2} & K^{3}\\
+    -K^{1} & 0 & J^{3} & -J^{2}\\
+    -K^{2} & -J^{3} & 0 & J^{1}\\
+    -K^{3} & J^{2} & -J^{1} & 0
+  \end{pmatrix}~,
+\end{align}
+transforms as well, so that
+\begin{align}\label{eqn:Poincare_Matrix_Interpolation_superscripts}
+  L^{\muT\nuT}
+  &=
+  \mathcal{R}^{\muT}_{\alpha}L^{\alpha\beta}\mathcal{R}^{\nuT}_{\beta}
+  =
+  \begin{pmatrix}
+    0 & {E}^{\itP{1}} & {E}^{\itP{2}} & -{K}^{3}\\
+    -{E}^{\itP{1}} & 0 & {J}^{3} & -{F}^{\itP{1}}\\
+    -{E}^{\itP{2}} & -{J}^{3} & 0 & -{F}^{\itP{2}}\\
+    {K}^{3} & {F}^{\itP{1}} & {F}^{\itP{2}} & 0
+  \end{pmatrix}~,
+\end{align}
+and
+\begin{align}\label{eqn:Poincare_Matrix_Interpolation_subscripts}
+  L_{\muT\nuT}
+  =
+  g_{\muT\itP{\alpha}}L^{\itP{\alpha}\itP{\beta}}g_{\itP{\beta}\nuT}
+  =
+  \begin{pmatrix}
+    0 & {\mathcal{D}}^{\itP{1}} & {\mathcal{D}}^{\itP{2}} & {K}^{3}\\
+    -{\mathcal{D}}^{\itP{1}} & 0 & {J}^{3} & -{\mathcal{K}}^{\itP{1}}\\
+    -{\mathcal{D}}^{\itP{2}} & -{J}^{3} & 0 & -{\mathcal{K}}^{\itP{2}}\\
+    -{K}^{3} & {\mathcal{K}}^{\itP{1}} & {\mathcal{K}}^{\itP{2}} & 0
+  \end{pmatrix},
+\end{align}
+where
+\begin{align}\label{eqn:E_F_D_K_Definition_Interpolation_Angle}
+  &E^{\itP{1}}=J^{2}\sin\delta+K^{1}\cos\delta,
+  &&\mathcal{K}^{\itP{1}}=-K^{1}\sin\delta-J^{2}\cos\delta, \nonumber\\
+  &E^{\itP{2}}=K^{2}\cos\delta-J^{1}\sin\delta,
+  &&\mathcal{K}^{\itP{2}}=J^{1}\cos\delta-K^{2}\sin\delta, \nonumber\\
+  &F^{\itP{1}}=K^{1}\sin\delta-J^{2}\cos\delta,
+  &&\mathcal{D}^{\itP{1}}=-K^{1}\cos\delta+J^{2}\sin\delta, \nonumber\\
+  &F^{\itP{2}}=K^{2}\sin\delta+J^{1}\cos\delta,
+  &&\mathcal{D}^{\itP{2}}=-J^{1}\sin\delta-K^{2}\cos\delta.
+\end{align}
+The interpolating $E^{\itP{j}}$ and $F^{\itP{j}}$ will coincide with the usual $E^{j}$ and $F^{j}$ of LFD in the limit $\delta=\pi/4$.
+Note here that the ``\textasciicircum'' notation is reinstated for $1, 2$ to emphasize the angle $\delta$ dependence and that the position of the indices on $K, J, E, F, \mathcal{D}, \mathcal{K}$ won't matter as they are not the four-vectors: i.e. $E_{\itP{1}}=E^{\itP{1}}$, etc. Of course, $L^{\muT\nuT}$ and $L_{\muT\nuT}$ should be distinguished in any case.
+\section{Interpolating Poincaré Algebra}
+In this interpolating basis, the metric becomes
+\begin{align}\label{eqn:g_munu_interpolation}
+  g^{\hat{\mu}\hat{\nu}}
+  = g_{\hat{\mu}\hat{\nu}}
+  =
+  \begin{pmatrix}
+    \mathbb{C} & 0  & 0  & \mathbb{S} \\
+    0 & -1 & 0  & 0 \\
+    0 & 0  & -1 & 0 \\
+    \mathbb{S} & 0  & 0  & -\mathbb{C}
+  \end{pmatrix},
+\end{align}
+The Poincaré algebra (Contra-variant form) in this interpolating basis is given by
+\begin{align}
+    \left[P^{\hat{\mu}},P^{\hat{\nu}}\right]&=0,\nonumber\\
+    \left[P^{\hat{\rho}},L^{\hat{\mu}\hat{\nu}}\right]&=i\left(g^{\hat{\rho}\hat{\mu}}P^{\hat{\nu}}-g^{\hat{\rho}\hat{\nu}}P^{\hat{\mu}}\right),\nonumber\\
+    \left[L^{\hat{\alpha}\hat{\beta}},L^{\hat{\rho}\hat{\sigma}}\right]&=-i\left(g^{\hat{\beta}\hat{\sigma}}L^{\hat{\alpha}\hat{\rho}}-g^{\hat{\beta}\hat{\rho}}L^{\hat{\alpha}\hat{\sigma}}+g^{\hat{\alpha}\hat{\rho}}L^{\hat{\beta}\hat{\sigma}}-g^{\hat{\alpha}\hat{\sigma}}L^{\hat{\beta}\hat{\rho}}\right).
+\end{align}
+A comprehensive list of the 45 commutation relations among the contra-variant and co-variant components of the Poincare´ generators is presented below: \cite{poin}
+\subsubsection{Poincaré algebra: Contra-variant form}
+1) \subsubsubsection{$\left[P^{\hat{\mu}},P^{\hat{\nu}}\right]=0$}
+
+$P^{\hat{\mu}}$ are the Energy and Momenta.
+\begin{align*}
+    &\left[P^{\hat{+}},P^{\hat{1}}\right]=0~,\\
+    &\left[P^{\hat{+}},P^{\hat{2}}\right]=0~,\\
+    &\left[P^{\hat{+}},P^{\hat{-}}\right]=0~,\\
+    &\left[P^{\hat{1}},P^{\hat{2}}\right]=0~,\\
+    & \left[P^{\hat{-}},P^{\hat{1}}\right]=0~,\\
+    &\left[P^{\hat{-}},P^{\hat{2}}\right]=0~.
+\end{align*}\\
+2) \subsubsubsection{$\left[P^{\hat{\rho}},L^{\hat{\mu}\hat{\nu}}\right]=i\left(g^{\hat{\rho}\hat{\mu}}P^{\hat{\nu}}-g^{\hat{\rho}\hat{\nu}}P^{\hat{\mu}}\right)$}
+
+$L^{\hat{\mu}\hat{\nu}}$ are the Angular Momenta. (Where, $L^{\hat{-}\hat{+}}=K^\hat{3}$ is  the Boost, $L^{\hat{+}\hat{i}}=E^\hat{i}$ are the  Transverse Boosts , $L^{\hat{1}\hat{2}}=J^\hat{3}$ is the Rotation, $L^{\hat{-}\hat{i}}=F^\hat{i}$ are the  Transverse Rotations). 
+\begin{align*}
+    &\left[P^{\hat{+}},L^{\hat{-}\hat{+}}\right]=\left[P^{\hat{+}},K^{\hat{3}}\right]=i\left(g^{\hat{+}\hat{-}}P^{\hat{+}}-g^{\hat{+}\hat{+}}P^{\hat{-}}\right)=i\left(\mathbb{S}P^{\hat{+}}-\mathbb{C}P^{\hat{-}}\right)=iP_{\hat{-}}~,\\
+    &\left[P^{\hat{+}},L^{\hat{+}\hat{1}}\right]=\left[P^{\hat{+}},E^\hat{1}\right]=i\left(g^{\hat{+}\hat{+}}P^{\hat{1}}-g^{\hat{+}\hat{1}}P^{\hat{+}}\right)=i\mathbb{C}P^{\hat{1}}~,\\
+    &\left[P^{\hat{+}},L^{\hat{+}\hat{2}}\right]=\left[P^{\hat{+}},E^\hat{2}\right]=i\left(g^{\hat{+}\hat{+}}P^{\hat{2}}-g^{\hat{+}\hat{2}}P^{\hat{+}}\right)=i\mathbb{C}P^{\hat{2}}~,\\
+    &\left[P^{\hat{+}},L^{\hat{1}\hat{2}}\right]=\left[P^{\hat{+}},J^\hat{3}\right]=i\left(g^{\hat{+}\hat{1}}P^{\hat{2}}-g^{\hat{+}\hat{2}}P^{\hat{1}}\right)=0~,\\
+    &\left[P^{\hat{+}},L^{\hat{-}\hat{1}}\right]=\left[P^{\hat{+}},F^\hat{1}\right]=i\left(g^{\hat{+}\hat{-}}P^{\hat{1}}-g^{\hat{+}\hat{1}}P^{\hat{-}}\right)=i\mathbb{S}P^{\hat{1}}~,\\
+    &\left[P^{\hat{+}},L^{\hat{-}\hat{2}}\right]=\left[P^{\hat{+}},F^\hat{2}\right]=i\left(g^{\hat{+}\hat{-}}P^{\hat{2}}-g^{\hat{+}\hat{2}}P^{\hat{-}}\right)=i\mathbb{S}P^{\hat{2}}~,\\
+    &\left[P^{\hat{1}},L^{\hat{-}\hat{+}}\right]=\left[P^{\hat{1}},K^\hat{3}\right]=i\left(g^{\hat{1}\hat{-}}P^{\hat{+}}-g^{\hat{1}\hat{+}}P^{\hat{-}}\right)=0~,\\
+    &\left[P^{\hat{1}},L^{\hat{+}\hat{1}}\right]=\left[P^{\hat{1}},E^\hat{1}\right]=i\left(g^{\hat{1}\hat{+}}P^{\hat{1}}-g^{\hat{1}\hat{1}}P^{\hat{+}}\right)=iP^{\hat{+}}=i\left(\mathbb{C}P_{\hat{+}}+\mathbb{S}P_{\hat{-}}\right)~,\\
+    &\left[P^{\hat{1}},L^{\hat{+}\hat{2}}\right]=\left[P^{\hat{1}},E^\hat{2}\right]=i\left(g^{\hat{1}\hat{+}}P^{\hat{2}}-g^{\hat{1}\hat{2}}P^{\hat{+}}\right)=0~,\\
+    &\left[P^{\hat{1}},L^{\hat{1}\hat{2}}\right]=\left[P^{\hat{1}},J^\hat{3}\right]=i\left(g^{\hat{1}\hat{1}}P^{\hat{2}}-g^{\hat{1}\hat{2}}P^{\hat{1}}\right)=-iP^{\hat{2}}~,\\
+    &\left[P^{\hat{1}},L^{\hat{-}\hat{1}}\right]=\left[P^{\hat{1}},F^\hat{1}\right]=i\left(g^{\hat{1}\hat{-}}P^{\hat{1}}-g^{\hat{1}\hat{1}}P^{\hat{-}}\right)=iP^{\hat{-}}=i\left(\mathbb{S}P_{\hat{+}}-\mathbb{C}P_{\hat{-}}\right)~,\\
+    &\left[P^{\hat{1}},L^{\hat{-}\hat{2}}\right]=\left[P^{\hat{1}},F^\hat{2}\right]=i\left(g^{\hat{1}\hat{-}}P^{\hat{2}}-g^{\hat{1}\hat{2}}P^{\hat{-}}\right)=0~,\\
+    &\left[P^{\hat{2}},L^{\hat{-}\hat{+}}\right]=\left[P^{\hat{2}},K^\hat{3}\right]=i\left(g^{\hat{2}\hat{-}}P^{\hat{+}}-g^{\hat{2}\hat{+}}P^{\hat{-}}\right)=0~,\\
+    &\left[P^{\hat{2}},L^{\hat{+}\hat{1}}\right]=\left[P^{\hat{2}},E^\hat{1}\right]=i\left(g^{\hat{2}\hat{+}}P^{\hat{1}}-g^{\hat{2}\hat{1}}P^{\hat{+}}\right)=0~,
+    \end{align*}
+    \begin{align*}
+    &\left[P^{\hat{2}},L^{\hat{+}\hat{2}}\right]=\left[P^{\hat{2}},E^\hat{2}\right]=i\left(g^{\hat{2}\hat{+}}P^{\hat{2}}-g^{\hat{2}\hat{2}}P^{\hat{+}}\right)=iP^{\hat{+}}=i\left(\mathbb{C}P_{\hat{+}}+\mathbb{S}P_{\hat{-}}\right)~,\\
+    &\left[P^{\hat{2}},L^{\hat{1}\hat{2}}\right]=\left[P^{\hat{2}},J^\hat{3}\right]=i\left(g^{\hat{2}\hat{1}}P^{\hat{2}}-g^{\hat{2}\hat{2}}P^{\hat{1}}\right)=iP^{\hat{1}}~,\\
+    &\left[P^{\hat{2}},L^{\hat{-}\hat{1}}\right]=\left[P^{\hat{2}},F^\hat{1}\right]=i\left(g^{\hat{2}\hat{-}}P^{\hat{1}}-g^{\hat{2}\hat{1}}P^{\hat{-}}\right)=0~,\\
+    &\left[P^{\hat{2}},L^{\hat{-}\hat{2}}\right]=\left[P^{\hat{2}},F^\hat{2}\right]=i\left(g^{\hat{2}\hat{-}}P^{\hat{2}}-g^{\hat{2}\hat{2}}P^{\hat{-}}\right)=iP^{\hat{-}}=i\left(\mathbb{S}P_{\hat{+}}-\mathbb{C}P_{\hat{-}}\right)~,\\
+    &\left[P^{\hat{-}},L^{\hat{-}\hat{+}}\right]=\left[P^{\hat{-}},K^{\hat{3}}\right]=i\left(g^{\hat{-}\hat{-}}P^{\hat{+}}-g^{\hat{-}\hat{+}}P^{\hat{-}}\right)=i\left(-\mathbb{C}P^{\hat{+}}-\mathbb{S}P^{\hat{-}}\right)=-iP_{\hat{+}}~,\\
+    &\left[P^{\hat{-}},L^{\hat{+}\hat{1}}\right]=\left[P^{\hat{-}},E^\hat{1}\right]=i\left(g^{\hat{-}\hat{+}}P^{\hat{1}}-g^{\hat{-}\hat{1}}P^{\hat{+}}\right)=i\mathbb{S}P^{\hat{1}}~,\\
+    &\left[P^{\hat{-}},L^{\hat{+}\hat{2}}\right]=\left[P^{\hat{-}},E^\hat{2}\right]=i\left(g^{\hat{-}\hat{+}}P^{\hat{2}}-g^{\hat{-}\hat{2}}P^{\hat{+}}\right)=i\mathbb{S}P^{\hat{2}}~,\\
+    &\left[P^{\hat{-}},L^{\hat{1}\hat{2}}\right]=\left[P^{\hat{-}},J^\hat{3}\right]=i\left(g^{\hat{-}\hat{1}}P^{\hat{2}}-g^{\hat{-}\hat{2}}P^{\hat{1}}\right)=0~,\\
+    &\left[P^{\hat{-}},L^{\hat{-}\hat{1}}\right]=\left[P^{\hat{-}},F^\hat{1}\right]=i\left(g^{\hat{-}\hat{-}}P^{\hat{1}}-g^{\hat{-}\hat{1}}P^{\hat{-}}\right)=-i\mathbb{C}P^{\hat{1}}~,\\
+    &\left[P^{\hat{-}},L^{\hat{-}\hat{2}}\right]=\left[P^{\hat{-}},F^\hat{2}\right]=i\left(g^{\hat{-}\hat{-}}P^{\hat{2}}-g^{\hat{-}\hat{2}}P^{\hat{-}}\right)=-i\mathbb{C}P^{\hat{2}}~.
+\end{align*}\\
+3)\subsubsubsection{$\left[L^{\hat{\alpha}\hat{\beta}},L^{\hat{\rho}\hat{\sigma}}\right]=-i\left(g^{\hat{\beta}\hat{\sigma}}L^{\hat{\alpha}\hat{\rho}}-g^{\hat{\beta}\hat{\rho}}L^{\hat{\alpha}\hat{\sigma}}+g^{\hat{\alpha}\hat{\rho}}L^{\hat{\beta}\hat{\sigma}}-g^{\hat{\alpha}\hat{\sigma}}L^{\hat{\beta}\hat{\rho}}\right)$}
+
+$L^{\hat{\mu}\hat{\nu}}$ are the Angular Momenta. (Where, $L^{\hat{-}\hat{+}}=K^\hat{3}$ is  the Boost, $L^{\hat{+}\hat{i}}=E^\hat{i}$ are the  Transverse Boosts , $L^{\hat{1}\hat{2}}=J^\hat{3}$ is the Rotation, $L^{\hat{-}\hat{i}}=F^\hat{i}$ are the  Transverse Rotations). 
+\begin{align*}
+    &\left[L^{\hat{-}\hat{+}},L^{\hat{+}\hat{1}}\right]=\left[K^{\hat{3}},E^\hat{1}\right]=-i\left(g^{\hat{+}\hat{1}}L^{\hat{-}\hat{+}}-g^{\hat{+}\hat{+}}L^{\hat{-}\hat{1}}+g^{\hat{-}\hat{+}}L^{\hat{+}\hat{1}}-g^{\hat{-}\hat{1}}L^{\hat{+}\hat{+}}\right)=i\mathbb{C}F^{\hat{1}}-i\mathbb{S}E^{\hat{1}}~,\\
+    &\left[L^{\hat{-}\hat{+}},L^{\hat{+}\hat{2}}\right]=\left[K^{\hat{3}},E^\hat{2}\right]=-i\left(g^{\hat{+}\hat{2}}L^{\hat{-}\hat{+}}-g^{\hat{+}\hat{+}}L^{\hat{-}\hat{2}}+g^{\hat{-}\hat{+}}L^{\hat{+}\hat{2}}-g^{\hat{-}\hat{2}}L^{\hat{+}\hat{+}}\right)=i\mathbb{C}F^{\hat{2}}-i\mathbb{S}E^{\hat{2}}~,\\
+    &\left[L^{\hat{-}\hat{+}},L^{\hat{1}\hat{2}}\right]=\left[K^{\hat{3}},J^{\hat{3}}\right]=-i\left(g^{\hat{+}\hat{2}}L^{\hat{-}\hat{1}}-g^{\hat{+}\hat{1}}L^{\hat{-}\hat{2}}+g^{\hat{-}\hat{1}}L^{\hat{+}\hat{2}}-g^{\hat{-}\hat{2}}L^{\hat{+}\hat{1}}\right)=0~,\\
+    &\left[L^{\hat{-}\hat{+}},L^{\hat{-}\hat{1}}\right]=\left[K^{\hat{3}},F^{\hat{1}}\right]=-i\left(g^{\hat{+}\hat{1}}L^{\hat{-}\hat{-}}-g^{\hat{+}\hat{-}}L^{\hat{-}\hat{1}}+g^{\hat{-}\hat{-}}L^{\hat{+}\hat{1}}-g^{\hat{-}\hat{1}}L^{\hat{+}\hat{-}}\right)=i\mathbb{S}F^{\hat{1}}+i\mathbb{C}E^{\hat{1}}~,\\
+    &\left[L^{\hat{-}\hat{+}},L^{\hat{-}\hat{2}}\right]=\left[K^{\hat{3}},F^{\hat{2}}\right]=-i\left(g^{\hat{+}\hat{2}}L^{\hat{-}\hat{-}}-g^{\hat{+}\hat{-}}L^{\hat{-}\hat{2}}+g^{\hat{-}\hat{-}}L^{\hat{+}\hat{2}}-g^{\hat{-}\hat{2}}L^{\hat{+}\hat{-}}\right)=i\mathbb{S}F^{\hat{2}}+i\mathbb{C}E^{\hat{2}}~,\\
+    &\left[L^{\hat{+}\hat{1}},L^{\hat{+}\hat{2}}\right]=\left[E^{\hat{1}},E^{\hat{2}}\right]=-i\left(g^{\hat{1}\hat{2}}L^{\hat{+}\hat{+}}-g^{\hat{1}\hat{+}}L^{\hat{+}\hat{2}}+g^{\hat{+}\hat{+}}L^{\hat{1}\hat{2}}-g^{\hat{+}\hat{2}}L^{\hat{1}\hat{+}}\right)=-i\mathbb{C}J^{\hat{3}}~,\\
+    &\left[L^{\hat{+}\hat{1}},L^{\hat{1}\hat{2}}\right]=\left[E^{\hat{1}},J^{\hat{3}}\right]=-i\left(g^{\hat{1}\hat{2}}L^{\hat{+}\hat{1}}-g^{\hat{1}\hat{1}}L^{\hat{+}\hat{2}}+g^{\hat{+}\hat{1}}L^{\hat{1}\hat{2}}-g^{\hat{+}\hat{2}}L^{\hat{1}\hat{1}}\right)=-iE^{\hat{2}}~,\\
+    &\left[L^{\hat{+}\hat{1}},L^{\hat{-}\hat{1}}\right]=\left[E^{\hat{1}},F^{\hat{1}}\right]=-i\left(g^{\hat{1}\hat{1}}L^{\hat{+}\hat{-}}-g^{\hat{1}\hat{-}}L^{\hat{+}\hat{1}}+g^{\hat{+}\hat{-}}L^{\hat{1}\hat{1}}-g^{\hat{+}\hat{1}}L^{\hat{1}\hat{-}}\right)=-iK^{\hat{3}}~,\\
+    &\left[L^{\hat{+}\hat{1}},L^{\hat{-}\hat{2}}\right]=\left[E^{\hat{1}},F^{\hat{2}}\right]=-i\left(g^{\hat{1}\hat{2}}L^{\hat{+}\hat{-}}-g^{\hat{1}\hat{-}}L^{\hat{+}\hat{2}}+g^{\hat{+}\hat{-}}L^{\hat{1}\hat{2}}-g^{\hat{+}\hat{2}}L^{\hat{1}\hat{-}}\right)=-i\mathbb{S}J^{\hat{3}}~,\\
+    &\left[L^{\hat{+}\hat{2}},L^{\hat{1}\hat{2}}\right]=\left[E^{\hat{2}},J^{\hat{3}}\right]=-i\left(g^{\hat{2}\hat{2}}L^{\hat{+}\hat{1}}-g^{\hat{2}\hat{1}}L^{\hat{+}\hat{2}}+g^{\hat{+}\hat{1}}L^{\hat{2}\hat{2}}-g^{\hat{+}\hat{2}}L^{\hat{2}\hat{1}}\right)=iE^{\hat{1}}~,
+    \end{align*}
+    \begin{align*}
+    &\left[L^{\hat{+}\hat{2}},L^{\hat{-}\hat{1}}\right]=\left[E^{\hat{2}},F^{\hat{1}}\right]=-i\left(g^{\hat{2}\hat{1}}L^{\hat{+}\hat{-}}-g^{\hat{2}\hat{-}}L^{\hat{+}\hat{1}}+g^{\hat{+}\hat{-}}L^{\hat{2}\hat{1}}-g^{\hat{+}\hat{1}}L^{\hat{2}\hat{-}}\right)=i\mathbb{S}J^{\hat{3}}~,\\
+    &\left[L^{\hat{+}\hat{2}},L^{\hat{-}\hat{2}}\right]=\left[E^{\hat{2}},F^{\hat{2}}\right]=-i\left(g^{\hat{2}\hat{2}}L^{\hat{+}\hat{-}}-g^{\hat{2}\hat{-}}L^{\hat{+}\hat{2}}+g^{\hat{+}\hat{-}}L^{\hat{2}\hat{2}}-g^{\hat{+}\hat{2}}L^{\hat{2}\hat{-}}\right)=-iK^{\hat{3}}~,\\
+    &\left[L^{\hat{1}\hat{2}},L^{\hat{-}\hat{1}}\right]=\left[J^{\hat{3}},F^{\hat{1}}\right]=-i\left(g^{\hat{2}\hat{1}}L^{\hat{1}\hat{-}}-g^{\hat{2}\hat{-}}L^{\hat{1}\hat{1}}+g^{\hat{1}\hat{-}}L^{\hat{2}\hat{1}}-g^{\hat{1}\hat{1}}L^{\hat{2}\hat{-}}\right)=iF^{\hat{2}}~,\\
+    &\left[L^{\hat{1}\hat{2}},L^{\hat{-}\hat{2}}\right]=\left[J^{\hat{3}},F^{\hat{2}}\right]=-i\left(g^{\hat{2}\hat{2}}L^{\hat{1}\hat{-}}-g^{\hat{2}\hat{-}}L^{\hat{1}\hat{2}}+g^{\hat{1}\hat{-}}L^{\hat{2}\hat{2}}-g^{\hat{1}\hat{2}}L^{\hat{2}\hat{-}}\right)=-iF^{\hat{1}}~,\\
+    &\left[L^{\hat{-}\hat{1}},L^{\hat{-}\hat{2}}\right]=\left[F^{\hat{1}},F^{\hat{2}}\right]=-i\left(g^{\hat{1}\hat{2}}L^{\hat{-}\hat{-}}-g^{\hat{1}\hat{-}}L^{\hat{-}\hat{2}}+g^{\hat{-}\hat{-}}L^{\hat{1}\hat{2}}-g^{\hat{-}\hat{2}}L^{\hat{1}\hat{-}}\right)=i\mathbb{C}J^{\hat{3}}~.
+\end{align*}
+
+\subsubsection{Poincaré algebra: Co-variant form}
+1)\subsubsubsection{$\left[P_{\hat{\mu}},P_{\hat{\nu}}\right]=0$}
+
+$P^{\hat{\mu}}$ are the Energy and Momenta.
+\begin{align*}
+    &\left[P_{\hat{+}},P_{\hat{1}}\right]=0~,\\
+    &\left[P_{\hat{+}},P_{\hat{2}}\right]=0~,\\
+    &\left[P_{\hat{+}},P_{\hat{-}}\right]=0~,\\
+    &\left[P_{\hat{1}},P_{\hat{2}}\right]=0~,\\
+    & \left[P_{\hat{-}},P_{\hat{1}}\right]=0~,\\
+    &\left[P_{\hat{-}},P_{\hat{2}}\right]=0~.
+\end{align*}\\
+2) \subsubsubsection{$\left[P_{\hat{\rho}},L_{\hat{\mu}\hat{\nu}}\right]=i\left(g_{\hat{\rho}\hat{\mu}}P_{\hat{\nu}}-g_{\hat{\rho}\hat{\nu}}P_{\hat{\mu}}\right)$}
+
+$L_{\hat{\mu}\hat{\nu}}$ are the Angular Momenta. (Where, $L_{\hat{+}\hat{-}}=-L_{\hat{-}\hat{+}}=K^\hat{3}$,$L_{\hat{+}\hat{i}}=\mathcal{D}^{\hat{i}}=-\mathbb{S}F^{\hat{i}}-\mathbb{C}E^{\hat{i}}$, $L_{\hat{1}\hat{2}}=J^\hat{3}$, and $L_{\hat{-}\hat{i}}=\mathcal{K}^{\hat{i}}=\mathbb{C}F^{\hat{i}}-\mathbb{S}E^{\hat{i}}$). 
+\begin{align*}
+    &\left[P_{\hat{+}},L_{\hat{+}\hat{-}}\right]=\left[P_{\hat{+}},K^{\hat{3}}\right]=i\left(g_{\hat{+}\hat{+}}P_{\hat{-}}-g_{\hat{+}\hat{-}}P_{\hat{+}}\right)=i\left(\mathbb{C}P_{\hat{-}}-\mathbb{S}P_{\hat{+}}\right)~,\\
+    &\left[P_{\hat{+}},L_{\hat{+}\hat{1}}\right]=\left[P_{\hat{+}},\mathcal{D}^\hat{1}\right]=i\left(g_{\hat{+}\hat{+}}P_{\hat{1}}-g_{\hat{+}\hat{1}}P_{\hat{+}}\right)=i\mathbb{C}P_{\hat{1}}~,\\
+    &\left[P_{\hat{+}},L_{\hat{+}\hat{2}}\right]=\left[P_{\hat{+}},\mathcal{D}^\hat{2}\right]=i\left(g_{\hat{+}\hat{+}}P_{\hat{2}}-g_{\hat{+}\hat{2}}P_{\hat{+}}\right)=i\mathbb{C}P_{\hat{2}}~,\\
+    &\left[P_{\hat{+}},L_{\hat{1}\hat{2}}\right]=\left[P_{\hat{+}},J^\hat{3}\right]=i\left(g_{\hat{+}\hat{1}}P_{\hat{2}}-g_{\hat{+}\hat{2}}P_{\hat{1}}\right)=0~,\\
+    &\left[P_{\hat{+}},L_{\hat{-}\hat{1}}\right]=\left[P_{\hat{+}},\mathcal{K}^\hat{1}\right]=i\left(g_{\hat{+}\hat{-}}P_{\hat{1}}-g_{\hat{+}\hat{1}}P_{\hat{-}}\right)=i\mathbb{S}P_{\hat{1}}~,\\
+    &\left[P_{\hat{+}},L_{\hat{-}\hat{2}}\right]=\left[P_{\hat{+}},\mathcal{K}^\hat{2}\right]=i\left(g_{\hat{+}\hat{-}}P_{\hat{2}}-g_{\hat{+}\hat{2}}P_{\hat{-}}\right)=i\mathbb{S}P_{\hat{2}}~,
+    \end{align*}
+    \begin{align*}
+    &\left[P_{\hat{1}},L_{\hat{+}\hat{-}}\right]=\left[P_{\hat{1}},K^\hat{3}\right]=i\left(g_{\hat{1}\hat{+}}P_{\hat{-}}-g_{\hat{1}\hat{-}}P_{\hat{+}}\right)=0~,\\
+    &\left[P_{\hat{1}},L_{\hat{+}\hat{1}}\right]=\left[P_{\hat{1}},\mathcal{D}^\hat{1}\right]=i\left(g_{\hat{1}\hat{+}}P_{\hat{1}}-g_{\hat{1}\hat{1}}P_{\hat{+}}\right)=iP_{\hat{+}}~,\\
+    &\left[P_{\hat{1}},L_{\hat{+}\hat{2}}\right]=\left[P_{\hat{1}},\mathcal{D}^\hat{2}\right]=i\left(g_{\hat{1}\hat{+}}P_{\hat{2}}-g_{\hat{1}\hat{2}}P_{\hat{+}}\right)=0~,\\
+    &\left[P_{\hat{1}},L_{\hat{1}\hat{2}}\right]=\left[P_{\hat{1}},J^\hat{3}\right]=i\left(g_{\hat{1}\hat{1}}P_{\hat{2}}-g_{\hat{1}\hat{2}}P_{\hat{1}}\right)=-iP_{\hat{2}}~,\\
+    &\left[P_{\hat{1}},L_{\hat{-}\hat{1}}\right]=\left[P_{\hat{1}},\mathcal{K}^\hat{1}\right]=i\left(g_{\hat{1}\hat{-}}P_{\hat{1}}-g_{\hat{1}\hat{1}}P_{\hat{-}}\right)=iP_{\hat{-}}~,\\
+    &\left[P_{\hat{1}},L_{\hat{-}\hat{2}}\right]=\left[P_{\hat{1}},\mathcal{K}^\hat{2}\right]=i\left(g_{\hat{1}\hat{-}}P_{\hat{2}}-g_{\hat{1}\hat{2}}P_{\hat{-}}\right)=0~,\\
+    &\left[P_{\hat{2}},L_{\hat{+}\hat{-}}\right]=\left[P_{\hat{2}},K^\hat{3}\right]=i\left(g_{\hat{2}\hat{+}}P_{\hat{-}}-g_{\hat{2}\hat{-}}P_{\hat{+}}\right)=0~,\\
+    &\left[P_{\hat{2}},L_{\hat{+}\hat{1}}\right]=\left[P_{\hat{2}},\mathcal{D}^\hat{1}\right]=i\left(g_{\hat{2}\hat{+}}P_{\hat{1}}-g_{\hat{2}\hat{1}}P_{\hat{+}}\right)=0~,\\
+    &\left[P_{\hat{2}},L_{\hat{+}\hat{2}}\right]=\left[P_{\hat{2}},\mathcal{D}^\hat{2}\right]=i\left(g_{\hat{2}\hat{+}}P_{\hat{2}}-g_{\hat{2}\hat{2}}P_{\hat{+}}\right)=iP_{\hat{+}}~,\\
+    &\left[P_{\hat{2}},L_{\hat{1}\hat{2}}\right]=\left[P_{\hat{2}},J^\hat{3}\right]=i\left(g_{\hat{2}\hat{1}}P_{\hat{2}}-g_{\hat{2}\hat{2}}P_{\hat{1}}\right)=iP_{\hat{1}}~,\\
+    &\left[P_{\hat{2}},L_{\hat{-}\hat{1}}\right]=\left[P_{\hat{2}},\mathcal{K}^\hat{1}\right]=i\left(g_{\hat{2}\hat{-}}P_{\hat{1}}-g_{\hat{2}\hat{1}}P_{\hat{-}}\right)=0~,\\
+    &\left[P_{\hat{2}},L_{\hat{-}\hat{2}}\right]=\left[P_{\hat{2}},\mathcal{K}^\hat{2}\right]=i\left(g_{\hat{2}\hat{-}}P_{\hat{2}}-g_{\hat{2}\hat{2}}P_{\hat{-}}\right)=iP_{\hat{-}}~,\\
+    &\left[P_{\hat{-}},L_{\hat{+}\hat{-}}\right]=\left[P_{\hat{-}},K^{\hat{3}}\right]=i\left(g_{\hat{-}\hat{+}}P_{\hat{-}}-g_{\hat{-}\hat{-}}P_{\hat{+}}\right)=i\left(\mathbb{S}P_{\hat{-}}+\mathbb{C}P_{\hat{+}}\right)~,\\
+    &\left[P_{\hat{-}},L_{\hat{+}\hat{1}}\right]=\left[P_{\hat{-}},\mathcal{D}^\hat{1}\right]=i\left(g_{\hat{-}\hat{+}}P_{\hat{1}}-g_{\hat{-}\hat{1}}P_{\hat{+}}\right)=i\mathbb{S}P_{\hat{1}}~,\\
+    &\left[P_{\hat{-}},L_{\hat{+}\hat{2}}\right]=\left[P_{\hat{-}},\mathcal{D}^\hat{2}\right]=i\left(g_{\hat{-}\hat{+}}P_{\hat{2}}-g_{\hat{-}\hat{2}}P_{\hat{+}}\right)=i\mathbb{S}P_{\hat{2}}~,\\
+    &\left[P_{\hat{-}},L_{\hat{1}\hat{2}}\right]=\left[P_{\hat{-}},J^\hat{3}\right]=i\left(g_{\hat{-}\hat{1}}P_{\hat{2}}-g_{\hat{-}\hat{2}}P_{\hat{1}}\right)=0~,\\
+    &\left[P_{\hat{-}},L_{\hat{-}\hat{1}}\right]=\left[P_{\hat{-}},\mathcal{K}^\hat{1}\right]=i\left(g_{\hat{-}\hat{-}}P_{\hat{1}}-g_{\hat{-}\hat{1}}P_{\hat{-}}\right)=-i\mathbb{C}P_{\hat{1}}~,\\
+    &\left[P_{\hat{-}},L_{\hat{-}\hat{2}}\right]=\left[P_{\hat{-}},\mathcal{K}^\hat{2}\right]=i\left(g_{\hat{-}\hat{-}}P_{\hat{2}}-g_{\hat{-}\hat{2}}P_{\hat{-}}\right)=-i\mathbb{C}P_{\hat{2}}~.
+\end{align*}\\
+3) \subsubsubsection{$\left[L_{\hat{\alpha}\hat{\beta}},L_{\hat{\rho}\hat{\sigma}}\right]=-i\left(g_{\hat{\beta}\hat{\sigma}}L_{\hat{\alpha}\hat{\rho}}-g_{\hat{\beta}\hat{\rho}}L_{\hat{\alpha}\hat{\sigma}}+g_{\hat{\alpha}\hat{\rho}}L_{\hat{\beta}\hat{\sigma}}-g_{\hat{\alpha}\hat{\sigma}}L_{\hat{\beta}\hat{\rho}}\right)$}
+
+\begin{align*}
+    &\left[L_{\hat{-}\hat{+}},L_{\hat{+}\hat{1}}\right]=-\left[K^{\hat{3}},\mathcal{D}^\hat{1}\right]=-i\left(g_{\hat{+}\hat{1}}L_{\hat{-}\hat{+}}-g_{\hat{+}\hat{+}}L_{\hat{-}\hat{1}}+g_{\hat{-}\hat{+}}L_{\hat{+}\hat{1}}-g_{\hat{-}\hat{1}}L_{\hat{+}\hat{+}}\right)=i\mathbb{C}\mathcal{K}^{\hat{1}}-i\mathbb{S}\mathcal{D}^{\hat{1}}~,\\
+    &\left[L_{\hat{-}\hat{+}},L_{\hat{+}\hat{2}}\right]=-\left[K^{\hat{3}},\mathcal{D}^\hat{2}\right]=-i\left(g_{\hat{+}\hat{2}}L_{\hat{-}\hat{+}}-g_{\hat{+}\hat{+}}L_{\hat{-}\hat{2}}+g_{\hat{-}\hat{+}}L_{\hat{+}\hat{2}}-g_{\hat{-}\hat{2}}L_{\hat{+}\hat{+}}\right)=i\mathbb{C}\mathcal{K}^{\hat{2}}-i\mathbb{S}\mathcal{D}^{\hat{2}}~,\\
+    &\left[L_{\hat{-}\hat{+}},L_{\hat{1}\hat{2}}\right]=-\left[K^{\hat{3}},J^{\hat{3}}\right]=-i\left(g_{\hat{+}\hat{2}}L_{\hat{-}\hat{1}}-g_{\hat{+}\hat{1}}L_{\hat{-}\hat{2}}+g_{\hat{-}\hat{1}}L_{\hat{+}\hat{2}}-g_{\hat{-}\hat{2}}L_{\hat{+}\hat{1}}\right)=0~,~,\\
+    &\left[L_{\hat{-}\hat{+}},L_{\hat{-}\hat{1}}\right]=-\left[K^{\hat{3}},\mathcal{K}^{\hat{1}}\right]=-i\left(g_{\hat{+}\hat{1}}L_{\hat{-}\hat{-}}-g_{\hat{+}\hat{-}}L_{\hat{-}\hat{1}}+g_{\hat{-}\hat{-}}L_{\hat{+}\hat{1}}-g_{\hat{-}\hat{1}}L_{\hat{+}\hat{-}}\right)=i\mathbb{S}\mathcal{K}^{\hat{1}}+i\mathbb{C}\mathcal{D}^{\hat{1}}~,
+    \end{align*}
+    \begin{align*}
+    &\left[L_{\hat{-}\hat{+}},L_{\hat{-}\hat{2}}\right]=-\left[K^{\hat{3}},\mathcal{K}^{\hat{2}}\right]=-i\left(g_{\hat{+}\hat{2}}L_{\hat{-}\hat{-}}-g_{\hat{+}\hat{-}}L_{\hat{-}\hat{2}}+g_{\hat{-}\hat{-}}L_{\hat{+}\hat{2}}-g_{\hat{-}\hat{2}}L_{\hat{+}\hat{-}}\right)=i\mathbb{S}\mathcal{K}^{\hat{2}}+i\mathbb{C}\mathcal{D}^{\hat{2}}~,\\
+    &\left[L_{\hat{+}\hat{1}},L_{\hat{+}\hat{2}}\right]=\left[\mathcal{D}^{\hat{1}},\mathcal{D}^{\hat{2}}\right]=-i\left(g_{\hat{1}\hat{2}}L_{\hat{+}\hat{+}}-g_{\hat{1}\hat{+}}L_{\hat{+}\hat{2}}+g_{\hat{+}\hat{+}}L_{\hat{1}\hat{2}}-g_{\hat{+}\hat{2}}L_{\hat{1}\hat{+}}\right)=-i\mathbb{C}J^{\hat{3}}~,\\
+    &\left[L_{\hat{+}\hat{1}},L_{\hat{1}\hat{2}}\right]=\left[\mathcal{D}^{\hat{1}},J^{\hat{3}}\right]=-i\left(g_{\hat{1}\hat{2}}L_{\hat{+}\hat{1}}-g_{\hat{1}\hat{1}}L_{\hat{+}\hat{2}}+g_{\hat{+}\hat{1}}L_{\hat{1}\hat{2}}-g_{\hat{+}\hat{2}}L_{\hat{1}\hat{1}}\right)=-i\mathcal{D}^{\hat{2}}~,\\
+    &\left[L_{\hat{+}\hat{1}},L_{\hat{-}\hat{1}}\right]=\left[\mathcal{D}^{\hat{1}},\mathcal{K}^{\hat{1}}\right]=-i\left(g_{\hat{1}\hat{1}}L_{\hat{+}\hat{-}}-g_{\hat{1}\hat{-}}L_{\hat{+}\hat{1}}+g_{\hat{+}\hat{-}}L_{\hat{1}\hat{1}}-g_{\hat{+}\hat{1}}L_{\hat{1}\hat{-}}\right)=-iK^{\hat{3}}~,\\
+    &\left[L_{\hat{+}\hat{1}},L_{\hat{-}\hat{2}}\right]=\left[\mathcal{D}^{\hat{1}},\mathcal{K}^{\hat{2}}\right]=-i\left(g_{\hat{1}\hat{2}}L_{\hat{+}\hat{-}}-g_{\hat{1}\hat{-}}L_{\hat{+}\hat{2}}+g_{\hat{+}\hat{-}}L_{\hat{1}\hat{2}}-g_{\hat{+}\hat{2}}L_{\hat{1}\hat{-}}\right)=-i\mathbb{S}J^{\hat{3}}~,\\
+    &\left[L_{\hat{+}\hat{2}},L_{\hat{1}\hat{2}}\right]=\left[\mathcal{D}^{\hat{2}},J^{\hat{3}}\right]=-i\left(g_{\hat{2}\hat{2}}L_{\hat{+}\hat{1}}-g_{\hat{2}\hat{1}}L_{\hat{+}\hat{2}}+g_{\hat{+}\hat{1}}L_{\hat{2}\hat{2}}-g_{\hat{+}\hat{2}}L_{\hat{2}\hat{1}}\right)=i\mathcal{D}^{\hat{1}}~,\\
+    &\left[L_{\hat{+}\hat{2}},L_{\hat{-}\hat{1}}\right]=\left[\mathcal{D}^{\hat{2}},\mathcal{K}^{\hat{1}}\right]=-i\left(g_{\hat{2}\hat{1}}L_{\hat{+}\hat{-}}-g_{\hat{2}\hat{-}}L_{\hat{+}\hat{1}}+g_{\hat{+}\hat{-}}L_{\hat{2}\hat{1}}-g_{\hat{+}\hat{1}}L_{\hat{2}\hat{-}}\right)=i\mathbb{S}J^{\hat{3}}~,\\
+    &\left[L_{\hat{+}\hat{2}},L_{\hat{-}\hat{2}}\right]=\left[\mathcal{D}^{\hat{2}},\mathcal{K}^{\hat{2}}\right]=-i\left(g_{\hat{2}\hat{2}}L_{\hat{+}\hat{-}}-g_{\hat{2}\hat{-}}L_{\hat{+}\hat{2}}+g_{\hat{+}\hat{-}}L_{\hat{2}\hat{2}}-g_{\hat{+}\hat{2}}L_{\hat{2}\hat{-}}\right)=-iK^{\hat{3}}~,\\
+    &\left[L_{\hat{1}\hat{2}},L_{\hat{-}\hat{1}}\right]=\left[J^{\hat{3}},\mathcal{K}^{\hat{1}}\right]=-i\left(g_{\hat{2}\hat{1}}L_{\hat{1}\hat{-}}-g_{\hat{2}\hat{-}}L_{\hat{1}\hat{1}}+g_{\hat{1}\hat{-}}L_{\hat{2}\hat{1}}-g_{\hat{1}\hat{1}}L_{\hat{2}\hat{-}}\right)=i\mathcal{K}^{\hat{2}}~,\\
+    &\left[L_{\hat{1}\hat{2}},L_{\hat{-}\hat{2}}\right]=\left[J^{\hat{3}},\mathcal{K}^{\hat{2}}\right]=-i\left(g_{\hat{2}\hat{2}}L_{\hat{1}\hat{-}}-g_{\hat{2}\hat{-}}L_{\hat{1}\hat{2}}+g_{\hat{1}\hat{-}}L_{\hat{2}\hat{2}}-g_{\hat{1}\hat{2}}L_{\hat{2}\hat{-}}\right)=-i\mathcal{K}^{\hat{1}}~,\\
+    &\left[L_{\hat{-}\hat{1}},L_{\hat{-}\hat{2}}\right]=\left[\mathcal{K}^{\hat{1}},\mathcal{K}^{\hat{2}}\right]=-i\left(g_{\hat{1}\hat{2}}L_{\hat{-}\hat{-}}-g_{\hat{1}\hat{-}}L_{\hat{-}\hat{2}}+g_{\hat{-}\hat{-}}L_{\hat{1}\hat{2}}-g_{\hat{-}\hat{2}}L_{\hat{1}\hat{-}}\right)=i\mathbb{C}J^{\hat{3}}~.
+\end{align*}
+\section{Comprehensive Table}
+The following tables summarizes the commutation
+relations between the Poincare generators in Interpolation form.
+\subsection{Contra-variant form}
+\begin{center}
+\scalebox{0.62}{
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P^{\hat{+}}$ & $P^{\hat{1}}$ & $P^{\hat{2}}$ & $K^{\hat{3}}$ & $E^{\hat{1}}$ & $E^{\hat{2}}$ & $J^{\hat{3}}$ & $F^{\hat{1}}$ & $F^{\hat{2}}$ & $P^{\hat{-}}$ \\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P^{\hat{+}}$ &0&$0$&$0$&$iP_{\hat{-}}$&$i\mathbb{C}P^{\hat{1}}$&$i\mathbb{C}P^{\hat{2}}$&0&$i\mathbb{S}P^{\hat{1}}$&$i\mathbb{S}P^{\hat{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P^{\hat{1}}$ &0&0&0&0&$i\mathbb{C}P_{\hat{+}}+i\mathbb{S}P_{\hat{-}}$&0&$-iP^{\hat{2}}$&$i\mathbb{S}P_{\hat{+}}-i\mathbb{C}P_{\hat{-}}$&0&0$\\
+ \hline 
+ \rule{0pt}{16pt}$P^{\hat{2}}$ &0&0&0&0&0&$i\mathbb{C}P_{\hat{+}}+i\mathbb{S}P_{\hat{-}}$&$iP^{\hat{1}}$&0&$i\mathbb{S}P_{\hat{+}}-i\mathbb{C}P_{\hat{-}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$K^{\hat{3}}$ &$-iP_{\hat{-}}$&0&0&0&$i\mathbb{C}F^{\hat{1}}-i\mathbb{S}E^{\hat{1}}$&$i\mathbb{C}F^{\hat{2}}-i\mathbb{S}E^{\hat{2}}$&0&$i\mathbb{S}F^{\hat{1}}+i\mathbb{C}E^{\hat{1}}$&$i\mathbb{S}F^{\hat{2}}+i\mathbb{C}E^{\hat{2}}$&$iP_{\hat{+}}$\\
+ \hline 
+ \rule{0pt}{16pt}$E^{\hat{1}}$ &$-i\mathbb{C}P^{\hat{1}}$&$-i\mathbb{C}P_{\hat{+}}-i\mathbb{S}P_{\hat{-}}$&0&$-i\mathbb{C}F^{\hat{1}}+i\mathbb{S}E^{\hat{1}}$&0&$-i\mathbb{C}J^{\hat{3}}$&$-iE^{\hat{2}}$&$-iK^{\hat{3}}$&$-i\mathbb{S}J^{\hat{3}}$&$-i\mathbb{S}P^{\hat{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$E^{\hat{2}}$ &$-i\mathbb{C}P^{\hat{2}}$&0&$-i\mathbb{C}P_{\hat{+}}-i\mathbb{S}P_{\hat{-}}$&$-i\mathbb{C}F^{\hat{2}}+i\mathbb{S}E^{\hat{2}}$&$i\mathbb{C}J^{\hat{3}}$&0&$iE^{\hat{1}}$&$i\mathbb{S}J^{\hat{3}}$&$-iK^{\hat{3}}$&$-i\mathbb{S}P^{\hat{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$J^{\hat{3}}$ &0&$iP^{\hat{2}}$&$-iP^{\hat{1}}$&0&$iE^{\hat{2}}$&$-iE^{\hat{1}}$&0&$iF^{\hat{2}}$&$-iF^{\hat{1}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$F^{\hat{1}}$ &$-i\mathbb{S}P^{\hat{1}}$&$-i\mathbb{S}P_{\hat{+}}+i\mathbb{C}P_{\hat{-}}$&0&$-i\mathbb{S}F^{\hat{1}}-i\mathbb{C}E^{\hat{1}}$&$iK^{\hat{3}}$&$-i\mathbb{S}J^{\hat{3}}$&$-iF^{\hat{2}}$&0&$i\mathbb{C}J^{\hat{3}}$&$i\mathbb{C}P^{\hat{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$F^{\hat{2}}$ &$-i\mathbb{S}P^{\hat{2}}$&0&$-i\mathbb{S}P_{\hat{+}}+i\mathbb{C}P_{\hat{-}}$&$-i\mathbb{S}F^{\hat{2}}-i\mathbb{C}E^{\hat{2}}$&$i\mathbb{S}J^{\hat{3}}$&$iK^{\hat{3}}$&$iF^{\hat{1}}$&$-i\mathbb{C}J^{\hat{3}}$&0&$i\mathbb{C}P^{\hat{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P^{\hat{-}}$ &0&0&0&$-iP_{\hat{+}}$&$i\mathbb{S}P^{\hat{1}}$&$i\mathbb{S}P^{\hat{2}}$&0&$-i\mathbb{C}P^{\hat{1}}$&$-i\mathbb{C}P^{\hat{2}}$&0$\\
+ \hline
+\end{tabular}}
+%\caption{Full Conformal algebra in the Interpolation form}
+\end{center}
+Where, the $P^{\hat{\mu}}$ are Energy and Momenta ($P^{\hat{+}}=\left(\mathbb{C}P_{\hat{+}}+\mathbb{S}P_{\hat{-}}\right)$, $P^{\hat{i}}=-P_{\hat{i}}$ , $P^{\hat{-}}=\left(\mathbb{S}P_{\hat{+}}-\mathbb{C}P_{\hat{-}}\right)$), the $L^{\hat{\mu}\hat{\nu}}$ are Angular Momenta. (here, $L^{\hat{-}\hat{+}}=K^\hat{3}$ is Boost, $L^{\hat{+}\hat{i}}=E^\hat{i}$ are  Transverse Boosts , $L^{\hat{1}\hat{2}}=J^\hat{3}$ is Rotation, $L^{\hat{-}\hat{i}}=F^\hat{i}$ are  Transverse Rotations).
+
+
+\subsection{Co-variant form}
+\begin{center}
+\scalebox{0.61}{
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P_{\hat{+}}$ & $P_{\hat{1}}$ & $P_{\hat{2}}$ & $K^{\hat{3}}$ & $\mathcal{D}^{\hat{1}}$ & $\mathcal{D}^{\hat{2}}$ & $J^{\hat{3}}$ & $\mathcal{K}^{\hat{1}}$ & $\mathcal{K}^{\hat{2}}$ & $P_{\hat{-}}$ \\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P_{\hat{+}}$ &0&$0$&$0$&$i\left(\mathbb{C}P_{\hat{-}}-\mathbb{S}P_{\hat{+}}\right)$&$i\mathbb{C}P_{\hat{1}}$&$i\mathbb{C}P_{\hat{2}}$&0&$i\mathbb{S}P_{\hat{1}}$&$i\mathbb{S}P_{\hat{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{\hat{1}}$ &0&0&0&0&$iP_{\hat{+}}$&0&$-iP_{\hat{2}}$&$iP_{\hat{-}}$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{\hat{2}}$ &0&0&0&0&0&$iP_{\hat{+}}$&$iP_{\hat{1}}$&0&$iP_{\hat{-}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$K^{\hat{3}}$ &$-i\left(\mathbb{C}P_{\hat{-}}-\mathbb{S}P_{\hat{+}}\right)$&0&0&0&$i\mathbb{S}\mathcal{D}^{\hat{1}}-i\mathbb{C}\mathcal{K}^{\hat{1}}$&$i\mathbb{S}\mathcal{D}^{\hat{2}}-i\mathbb{C}\mathcal{K}^{\hat{2}}$&0&$-i\mathbb{S}\mathcal{K}^{\hat{1}}-i\mathbb{C}\mathcal{D}^{\hat{1}}$&$-i\mathbb{S}\mathcal{K}^{\hat{2}}-i\mathbb{C}\mathcal{D}^{\hat{2}}$&$-i\left(\mathbb{S}P_{\hat{-}}+\mathbb{C}P_{\hat{+}}\right)$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{D}^{\hat{1}}$ &$-i\mathbb{C}P_{\hat{1}}$&$-iP_{\hat{+}}$&0&$-i\mathbb{S}\mathcal{D}^{\hat{1}}+i\mathbb{C}\mathcal{K}^{\hat{1}}$&0&$-i\mathbb{C}J^{\hat{3}}$&$-i\mathcal{D}^{\hat{2}}$&$-iK^{\hat{3}}$&$-i\mathbb{S}J^{\hat{3}}$&$-i\mathbb{S}P_{\hat{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{D}^{\hat{2}}$ &$-i\mathbb{C}P_{\hat{2}}$&0&$-iP_{\hat{+}}$&$-i\mathbb{S}\mathcal{D}^{\hat{2}}+i\mathbb{C}\mathcal{K}^{\hat{2}}$&$i\mathbb{C}J^{\hat{3}}$&0&$i\mathcal{D}^{\hat{1}}$&$i\mathbb{S}J^{\hat{3}}$&$-iK^{\hat{3}}$&$-i\mathbb{S}P_{\hat{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$J^{\hat{3}}$ &0&$iP_{\hat{2}}$&$-iP_{\hat{1}}$&0&$i\mathcal{D}^{\hat{2}}$&$-i\mathcal{D}^{\hat{1}}$&0&$i\mathcal{K}^{\hat{2}}$&$-i\mathcal{K}^{\hat{1}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{K}^{\hat{1}}$ &$-i\mathbb{S}P_{\hat{1}}$&$-iP_{\hat{-}}$&0&$i\mathbb{S}\mathcal{K}^{\hat{1}}+i\mathbb{C}\mathcal{D}^{\hat{1}}$&$iK^{\hat{3}}$&$-i\mathbb{S}J^{\hat{3}}$&$-i\mathcal{K}^{\hat{2}}$&0&$i\mathbb{C}J^{\hat{3}}$&$i\mathbb{C}P_{\hat{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{K}^{\hat{2}}$ &$-i\mathbb{S}P_{\hat{2}}$&0&$-iP_{\hat{-}}$&$i\mathbb{S}\mathcal{K}^{\hat{2}}+i\mathbb{C}\mathcal{D}^{\hat{2}}$&$i\mathbb{S}J^{\hat{3}}$&$iK^{\hat{3}}$&$i\mathcal{K}^{\hat{1}}$&$-i\mathbb{C}J^{\hat{3}}$&0&$i\mathbb{C}P_{\hat{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{\hat{-}}$ &0&0&0&$i\left(\mathbb{S}P_{\hat{-}}+\mathbb{C}P_{\hat{+}}\right)$&$i\mathbb{S}P_{\hat{1}}$&$i\mathbb{S}P_{\hat{2}}$&0&$-i\mathbb{C}P_{\hat{1}}$&$-i\mathbb{C}P_{\hat{2}}$&0\\
+ \hline 
+ %\caption{Full Conformal algebra in the Interpolation form}
+\end{tabular}}
+\end{center}
+(Where, $L_{\hat{+}\hat{-}}=-L_{\hat{-}\hat{+}}=K^\hat{3}$,$L_{\hat{+}\hat{i}}=\mathcal{D}^{\hat{i}}=-\mathbb{S}F^{\hat{i}}-\mathbb{C}E^{\hat{i}}$, $L_{\hat{1}\hat{2}}=J^\hat{3}$, and $L_{\hat{-}\hat{i}}=\mathcal{K}^{\hat{i}}=\mathbb{C}F^{\hat{i}}-\mathbb{S}E^{\hat{i}}$).
+\\
+Among the ten Poincar\'e generators, the six generators ($\mathcal{K}^{\itP{1}}, \mathcal{K}^{\itP{2}}, J^{3}, P_{1}, P_{2}, P_{\mT}$) are always kinematic in the sense that the $x^{\pT}=0$ plane is intact under the transformations generated by them. The operator $K^{3}=M_{\pT\mT}$ is dynamical in the region where $0\leq\delta<\pi/4$ but becomes kinematic in the light-front limit ($\delta=\pi/4$).
+The set of kinematic and dynamic generators depending on the interpolation angle are summarized in following table.\cite{poin, gauge}
+\begin{center}
+\scalebox{0.89}{
+    \begin{ruledtabular}
+      \begin{tabular}{lcc}
+	\hline
+	 \hline
+	Interpolation angle & Kinematic & Dynamic \\
+	\hline
+	\rule{0pt}{3ex} $\delta=0$ & $\mathcal{K}^{\hat{1}}=-J^{2}, \mathcal{K}^{\hat{2}}=J^{1}, J^{3}, P^{1}, P^{2}, P^{3}$ & $\mathcal{D}^{\hat{1}}=-K^{1}, \mathcal{D}^{\hat{2}}=-K^{2}, K^{3}, P^{0}$\\
+	$0\leq\delta<\pi/4$ & $\mathcal{K}^{\hat{1}}, \mathcal{K}^{\hat{2}}, J^{3}, P^{1}, P^{2}, P_{\mT}$ & $\mathcal{D}^{\hat{1}}, \mathcal{D}^{\hat{2}}, K^{3}, P_{\pT}$\\
+	$\delta=\pi/4$ & $\mathcal{K}^{\hat{1}}=-E^{1}, \mathcal{K}^{\hat{2}}=-E^{2}, J^{3}, K^{3}, P^{1}, P^{2}, P^{+}$ & $\mathcal{D}^{\hat{1}}=-F^{1}, \mathcal{D}^{\hat{2}}=-F^{2}, P^{-}$\\
+	\hline
+	 \hline
+      \end{tabular}
+    \end{ruledtabular}}
+\end{center}
+
+\subsection{Contra-variant form (IFD)}
+The following table summarizes the commutation
+relations (contra-variant form) between the Poincare generators explicitly in Instant Form Dynamics (IFD) (when interpolation angle, $\delta=0$),
+\begin{center}
+\scalebox{0.85}{
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P^{{0}}$ & $P^{{1}}$ & $P^{{2}}$ & $-K^{{3}}$ & $K^{{1}}$ & $K^{{2}}$ & $J^{{3}}$ & $J^{{2}}$ & $-J^{{1}}$ & $P^{{3}}$ \\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P^{{0}}$ &0&$0$&$0$&$iP_{{3}}$&$iP^{{1}}$&$iP^{{2}}$&0&$0$&$0$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P^{{1}}$ &0&0&0&0&$iP_{{0}}$&0&$-iP^{{2}}$&$-iP_{{3}}$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$P^{{2}}$ &0&0&0&0&0&$iP_{{0}}$&$iP^{{1}}$&0&$-iP_{{3}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-K^{{3}}$ &$-iP_{{3}}$&0&0&0&$iJ^{{2}}$&$-iJ^{{1}}$&0&$iK^{{1}}$&$iK^{{2}}$&$iP_{{0}}$\\
+ \hline 
+ \rule{0pt}{16pt}$K^{{1}}$ &$-iP^{{1}}$&$-iP_{{0}}$&0&$-iJ^{{2}}$&0&$-iJ^{{3}}$&$-iK^{{2}}$&$iK^{{3}}$&$0$&$0$\\
+ \hline 
+ \rule{0pt}{16pt}$K^{{2}}$ &$-iP^{{2}}$&0&$-iP_{{0}}$&$iJ^{{1}}$&$iJ^{{3}}$&0&$iK^{{1}}$&$0$&$iK^{{3}}$&$0$\\
+ \hline 
+ \rule{0pt}{16pt}$J^{{3}}$ &0&$iP^{{2}}$&$-iP^{{1}}$&0&$iK^{{2}}$&$-iK^{{1}}$&0&$-iJ^{{1}}$&$-iJ^{{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$J^{{2}}$ &$0$&$iP_{{3}}$&0&$-iK^{{1}}$&$-iK^{{3}}$&$0$&$iJ^{{1}}$&0&$iJ^{{3}}$&$iP^{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$-J^{{1}}$ &$0$&0&$+iP_{{3}}$&$-iK^{{2}}$&$0$&$-iK^{{3}}$&$iJ^{{2}}$&$-iJ^{{3}}$&0&$iP^{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P^{{3}}$ &0&0&0&$-iP_{{0}}$&$0$&$0$&0&$-iP^{{1}}$&$-iP^{{2}}$&0\\
+ \hline 
+\end{tabular}}
+%\caption{Full Conformal algebra in the Interpolation form}
+\end{center}
+
+\subsection{Contra-variant form (LFD)}
+The following table summarizes the commutation
+relations (contra-variant form) between the Poincare generators explicitly in Light-Front Dynamics (LFD) (when interpolation angle, $\delta=\frac{\pi}{4}$),
+
+\begin{center}
+\scalebox{0.85}{
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P^{{+}}$ & $P^{{1}}$ & $P^{{2}}$ & $K^{{3}}$ & $E^{{1}}$ & $E^{{2}}$ & $J^{{3}}$ & $F^{{1}}$ & $F^{{2}}$ & $P^{{-}}$ \\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P^{{+}}$ &0&$0$&$0$&$iP_{{-}}$&$0$&$0$&0&$iP^{{1}}$&$iP^{{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P^{{1}}$ &0&0&0&0&$iP_{{-}}$&0&$-iP^{{2}}$&$iP_{{+}}$&0&\\
+ \hline 
+ \rule{0pt}{16pt}$P^{{2}}$ &0&0&0&0&0&$iP_{{-}}$&$iP^{{1}}$&0&$iP_{{+}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$K^{{3}}$ &$-iP_{{-}}$&0&0&0&$-iE^{{1}}$&$-iE^{{2}}$&0&$iF^{{1}}$&$iF^{{2}}$&$iP_{{+}}$\\
+ \hline 
+ \rule{0pt}{16pt}$E^{{1}}$ &$0$&$-iP_{{-}}$&0&$iE^{{1}}$&0&$0$&$-iE^{{2}}$&$-iK^{{3}}$&$-iJ^{{3}}$&$-iP^{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$E^{{2}}$ &$0$&0&$-iP_{{-}}$&$iE^{{2}}$&$0$&0&$iE^{{1}}$&$iJ^{{3}}$&$-iK^{{3}}$&$-iP^{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$J^{{3}}$ &0&$iP^{{2}}$&$-iP^{{1}}$&0&$iE^{{2}}$&$-iE^{{1}}$&0&$iF^{{2}}$&$-iF^{{1}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$F^{{1}}$ &$-iP^{{1}}$&$-iP_{{+}}$&0&$-iF^{{1}}$&$iK^{{3}}$&$-iJ^{{3}}$&$-iF^{{2}}$&0&$0$&$0$\\
+ \hline 
+ \rule{0pt}{16pt}$F^{{2}}$ &$-iP^{{2}}$&0&$-iP_{{+}}$&$-iF^{{2}}$&$iJ^{{3}}$&$iK^{{3}}$&$iF^{{1}}$&$0$&0&$0$\\
+ \hline 
+ \rule{0pt}{16pt}$P^{{-}}$ &0&0&0&$-iP_{{+}}$&$iP^{{1}}$&$iP^{{2}}$&0&$0$&$0$&0\\
+ \hline 
+\end{tabular}}
+%\caption{Full Conformal algebra in the Interpolation form}
+\end{center}
+\subsection{Co-variant form (IFD)}
+The following table summarizes the commutation
+relations (co-variant form) between the Poincare generators explicitly in Instant Form Dynamics (IFD) (when interpolation angle, $\delta=0$),
+\begin{center}
+\scalebox{0.85}{
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P_{{0}}$ & $P_{{1}}$ & $P_{{2}}$ & $K^{{3}}$ & $-{K}^{{1}}$ & $-{K}^{{2}}$ & $J^{{3}}$ & $-{J}^{{2}}$ & ${J}^{{1}}$ & $P_{{3}}$ \\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P_{{0}}$ &0&$0$&$0$&$iP_{{3}}$&$iP_{{1}}$&$iP_{{2}}$&0&$0$&$0$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{1}}$ &0&0&0&0&$iP_{{0}}$&0&$-iP_{{2}}$&$iP_{{3}}$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{2}}$ &0&0&0&0&0&$iP_{{0}}$&$iP_{{1}}$&0&$iP_{{3}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$K^{{3}}$ &$-iP_{{3}}$&0&0&0&$i{J}^{{2}}$&$-i{J}^{{1}}$&0&$i{K}^{{1}}$&$i{K}^{{2}}$&$-iP_{{0}}$\\
+ \hline 
+ \rule{0pt}{16pt}$-{K}^{{1}}$ &$-iP_{{1}}$&$-iP_{{0}}$&0&$-i{J}^{{2}}$&0&$-iJ^{{3}}$&$i{K}^{{2}}$&$-iK^{{3}}$&$0$&$0$\\
+ \hline 
+ \rule{0pt}{16pt}$-{K}^{{2}}$ &$-iP_{{2}}$&0&$-iP_{{0}}$&$i{J}^{{1}}$&$iJ^{{3}}$&0&$-i{K}^{{1}}$&$0$&$-iK^{{3}}$&$0$\\
+ \hline 
+ \rule{0pt}{16pt}$J^{{3}}$ &0&$iP_{{2}}$&$-iP_{{1}}$&0&$-i{K}^{{2}}$&$i{K}^{{1}}$&0&$i{J}^{{1}}$&$i{J}^{{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{J}^{{2}}$ &$0$&$-iP_{{3}}$&0&$-i{K}^{{1}}$&$iK^{{3}}$&$0$&$-i{J}^{{1}}$&0&$iJ^{{3}}$&$iP_{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}${J}^{{1}}$ &$0$&0&$-iP_{{3}}$&$-i{K}^{{2}}$&$0$&$iK^{{3}}$&$-i{J}^{{2}}$&$-iJ^{{3}}$&0&$iP_{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{3}}$ &0&0&0&$iP_{{0}}$&$i0$&$i0$&0&$-iP_{{1}}$&$-iP_{{2}}$&0\\
+ \hline
+\end{tabular}}
+%\caption{Full Conformal algebra in the Interpolation form}
+\end{center}
+
+
+\subsection{Co-variant form (LFD)}
+The following table summarizes the commutation
+relations (co-variant form) between the Poincare generators explicitly in Light-Front Dynamics (LFD) (when interpolation angle, $\delta=\frac{\pi}{4}$),
+
+\begin{center}
+\scalebox{0.85}{
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P_{{+}}$ & $P_{{1}}$ & $P_{{2}}$ & $K^{{3}}$ & $-{F}^{{1}}$ & $-{F}^{{2}}$ & $J^{{3}}$ & $-{E}^{{1}}$ & $-{E}^{{2}}$ & $P_{{-}}$\\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P_{{+}}$ &0&$0$&$0$&$-iP_{{+}}$&$0$&$0$&0&$iP_{{1}}$&$iP_{{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{1}}$ &0&0&0&0&$iP_{{+}}$&0&$-iP_{{2}}$&$iP_{{-}}$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{2}}$ &0&0&0&0&0&$iP_{{+}}$&$iP_{{1}}$&0&$iP_{{-}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$K^{{3}}$ &$iP_{{+}}$&0&0&0&$-i{F}^{{1}}$&$-i{F}^{{2}}$&0&$i{E}^{{1}}$&$i{E}^{{2}}$&$-iP_{{-}}$\\
+ \hline 
+ \rule{0pt}{16pt}$-{F}^{{1}}$ &$0$&$-iP_{{+}}$&0&$i{F}^{{1}}$&0&$0$&$i{F}^{{2}}$&$-iK^{{3}}$&$-iJ^{{3}}$&$-iP_{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$-{F}^{{2}}$ &$0$&0&$-iP_{{+}}$&$i{F}^{{2}}$&$0$&0&$-i{F}^{{1}}$&$iJ^{{3}}$&$-iK^{{3}}$&$-iP_{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$J^{{3}}$ &0&$iP_{{2}}$&$-iP_{{1}}$&0&$-i{F}^{{2}}$&$i{F}^{{1}}$&0&$-i{E}^{{2}}$&$i{E}^{{1}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{E}^{{1}}$ &$-iP_{{1}}$&$-iP_{{-}}$&0&$-i{E}^{{1}}$&$iK^{{3}}$&$-iJ^{{3}}$&$i{E}^{{2}}$&0&$0$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{E}^{{2}}$ &$-iP_{{2}}$&0&$-iP_{{-}}$&$-i{E}^{{2}}$&$iJ^{{3}}$&$iK^{{3}}$&$-i{E}^{{1}}$&$0$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{-}}$ &0&0&0&$iP_{{-}}$&$iP_{{1}}$&$iP_{{2}}$&0&$0$&$0$&0\\
+ \hline
+\end{tabular}}
+%\caption{Full Conformal algebra in the Interpolation form}
+\end{center}
+%%%%%%%%%%
+
+\noindent{\rule{\textwidth}{1.5pt}}
+
+
+
+
+
+
+\chapter{Extension to Conformal Group}
+The set of conformal transformations manifestly forms a group, and it obviously has the Poincaré group as a subgroup. We start by introducing conformal transformations and determining the condition for conformal invariance. Next, we are going to consider flat space in $d \ge 3$ dimensions and identify the conformal group. \cite{Antonin, Ralph, Francesco, Schellekens, Alday}
+
+\section{Conformal Transformations}
+Let us consider a flat space in d dimensions and transformations thereof which locally preserve the angle between any two lines. A map $\phi$ is called a conformal transformation, if the metric tensor satisfies $\phi*g'=Fg$. Denoting $x'=\phi(x)$, we can express this condition in the following way: \cite{Antonin, Ralph, Francesco, Schellekens, Alday}
+\begin{align}
+    g'_{\rho\sigma}(x')\frac{\partial x'^{\rho}}{\partial x^{\mu}}\frac{\partial x'^{\sigma}}{\partial x^{\nu}}=F(x)g_{\mu\nu}(x),
+\end{align}
+where the positive function $F(x)$ is called the scale factor and Einstein’s sum convention is understood.We will always consider flat spaces with a constant metric of
+the form $\eta_{\mu\nu} = diag(−1,..., +1,...)$. In this case, the condition for a conformal transformation can be written as
+\begin{align}
+    \Aboxed{\eta_{\rho\sigma}\frac{\partial x'^{\rho}}{\partial x^{\mu}}\frac{\partial x'^{\sigma}}{\partial x^{\nu}}=F(x)\eta_{\mu\nu}}.\label{2.1}
+\end{align}
+Note furthermore, for flat spaces the scale factor $F(x) = 1$ corresponds to the Poincaré group consisting of translations and rotations, respectively Lorentz transformations.
+\section{Conditions for Conformal Invariance}
+Let us next study infinitesimal coordinate transformations \cite{Antonin, Ralph, Francesco} which up to first order in a small parameter $\epsilon(x)<<1$ read
+\begin{align}
+    x'^\rho=x^\rho+\epsilon^\rho(x)+\mathcal{O}(\epsilon^2).\label{2.2}
+\end{align}
+Noting that	$\epsilon_\mu=\eta_{\mu\nu}\epsilon^\nu$ as well as that $\eta_{\mu\nu}$ is constant, the left-hand side of Eq. (\eqref{2.1}) for such a transformation is determined to be of the followingform:
+\begin{align}
+  \eta_{\rho\sigma}\frac{\partial x'^{\rho}}{\partial x^{\mu}}\frac{\partial x'^{\sigma}}{\partial x^{\nu}}&=\eta_{\rho\sigma}\Bigl(\delta^\rho_\mu+\frac{\partial\epsilon^\rho}{\partial x^\mu}+\mathcal{O}(\epsilon^2)\Bigl)\Bigl(\delta^\sigma_\nu+\frac{\partial\epsilon^\sigma}{\partial x^\nu}+\mathcal{O}(\epsilon^2)\Bigl)\nonumber~,\\
+  &=\eta_{\mu\nu}+\eta_{\mu\sigma}\frac{\partial\epsilon^\sigma}{\partial x^\nu}+\eta_{\rho\nu}\frac{\partial\epsilon^\rho}{\partial x^\mu}+\mathcal{O}(\epsilon^2)\nonumber~,\\
+  &=\eta_{\mu\nu}+\Bigl(\frac{\partial\epsilon_\mu}{\partial x^\nu}+\frac{\partial\epsilon_\nu}{\partial x^\mu}\Bigl)+\mathcal{O}(\epsilon^2).\nonumber
+\end{align}
+The question we want to ask now is, under what conditions is the transformation (\eqref{2.2}) conformal, i.e. when is Eq. (\eqref{2.1}) satisfied? From the last formula we see that, up to first order in $\epsilon$, we have to demand
+that
+\begin{align}
+    \partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu}=K(x)\eta_{\mu\nu}~,
+\end{align}
+where $K(x)$ is some function. This function can be determined by tracing the equation above with $\eta^{\mu\nu}$
+\begin{align}
+    \eta^{\mu\nu}\Bigl(\partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu}\Bigl)&=K(x)\eta^{\mu\nu}\eta_{\mu\nu}\nonumber~,\\
+    2\partial^\mu\epsilon_\mu=K(x)d~.
+\end{align}
+Using this expression and solving for $K(x)$, we find the following restriction on the transformation (\eqref{2.2}) to be conformal:
+\begin{align}
+    \Aboxed{\partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu}=\frac{2}{d}(\partial.\epsilon)\eta_{\mu\nu}}~.\label{2.3}
+\end{align}
+Finally, the scale factor can be read
+off as $F(x)=1+\frac{2}{d}(\partial.\epsilon)+\mathcal{O}(\epsilon^2)$.
+\section{Some Useful Relations}
+Let us now derive two useful equations for later purpose. First, we modify Eq. (\eqref{2.3}) by taking the derivative $\partial^\nu$ and summing over $\nu$. We then obtain \cite{Antonin, Ralph, Francesco}
+\begin{align}
+    \partial^\nu\Bigl(\partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu}\Bigl)&=\frac{2}{d}\partial^\nu(\partial.\epsilon)\eta_{\mu\nu}~,\nonumber\\
+    \partial_\mu(\partial.\epsilon)+\Box\epsilon_\mu&=\frac{2}{d}\partial_\mu(\partial.\epsilon)~.
+\end{align}
+Furthermore, we take the derivative $\partial_\nu$ to find
+\begin{align}
+   \partial_\mu\partial_\nu(\partial.\epsilon)+\Box\partial_\nu\epsilon_\mu&=\frac{2}{d}\partial_\mu\partial_\nu(\partial.\epsilon)~. \label{2.4}
+\end{align}
+After interchanging $\mu\longleftrightarrow\nu$, adding the resulting expression to Eq.(\eqref{2.4}) and using Eq.(\eqref{2.3}) we get
+\begin{align}
+    2\partial_\mu\partial_\nu(\partial.\epsilon)+\Box\Bigl(\frac{2}{d}(\partial.\epsilon)\eta_{\mu\nu}\Bigl)&=\frac{4}{d}\partial_\mu\partial_\nu(\partial.\epsilon)~,\nonumber\\
+    \Longrightarrow~~~\Bigl(\eta_{\mu\nu}\Box+(d-2)\partial_\mu\partial_\nu\Bigl)(\partial.\epsilon)&=0.
+\end{align}
+Finally, contracting this equation with $\eta^{\mu\nu}$ gives
+\begin{align}
+    \Aboxed{(d-1)\Box(\partial.\epsilon)=0}.\label{2.5}
+\end{align}
+The second expression we want to use later is obtained by taking derivatives $\partial_\rho$
+of Eq. (\eqref{2.3}) and permuting indices
+\begin{align}
+    \partial_\rho\partial_\mu\epsilon_\nu+\partial_\rho_\partial\nu\epsilon_\mu&=\frac{2}{d}\eta_{\mu\nu}\partial_\rho(\partial.\epsilon),\nonumber\\
+    \partial_\nu\partial_\rho\epsilon_\mu+\partial_\mu\partial_\rho\epsilon_\nu&=\frac{2}{d}\eta_{\rho\mu}\partial_\nu(\partial.\epsilon),\nonumber\\
+    \partial_\mu\partial_\nu\epsilon_\rho+\partial_\nu\partial_\mu\epsilon_\rho&=\frac{2}{d}\eta_{\nu\rho}\partial_\mu(\partial.\epsilon),\nonumber
+\end{align}
+Subtracting then the first line from the sum of the last two leads to
+\begin{align}
+    \Aboxed{2\partial_\mu\partial_\nu\epsilon_\rho=\frac{2}{d}(-\eta_{\mu\nu}\partial_\rho+\eta_{\rho\mu}\partial_\nu+\eta_{\nu\rho}\partial_\mu)(\partial.\epsilon)}~.\label{2.6}
+\end{align}
+\section{Conformal Group in $d \ge 3$}
+After having obtained the condition for an infinitesimal transformations to be conformal, let us now determine the conformal group in the case of dimension $d \ge 3$.
+\subsection{Conformal Transformations and Generators}
+We note that Eq.(\eqref{2.5}) implies that $(\partial.\epsilon )$ is at most linear in $x^\mu$, i.e. $(\partial.\epsilon)=A+B_\mu x^\mu$ with $A$ and $B_\mu$ constant. Then it follows that $\epsilon_\mu$ is at most quadratic in $x^\nu$ and so we can make the ansatz: \cite{Antonin, Ralph, Francesco, Schellekens, Alday}
+\begin{align}
+    \epsilon_\mu=a_\mu+b_{\mu\nu}x^\nu+c_{\mu\nu\rho}x^\nu x^\rho~,\label{2.7}
+\end{align}
+where $a_\mu, b_{\mu\nu} ,c_{\mu\nu\rho}<<1$ are constants and the latter is symmetric in the last two indices, i.e. $c_{\mu\nu\rho}=c_{\mu\rho\nu}$ . We now study the various terms in Eq. (\eqref{2.7}) separately because the constraints for conformal invariance have to be independent of the position $x^\mu$.
+\begin{itemize}
+  \item The constant term aμ in Eq. (\eqref{2.7}) is not constrained by Eq. (\eqref{2.3}). It describes infinitesimal translations $x'^\mu=x^\mu+a^\mu$, for which the generator is the momentum operator $\Aboxed{P_\mu=-i\partial_\mu}$.
+  \item In order to study the term of Eq. (\eqref{2.7}) which is linear in $x$, we insert (\eqref{2.7}) into the condition (\eqref{2.3}) to find
+  \begin{align}
+      b_{\nu\mu}+b_{\mu\nu}=\frac{2}{d}(\eta^{\rho\sigma}b_{\sigma\rho})\eta_{\mu\nu},\nonumber
+  \end{align}
+  From this expression, we see that $b_{\mu\nu}$ can be split into a symmetric and an antisymmetric part
+  \begin{align}
+      b_{\mu\nu}=\alpha\eta_{\mu\nu}+m_{\mu\nu},\nonumber
+  \end{align}
+  where $m_{\mu\nu}=-m_{\nu\mu}$. The symmetric term $\alpha\eta_{\mu\nu}$ describes infinitesimal scale transformations $x'^\mu=(1+\alpha)x^\mu$ with generator $\Aboxed{D=-ix^\mu\partial_\mu}$. The antisymmetric part $m_{\mu\nu}$ corresponds to infinitesimal rotations $x'^\mu=(\delta^\mu_\nu+m^\mu_\nu)x^\nu$ with generator being the angular momentum operator $\Aboxed{L_{\mu\nu}=i(x_\mu\partial_\nu-x_\nu\partial_\mu)}$.
+  
+  \item The term of Eq. (\eqref{2.7}) at quadratic order in $x$ can be studied by inserting Eq. (\eqref{2.7}) into expression (\eqref{2.6}). We then calculate
+  \begin{align*}
+      \partial.\epsilon=b^\mu_\mu+2c^\mu_{\mu\rho}x^\rho~~~~~~~~~\Longrightarrow~~~~~~~~~\partial_\nu(\partial.\epsilon)=2c^\mu_{\mu\nu},
+  \end{align*}
+  from which we find that
+  \begin{align*}
+      c_{\mu\nu\rho}=\eta_{\mu\rho}b_\mu+\eta_{\mu\nu}b_\rho-\eta_{\nu\rho}b_\mu~~~~~~~~\text{with}~~~~~~b_\mu=\frac{1}{d}c^\rho_{\rho\mu}.
+  \end{align*}
+  The resulting transformations are called \textbf{Special Conformal Transformations (SCT)} and have the following infinitesimal form:
+  \begin{align}
+      x'^\mu=x^\mu+2(x.b)x^\mu-(x.x)b^\mu~.
+  \end{align}
+  The expression for the full generator \cite{Antonin} (from \eqref{1.20}), $G_{\nu}$, of a transformation is
+\begin{align}
+    iG_\nu \Phi = \frac{\delta x^{\mu}}{\delta \omega_{\nu}} \partial_{\mu} \Phi - \frac{\delta F}{\delta \omega_\nu}.
+\end{align}
+For an infinitesimal special conformal transformation (SCT), the coordinates transform like
+\begin{align}
+    x'^{\mu} = x^{\mu} + 2(x \cdot b)x^{\mu} - b^{\mu}x^2.
+\end{align}
+If we now suppose the field transforms trivially under a SCT across the entire space, then $\frac{\delta F}{\delta \omega_\nu}=0$.
+then,
+\begin{align}
+    \frac{\delta x^{\mu}}{\delta b^{\nu}} = \frac{\delta x^{\mu}}{\delta (x^{\rho}b_{\rho})} \frac{\delta (x^{\gamma}b_{\gamma})}{\delta b^{\nu}} = 2 x_{\nu}x^{\mu} - x^2 \delta_{\nu}^{\mu}.
+\end{align}
+then the Generator for the SCT is,
+\begin{align}
+    \Aboxed{\mathfrak{K}_{{\nu}}=-i\left(2x_{{\nu}}x^{{\mu}}\partial_{{\mu}}-x^2\partial_{{\nu}}\right)}~.
+\end{align}
+\end{itemize}
+We have now identified the infinitesimal conformal transformations.
+\section{ Special Conformal Transformations}
+We have now explored all possibilities for conformal transformations at the infinitesimal level. To find the finite transformations, we must exponentiate the different infinitesimal transformation that we just found. Although this is straightforward in principle, it can be tedious (in particular for the SCT). The result is \cite{Antonin, Ralph, Francesco, Schellekens, Alday}
+\begin{align*}
+    \text{(translation)}~~~~&x'^\mu=x^\mu+a^\mu~,\\
+    \text{(dilation)}~~~~&x'^\mu=\alpha x^\mu~,\\
+    \text{(rotation)}~~~~&x'^\mu=M^\mu_\nu x^\nu~,\\
+    \text{(SCT)}~~~~&{ x'^{\mu }={\frac {x^{\mu }-b^{\mu }x^{2}}{1-2b\cdot x+b^{2}x^{2}}}}~.
+\end{align*}
+Let us also note that for finite Special Conformal Transformations, we can re-write the expression as follows \cite{Antonin, Ralph, Francesco}
+\begin{align*}
+x'^{\mu}&={\frac {x^{\mu }-b^{\mu}x^{2}}{1-2b\cdot x+b^{2}x^{2}}}={\frac {x^{2}}{|x-bx^{2}|^{2}}}(x^{\mu }-b^{\mu}x^{2}),\\
+\Longrightarrow \frac{1}{x'^{\mu }}&=\frac{x^{\mu }-b^{\mu }x^{2}}{x^{2}},\\
+\Longrightarrow \Aboxed{\frac {x'^{\mu}}{x'^{2}}&=\frac {x^{\mu}}{x^{2}}-b^{\mu}}
+\end{align*}
+From this relation, we see that the SCT can be understood as an inversion of $x^\mu$,
+followed by a translation $b^\mu$, and followed again by an inversion.
+\section{Conformal Algebra}
+The generators of conformal transformations are:
+\begin{align*}
+    \text{(translation)}~~~~&P^{{\mu}}=-i\partial^{{\mu}}~,\\
+    \text{(dilation)}~~~~&D=-ix_{{\mu}}\partial^{{\mu}}~,\\
+    \text{(rotation)}~~~~&L^{{\mu}{\nu}}=i\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)~,\\
+    \text{(SCT)}~~~~&\mathfrak{K}^{{\mu}}=-i\left(2x^{{\mu}}x_{{\nu}}\partial^{{\nu}}-x^2\partial^{{\mu}}\right)~.
+\end{align*}
+Then the conformal algebra (commutation rules) \cite{Antonin, Ralph, Francesco} can be derived as,
+1) commutations among the $\mathfrak{K}^{{\mu}}$,
+\begin{align*}
+    \left[\mathfrak{K}^{{\mu}},\mathfrak{K}^{{\nu}}\right]&=\mathfrak{K}^{{\mu}}\mathfrak{K}^{{\nu}}-\mathfrak{K}^{{\nu}}\mathfrak{K}^{{\mu}}~,\\
+    &=i^2\bigl(\left(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\mu}}\right)\left(2x^{{\nu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\nu}}\right)-\left(2x^{{\nu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\nu}}\right)\left(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\mu}}\right)\bigl)~,\\
+    &=i^2\bigl(\cancel{(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}})(2x^{{\nu}}x_{{\rho}}\partial^{{\rho}})}-\cancel{(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}})(x^2\partial^{{\nu}})}-\cancel{(x^2\partial^{{\mu}})(2x^{{\nu}}x_{{\rho}}\partial^{{\rho}})}+\cancel{(x^2\partial^{{\mu}})(x^2\partial^{{\nu}})}\nonumber\\
+    &~~~-\cancel{(2x^{{\nu}}x_{{\rho}}\partial^{{\rho}})(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}})}+\cancel{(2x^{{\nu}}x_{{\rho}}\partial^{{\rho}})(x^2\partial^{{\mu}})}+\cancel{(x^2\partial^{{\nu}})(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}})}-\cancel{(x^2\partial^{{\nu}})(x^2\partial^{{\mu}})}\bigl)~,\\
+    \Aboxed{\left[\mathfrak{K}^{{\mu}},\mathfrak{K}^{{\nu}}\right]&=0}~.\checkmark
+\end{align*}
+2) commutations among $\mathfrak{K}^{{\mu}}$ and $P^{{\nu}}$,
+\begin{align*}
+    \left[\mathfrak{K}^{{\mu}},P^{{\nu}}\right]&=\mathfrak{K}^{{\mu}}P^{{\nu}}-P^{{\nu}}\mathfrak{K}^{{\mu}}=i^2(\left(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\mu}}\right)\partial^{{\nu}}-\partial^{{\nu}}\left(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\mu}}\right))~,\\
+    &=i^2(\left((2x^{{\mu}}x_{{\rho}}\partial^{{\rho}})\partial^{{\nu}}-(x^2\partial^{{\mu}})\partial^{{\nu}}\right)-\left(2\partial^{{\nu}}(x^{{\mu}}x_{{\rho}}\partial^{{\rho}})-\partial^{{\nu}}(x_{{\sigma}}x^{{\sigma}}\partial^{{\mu}})\right))~,\\
+    &=i^2(\left(\cancel{2x^{{\mu}}x_{{\rho}}\partial^{{\rho}}\partial^{{\nu}}}-\cancel{x^2\partial^{{\mu}}\partial^{{\nu}}}\right)\\
+    &~~~~~~~~~-\left(2\partial^{{\nu}}x^{{\mu}}x_{{\rho}}\partial^{{\rho}}+2x^{{\mu}}\partial^{{\nu}}x_{{\rho}}\partial^{{\rho}}+\cancel{2x^{{\mu}}x_{{\rho}}\partial^{{\nu}}\partial^{{\rho}}}-\partial^{{\nu}}x_{{\sigma}}x^{{\sigma}}\partial^{{\mu}}-x_{{\sigma}}\partial^{{\nu}}x^{{\sigma}}\partial^{{\mu}}-\cancel{x_{{\sigma}}x^{{\sigma}}\partial^{{\nu}}\partial^{{\mu}}}\right))\nonumber~,\\
+    &=i^2(-\left(2g^{{\nu}{\mu}}x_{{\rho}}\partial^{{\rho}}+2x^{{\mu}}g^{{\nu}}_{{\rho}}\partial^{{\rho}}-\partial^{{\nu}}x_{{\sigma}}x^{{\sigma}}\partial^{{\mu}}-x_{{\sigma}}\partial^{{\nu}}x^{{\sigma}}\partial^{{\mu}}\right))~,\\
+    &=i^2(-\left(2g^{{\nu}{\mu}}x_{\rho}\partial^{{\rho}}+2x^{{\mu}}g^{{\nu}}_{{\rho}}\partial^{{\rho}}-g^{{\nu}}_{{\sigma}}x^{{\sigma}}\partial^{{\mu}}-x_{{\sigma}}g^{{\sigma}{\nu}}\partial^{{\mu}}\right))~,\\
+    &=i^2(-2g^{{\nu}\hat{\mu}}x_{{\rho}}\partial^{{\rho}}-\left(2x^{{\mu}}\partial^{{\nu}}-2x^{{\nu}}\partial^{{\mu}}\right))~,\\
+    \Aboxed{\left[\mathfrak{K}^{{\mu}},P^{{\nu}}\right]&=2i\left(g^{{\mu}{\nu}}D-L^{{\mu}{\nu}}\right)}\checkmark~.
+\end{align*}
+3) commutations among $D$ and $L^{{\mu}{\nu}}$,
+\begin{align*}
+    \left[D, L^{{\mu}{\nu}}\right]&=DL^{{\mu}{\nu}}-L^{{\mu}{\nu}}D=-i^2((x_{{\rho}}\partial^{{\rho}})\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)-\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)(x_{{\rho}}\partial^{{\rho}}))~,\\
+    &=-i^2(\cancel{x_{{\rho}}\partial^{{\rho}}x^{{\mu}}\partial^{{\nu}}}+\cancel{x_{{\rho}}x^{{\mu}}\partial^{{\rho}}\partial^{{\nu}}}-\cancel{x_{{\rho}}\partial^{{\rho}}x^{{\nu}}\partial^{{\mu}}}-\cancel{x_{{\rho}}x^{{\nu}}\partial^{{\rho}}\partial^{{\mu}}}-\cancel{x^{{\mu}}\partial^{{\nu}}x_{{\rho}}\partial^{{\rho}}}\\
+    &~~~~~~~~~~~-\cancel{x^{{\mu}}x_{{\rho}}\partial^{{\nu}}\partial^{{\rho}}}+\cancel{x^{{\nu}}\partial^{{\mu}}x_{{\rho}}\partial^{{\rho}}{{\rho}}}+\cancel{x^{{\nu}}x_{{\rho}}\partial^{{\mu}}\partial^{{\rho}}})\nonumber~,\\
+    \Aboxed{\left[D, L^{{\mu}{\nu}}\right]&=0}\checkmark~.
+\end{align*}
+4) commutations among $D$ and $P^{{\mu}}$,
+\begin{align*}
+    \left[D, P^{{\mu}}\right]&=DP^{\mu}-P^{{\mu}}D=i^2((x_{{\nu}}\partial^{{\nu}})\partial^{{\mu}}-\partial^{{\mu}}(x_{{\nu}}\partial^{{\nu}}))~,\\
+    &=i^2(\cancel{x_{{\nu}}\partial^{{\nu}}\partial^{{\mu}}}-\partial^{{\mu}}x_{{\nu}}\partial^{{\nu}}-\cancel{x_{{\nu}}\partial^{{\mu}}\partial^{{\nu}}})~,\\
+    &=-i^2g^{{\mu}}_{{\nu}}\partial^{{\nu}}=-i^2\partial^{{\mu}}~,\\
+    \Aboxed{\left[D, P^{{\mu}}\right]&=iP^{{\mu}}}\checkmark~.
+\end{align*}
+5) commutations among $D$ and $\mathfrak{K}^{{\mu}}$,
+\begin{align*}
+    \left[D, \mathfrak{K}^{{\mu}}\right]&=D\mathfrak{K}^{{\mu}}- \mathfrak{K}^{{\mu}}D=i^2\bigl(x_{{\rho}}\partial^{{\rho}} \left(2x^{{\mu}}x_{{\nu}}\partial^{{\nu}}-x^2\partial^{{\mu}}\right)-\left(2x^{{\mu}}x_{{\nu}}\partial^{{\nu}}-x^2\partial^{{\mu}}\right)x_{{\rho}}\partial^{{\rho}}\bigl)~,\\
+    &=i^2\bigl(2x_{{\rho}}\partial^{{\rho}}(x^{{\mu}}x_{{\nu}}\partial^{{\nu}})-x_{{\rho}}\partial^{{\rho}}(x^2\partial^{{\mu}})-(2x^{{\mu}}x_{{\nu}}\partial^{{\nu}})x_{{\rho}}\partial^{{\rho}}+(x^2\partial^{{\mu}})x_{{\rho}}\partial^{{\rho}}\bigl)~,\\
+    &=i^2\bigl(2x_{{\rho}}\partial^{{\rho}}x^{{\mu}}x_{{\nu}}\partial^{{\nu}}+2x_{{\rho}}x^{{\mu}}\partial^{{\rho}}x_{{\nu}}\partial^{{\nu}}+\cancel{2x_{{\rho}}x^{{\mu}}x_{{\nu}}\partial^{{\rho}}\partial^{{\nu}}}-x_{{\rho}}\partial^{{\rho}}x^2\partial^{{\mu}}-\cancel{x_{{\rho}}x^2\partial^{{\rho}}\partial^{{\mu}}}\nonumber\\
+    &~~~~~-2x^{{\mu}}x_{{\nu}}\partial^{{\nu}}x_{{\rho}}\partial^{{\rho}}-\cancel{2x^{{\mu}}x_{{\nu}}x_{{\rho}}\partial^{{\nu}}\partial^{{\rho}}}+x^2\partial^{{\mu}}x_{{\rho}}\partial^{{\rho}}+\cancel{x^2x_{{\rho}}\partial^{{\mu}}\partial^{{\rho}}}\bigl)~,\\
+    &=i^2\bigl(\cancel{2x_{{\rho}}g^{{\rho}{\mu}}x_{{\nu}}\partial^{{\nu}}}+2x_{{\rho}}x^{\hat{\mu}}g^{{\rho}}_{{\nu}}\partial^{{\nu}}-x_{{\rho}}\partial^{{\rho}}x^2\partial^{{\mu}}-\cancel{2x^{{\mu}}x_{{\nu}}g^{{\nu}}_{{\rho}}\partial^{{\rho}}}+x^2g^{{\mu}}_{{\rho}}\partial^{{\rho}}\bigl)~,\\
+    &=i^2\bigl(2x_{{\rho}}x^{{\mu}}\partial^{{\rho}}-x_{{\rho}}\partial^{{\rho}}x^2\partial^{{\mu}}+x^2\partial^{{\mu}}\bigl)=i^2\bigl(2x_{\hat{\rho}}x^{{\mu}}\partial^{{\rho}}-x_{{\rho}}\partial^{{\rho}}(x_{{\sigma}}x^{{\sigma}})\partial^{{\mu}}+x^2\partial^{{\mu}}\bigl)~,\\
+    &=i^2\bigl(2x_{{\rho}}x^{{\mu}}\partial^{{\rho}}-x_{{\rho}}\partial^{{\rho}}x_{{\sigma}}x^{{\sigma}}\partial^{{\mu}}-x_{{\rho}}x_{{\sigma}}\partial^{{\rho}}x^{{\sigma}}\partial^{{\mu}}+x^2\partial^{{\mu}}\bigl)~,\\
+    &=i^2\bigl(2x_{{\rho}}x^{{\mu}}\partial^{{\rho}}-x_{{\rho}}g^{{\rho}}_{{\sigma}}x^{{\sigma}}\partial^{{\mu}}-x_{{\rho}}x_{{\sigma}}g^{{\rho}{\sigma}}\partial^{{\mu}}+x^2\partial^{{\mu}}\bigl)\nonumber~,\\
+    &=i^2\bigl(2x_{{\rho}}x^{{\mu}}\partial^{{\rho}}-x_{{\rho}}x^{{\rho}}\partial^{{\mu}}-x_{{\rho}}x^{{\rho}}\partial^{{\mu}}+x^2\partial^{{\mu}}\bigl)~,\\
+    &=i^2\bigl(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\mu}}\bigl)=(-i)(-i)\bigl(2x^{{\mu}}x_{{\rho}}\partial^{{\rho}}-x^2\partial^{{\mu}}\bigl)~,\\
+    \Aboxed{\left[D, \mathfrak{K}^{{\mu}}\right]&=-i\mathfrak{K}^{{\mu}}}\checkmark~.
+\end{align*}
+6) commutations among $\mathfrak{K}^{{\rho}}$ and $L^{{\mu}{\nu}}$,
+\begin{align*}
+    \left[\mathfrak{K}^{{\rho}},L^{{\mu}{\nu}}\right]&=\mathfrak{K}^{{\rho}}L^{{\mu}{\nu}}-L^{{\mu}{\nu}}\mathfrak{K}^{{\rho}}~,\\
+    &=-i^2(\left(2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}}-x^2\partial^{{\rho}}\right)\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)-\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)\left(2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}}-x^2\partial^{{\rho}}\right))~,\\
+    &=-i^2((2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}})(x^{{\mu}}\partial^{{\nu}})-(2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}})(x^{{\nu}}\partial^{{\mu}})-(x^2\partial^{{\rho}})(x^{{\mu}}\partial^{{\nu}})+(x^2\partial^{{\rho}})(x^{{\nu}}\partial^{{\mu}})\nonumber\\
+    &~~~~-(x^{{\mu}}\partial^{{\nu}})(2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}})+(x^{{\mu}}\partial^{{\nu}})(x^2\partial^{{\rho}}))+(x^{{\nu}}\partial^{{\mu}})(2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}})-(x^{{\nu}}\partial^{{\mu}})(x^2\partial^{{\rho}}))~,\\
+    &=-i^2(2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}}x^{{\mu}}\partial^{{\nu}}+2x^{{\rho}}x_{{\sigma}}x^{{\mu}}\partial^{{\sigma}}\partial^{{\nu}}-2x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}}x^{{\nu}}\partial^{{\mu}}-2x^{{\rho}}x_{{\sigma}}x^{{\nu}}\partial^{{\sigma}}\partial^{{\mu}}\nonumber\\
+    &~~~~~~~-x^2\partial^{{\rho}}x^{{\mu}}\partial^{{\nu}}-\cancel{x^2x^{{\mu}}\partial^{{\rho}}\partial^{{\nu}}}+x^2\partial^{{\rho}}x^{{\nu}}\partial^{{\mu}}+\cancel{x^2x^{{\nu}}\partial^{{\rho}}\partial^{{\mu}}}-2x^{{\mu}}\partial^{{\nu}}x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}}-2x^{{\mu}}x^{{\rho}}\partial^{{\nu}}x_{{\sigma}}\partial^{{\sigma}}\nonumber\\
+    &~~~~~~~-2x^{{\mu}}x^{{\rho}}x_{{\sigma}}\partial^{{\nu}}\partial^{{\sigma}}+x^{{\mu}}\partial^{{\nu}}x^2\partial^{{\rho}}+\cancel{x^{{\mu}}x^2\partial^{{\nu}}\partial^{{\rho}}}+2x^{{\nu}}\partial^{{\mu}}x^{{\rho}}x_{{\sigma}}\partial^{{\sigma}}+2x^{{\nu}}x^{{\rho}}\partial^{{\mu}}x_{{\sigma}}\partial^{{\sigma}}\nonumber\\
+    &~~~~~~~+2x^{{\nu}}x^{{\rho}}x_{{\sigma}}\partial^{{\mu}}\partial^{{\sigma}}-x^{{\nu}}\partial^{{\mu}}x^2\partial^{{\rho}}-\cancel{x^{{\nu}}x^2\partial^{{\mu}}\partial^{{\rho}}})~,\\
+    &=-i^2(\cancel{2x^{{\rho}}x^{{\mu}}\partial^{{\nu}}}+\cancel{2x^{{\rho}}x_{{\sigma}}x^{{\mu}}\partial^{{\sigma}}\partial^{{\nu}}}-\cancel{2x^{{\rho}}x^{{\nu}}\partial^{{\mu}}}-\cancel{2x^{{\rho}}x_{{\sigma}}x^{{\nu}}\partial^{{\sigma}}\partial^{{\mu}}}-x^2g^{{\rho}{\mu}}\partial^{{\nu}}\nonumber\\
+    &~~~~~~~+x^2g^{{\rho}{\nu}}\partial^{{\mu}}-2x^{{\mu}}g^{{\nu}{\rho}}x_{{\sigma}}\partial^{{\sigma}}-\cancel{2x^{{\mu}}x^{{\rho}}\partial^{{\nu}}}-\cancel{2x^{{\mu}}x^{{\rho}}x_{{\sigma}}\partial^{{\nu}}\partial^{{\sigma}}}+\cancel{x^{{\mu}}\partial^{{\nu}}x^2\partial^{{\rho}}}\nonumber\\
+    &~~~~~~~+2x^{{\nu}}g^{{\mu}{\rho}}x_{{\sigma}}\partial^{{\sigma}}+\cancel{2x^{{\nu}}x^{{\rho}}\partial^{{\mu}}}+\cancel{2x^{{\nu}}x^{{\rho}}x_{{\sigma}}\partial^{{\mu}}\partial^{{\sigma}}}-\cancel{x^{{\nu}}\partial^{{\mu}}x^2\partial^{{\rho}}})~,\\
+    &=-i^2(-x^2g^{{\rho}{\mu}}\partial^{{\nu}}+x^2g^{{\rho}{\nu}}\partial^{{\mu}}-2x^{{\mu}}g^{{\nu}{\rho}}x_{{\sigma}}\partial^{{\sigma}}+2x^{{\nu}}g^{{\mu}{\rho}}x_{{\sigma}}\partial^{{\sigma}})~,\\
+    &=-i^2(g^{{\rho}{\mu}}(2x^{{\nu}}x_{{\sigma}}\partial^{{\sigma}}-x^2\partial^{{\nu}})-g^{{\rho}{\nu}}(2x^{{\mu}}x_{{\sigma}}\partial^{{\sigma}}-x^2\partial^{{\mu}}))~,\\
+    \Aboxed{\left[\mathfrak{K}^{{\rho}},L^{{\mu}{\nu}}\right]&=i\left(g^{{\rho}{\mu}}\mathfrak{K}^{{\nu}}-g^{{\rho}{\nu}}\mathfrak{K}^{{\mu}}\right)}\checkmark~.
+\end{align*}
+Therefore the full Conformal algebra is given by
+\begin{align*}
+    \Aboxed{&\left[P^{{\mu}},P^{{\nu}}\right]=0},\\
+    \Aboxed{&\left[\mathfrak{K}^{{\mu}},\mathfrak{K}^{{\nu}}\right]=0},\\
+ \Aboxed{&\left[D, P^{{\mu}}\right]=iP^{{\mu}}},\\
+ \Aboxed{&\left[D, \mathfrak{K}^{{\mu}}\right]=-i\mathfrak{K}^{{\mu}}},\\
+ \Aboxed{&\left[P^{{\rho}},L^{{\mu}\hat{\nu}}\right]=i\left(g^{{\rho}{\mu}}P^{{\nu}}-g^{{\rho}{\nu}}P^{{\mu}}\right)},\\
+ \Aboxed{&\left[\mathfrak{K}^{{\rho}},L^{{\mu}{\nu}}\right]=i\left(g^{{\rho}{\mu}}\mathfrak{K}^{{\nu}}-g^{{\rho}{\nu}}\mathfrak{K}^{{\mu}}\right)},\\
+ \Aboxed{&\left[L^{{\alpha}{\beta}},L^{{\rho}{\sigma}}\right]=-i\left(g^{{\beta}{\sigma}}L^{{\alpha}{\rho}}-g^{{\beta}{\rho}}L^{{\alpha}{\sigma}}+g^{{\alpha}{\rho}}L^{{\beta}{\sigma}}-g^{{\alpha}{\sigma}}L^{{\beta}{\rho}}\right)},\\
+ \Aboxed{&\left[\mathfrak{K}^{{\mu}},P^{{\nu}}\right]=2i\left(g^{{\mu}{\nu}}D-L^{{\mu}{\nu}}\right)},\\
+ \Aboxed{&\left[D, L^{{\mu}{\nu}}\right]=0}.
+\end{align*}
+
+\noindent{\rule{\textwidth}{1.5pt}}
+
+\chapter{Conclusion \& Future Scope}
+
+In Chapter 4, we presented the Poincaré algebra in Interpolation form. We showed the Boost $K^{3}$ is dynamical in the region where $0\leq\delta<\frac{\pi}{4}$ but becomes kinematic in the light-front limit ($\delta=\frac{\pi}{4}$).
+
+In Chapter 5, we formally developed the Conformal algebra and showed that the set of conformal transformations manifestly forms a group, and it has the Poincaré group as a subgroup. Our future work is to extend the Interpolation method to Conformal algebra.
+	
+\noindent{\rule{\textwidth}{1.5pt}}
+\bibliographystyle{IEEEtran}
+\addcontentsline{toc}{chapter}{Bibliography}
+\begin{thebibliography}{00}
+  	\bibitem{Hitoshi} Lecture notes on Advanced High Energy Physics, by Hitoshi Yamamoto.
+	\bibitem{Ryder} Ryder L. H. (1985): Quantum Field Theory (Cambridge University Press, Cambridge).
+	\bibitem{balki} Selected Topics in Mathematical Physics - NPTEL Video course by Prof. V. Balakrishnan (IIT-M) (2014).
+	
+	\bibitem{balkicm} Classical Physics - NPTEL Video course by Prof. V. Balakrishnan (IIT-M) (2009).
+    \bibitem{Antonin} Introduction to Conformal Field Theory, by Antonin Rovai (Université Libre de Bruxelles and International Solvay Institues).
+	\bibitem{david} David Tong: Lectures on Quantum Field Theory, University of Cambridge.
+	\bibitem{Peskin} Introduction to Quantum Field Theory by Peskin and Schroeder, Addison & Wesley, 1995.
+	\bibitem{Tripathy} Quantum Field Theory  - NPTEL Video course by Prof. V. Prasanta Tripathy (IIT-M) (2013).
+	\bibitem{Itzykson} Quantum Field Theory by Claude Itzykson and Jean-Bernard Zuber (1980).
+	\bibitem{Riccardo} Relativistic Quantum Fields (Second redaction) by Riccardo Rattazzi (École polytechnique fédérale de Lausanne) (2016).
+	\bibitem{Dirac} Dirac P. A. M. (1949): Forms of relativistic dynamics. Rev. Mod. Phys. 21, 392
+	\bibitem{Harindranath} An Introduction to Light-Front Dynamics for Pedestrians by Avaroth Harindranath, arXiv:hep-ph/9612244 (1998). 
+	\bibitem{Chang} Shau-Jin Chang, Robert G. Root, and Tung-Mow Yan (1973): Phys. Rev. \textbf{D 7}, 1133.
+	\bibitem{Hornbostel} K. Hornbostel, Phys. Rev. \textbf{D 45}, 3781 (1992).
+	\bibitem{poin} Chueng-Ryong Ji and Chad Mitchell, Phys. Rev. \textbf{D 64}, 085013 (2001).
+	\bibitem{gauge} Chueng-Ryong Ji, Ziyue Li, and Alfredo Takashi Suzuki, Phys. Rev. \textbf{D 91}, 065020 (2015).
+	\bibitem{crji1} Chueng-Ryong Ji and Soo-Jong Rey, Phys. Rev. \textbf{D 53}, 5815 (1996).
+	\bibitem{crji2} Chueng-Ryong Ji and Alfredo Takashi Suzuki,  Phys. Rev.  \textbf{D 87}, 065015 (2013).
+	\bibitem{crji3} Ziyue Li, Murat An, and Chueng-Ryong Ji, Phys. Rev. \textbf{D 92}, 105014 (2015).
+	\bibitem{crji4} Chueng-Ryong Ji, Ziyue Li, and Bailing Ma, Phys. Rev. \textbf{D 98}, 036017 (2018).
+	\bibitem{Francesco} Francesco, Philippe, Mathieu, Pierre, Sénéchal and David: Conformal Field Theory, Springer, (1997).
+	\bibitem{Ralph} Ralph Blumenhagen and Erik Plauschinn: Introduction to Conformal Field Theory With Applications to String Theory, Springer, (2009).
+	\bibitem{Schellekens} Lecture notes on Conformal Field Theory by A.N. Schellekens (Nikhef, Amsterdam), (2017).
+	\bibitem{Alday} Lecture notes on Conformal Field Theory by Luis Fernando Alday (University of Oxford), (2016).
+	
+
+	
+	
+	
+\end{thebibliography}
+
+
+\end{document}
